@@ -1,10 +1,10 @@
 ﻿use master
-DROP DATABASE IF EXISTS Stage_DB;
+DROP DATABASE IF EXISTS Project_Stage_DB;
 go
 
-create database Stage_DB
+create database Project_Stage_DB
 go
-use Stage_DB
+use Project_Stage_DB
 go
 
 
@@ -15,8 +15,7 @@ CREATE TABLE Airline (
 )
 
 IF OBJECT_ID('Airport') IS NOT NULL DROP TABLE Airport;
-CREATE TABLE Airport (
-    Row_ID      INT NULL,            
+CREATE TABLE Airport (         
     IATA_CODE   VARCHAR(10) NULL,
     AIRPORT     VARCHAR(255) NULL,
     CITY        VARCHAR(100) NULL,
@@ -29,7 +28,7 @@ CREATE TABLE Airport (
 
 IF OBJECT_ID('Flight') IS NOT NULL DROP TABLE Flight;
 CREATE TABLE Flight (
-    [DATE] DATE,
+    DATE DATE,
     AIRLINE VARCHAR(10),
     FLIGHT_NUMBER VARCHAR(10),
     TAIL_NUMBER VARCHAR(10),
