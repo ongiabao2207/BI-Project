@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="10/30/2025 9:03:26 PM"
@@ -11,9 +11,1332 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionGUID="{812EE05C-BE4E-4832-8482-D887ABA994A7}">
+  DTS:VersionBuild="22"
+  DTS:VersionGUID="{4A4B82FA-A134-4200-9194-2793329F1B79}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
-  <DTS:Variables />
-  <DTS:Executables />
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.Project_Metadata_DB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{D59E88B7-657D-4AC2-B909-B7FE5D0AE350}"
+      DTS:ObjectName="localhost.Project_Metadata_DB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=Project_Metadata_DB;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package-{D59E88B7-657D-4AC2-B909-B7FE5D0AE350}localhost.Project_Metadata_DB;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.Project_Stage_DB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{7B790200-0913-4B83-8239-A6030EB4A233}"
+      DTS:ObjectName="localhost.Project_Stage_DB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=Project_Stage_DB;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package-{7B790200-0913-4B83-8239-A6030EB4A233}localhost.Project_Stage_DB;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{201035F0-0F07-41F5-AC21-BDBF3C04BF90}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="CET_Airline">
+      <DTS:VariableValue
+        DTS:DataType="7">11/7/2025 10:11:20 PM</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E4BD184E-A770-4861-B40B-5E1B34260F2B}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="CET_Airport">
+      <DTS:VariableValue
+        DTS:DataType="7">11/7/2025 11:06:40 PM</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Extract Airline data"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{91F234B3-4683-4170-85CA-959B9C0BC9E0}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Extract Airline data">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Extract Airline data\Extract data from Source to Stage_Airline"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{0F84C95C-15F0-4058-B9BB-A490B020019C}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Extract data from Source to Stage_Airline"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Extract Airline data\Extract data from Source to Stage_Airline\Import data to Stage_Airline"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="Import data to Stage_Airline"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[Stage_Airline]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Extract Airline data\Extract data from Source to Stage_Airline\Import data to Stage_Airline.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[localhost.Project_Stage_DB]"
+                      connectionManagerRefId="Package.ConnectionManagers[localhost.Project_Stage_DB]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Extract Airline data\Extract data from Source to Stage_Airline\Import data to Stage_Airline.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Extract Airline data\Extract data from Source to Stage_Airline\Import data to Stage_Airline.Inputs[OLE DB Destination Input].Columns[IATA_CODE]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="IATA_CODE"
+                          externalMetadataColumnId="Package\Extract Airline data\Extract data from Source to Stage_Airline\Import data to Stage_Airline.Inputs[OLE DB Destination Input].ExternalColumns[IATA_CODE]"
+                          lineageId="Package\Extract Airline data\Extract data from Source to Stage_Airline\Src_Airline.Outputs[Flat File Source Output].Columns[IATA_CODE]" />
+                        <inputColumn
+                          refId="Package\Extract Airline data\Extract data from Source to Stage_Airline\Import data to Stage_Airline.Inputs[OLE DB Destination Input].Columns[AIRLINE]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="AIRLINE"
+                          externalMetadataColumnId="Package\Extract Airline data\Extract data from Source to Stage_Airline\Import data to Stage_Airline.Inputs[OLE DB Destination Input].ExternalColumns[AIRLINE]"
+                          lineageId="Package\Extract Airline data\Extract data from Source to Stage_Airline\Src_Airline.Outputs[Flat File Source Output].Columns[AIRLINE]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Extract Airline data\Extract data from Source to Stage_Airline\Import data to Stage_Airline.Inputs[OLE DB Destination Input].ExternalColumns[IATA_CODE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="IATA_CODE" />
+                        <externalMetadataColumn
+                          refId="Package\Extract Airline data\Extract data from Source to Stage_Airline\Import data to Stage_Airline.Inputs[OLE DB Destination Input].ExternalColumns[AIRLINE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="AIRLINE" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Extract Airline data\Extract data from Source to Stage_Airline\Import data to Stage_Airline.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Extract Airline data\Extract data from Source to Stage_Airline\Import data to Stage_Airline.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Extract Airline data\Extract data from Source to Stage_Airline\Import data to Stage_Airline.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Extract Airline data\Extract data from Source to Stage_Airline\Import data to Stage_Airline.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Extract Airline data\Extract data from Source to Stage_Airline\Import data to Stage_Airline.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Extract Airline data\Extract data from Source to Stage_Airline\Import data to Stage_Airline.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Extract Airline data\Extract data from Source to Stage_Airline\Src_Airline"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="1033"
+                  name="Src_Airline"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Extract Airline data\Extract data from Source to Stage_Airline\Src_Airline.Connections[FlatFileConnection]"
+                      connectionManagerID="{892C3B0D-3EDD-4D64-B93B-1D9F6AFACD50}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Src_Airline]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Extract Airline data\Extract data from Source to Stage_Airline\Src_Airline.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Extract Airline data\Extract data from Source to Stage_Airline\Src_Airline.Outputs[Flat File Source Output].Columns[IATA_CODE]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Extract Airline data\Extract data from Source to Stage_Airline\Src_Airline.Outputs[Flat File Source Output].ExternalColumns[IATA_CODE]"
+                          length="10"
+                          lineageId="Package\Extract Airline data\Extract data from Source to Stage_Airline\Src_Airline.Outputs[Flat File Source Output].Columns[IATA_CODE]"
+                          name="IATA_CODE"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Extract Airline data\Extract data from Source to Stage_Airline\Src_Airline.Outputs[Flat File Source Output].Columns[AIRLINE]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Extract Airline data\Extract data from Source to Stage_Airline\Src_Airline.Outputs[Flat File Source Output].ExternalColumns[AIRLINE]"
+                          length="50"
+                          lineageId="Package\Extract Airline data\Extract data from Source to Stage_Airline\Src_Airline.Outputs[Flat File Source Output].Columns[AIRLINE]"
+                          name="AIRLINE"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Extract Airline data\Extract data from Source to Stage_Airline\Src_Airline.Outputs[Flat File Source Output].ExternalColumns[IATA_CODE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="IATA_CODE" />
+                        <externalMetadataColumn
+                          refId="Package\Extract Airline data\Extract data from Source to Stage_Airline\Src_Airline.Outputs[Flat File Source Output].ExternalColumns[AIRLINE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="AIRLINE" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Extract Airline data\Extract data from Source to Stage_Airline\Src_Airline.Outputs[Flat File Source Error Output]"
+                      isErrorOut="true"
+                      name="Flat File Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Extract Airline data\Extract data from Source to Stage_Airline\Src_Airline.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          codePage="1252"
+                          dataType="text"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\Extract Airline data\Extract data from Source to Stage_Airline\Src_Airline.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
+                        <outputColumn
+                          refId="Package\Extract Airline data\Extract data from Source to Stage_Airline\Src_Airline.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Extract Airline data\Extract data from Source to Stage_Airline\Src_Airline.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Extract Airline data\Extract data from Source to Stage_Airline\Src_Airline.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Extract Airline data\Extract data from Source to Stage_Airline\Src_Airline.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Extract Airline data\Extract data from Source to Stage_Airline.Paths[Flat File Source Output]"
+                  endId="Package\Extract Airline data\Extract data from Source to Stage_Airline\Import data to Stage_Airline.Inputs[OLE DB Destination Input]"
+                  name="Flat File Source Output"
+                  startId="Package\Extract Airline data\Extract data from Source to Stage_Airline\Src_Airline.Outputs[Flat File Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Extract Airline data\Get CET"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{DF4C9931-35C9-401B-96A4-696D7341A3A7}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Get CET"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{D59E88B7-657D-4AC2-B909-B7FE5D0AE350}"
+              SQLTask:SqlStatementSource="SELECT GETDATE() AS CET FROM ETL_Metadata;"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="CET"
+                SQLTask:DtsVariableName="User::CET_Airline" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Extract Airline data\Set LSET_Airline to Metadata"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{47238041-9BFA-4F94-9FF3-8F60A83DB9FE}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Set LSET_Airline to Metadata"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{D59E88B7-657D-4AC2-B909-B7FE5D0AE350}"
+              SQLTask:SqlStatementSource="Update ETL_Metadata &#xA;Set LSET = ? &#xA;Where SourceName = 'Airline'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::CET_Airline"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Extract Airline data\Truncate table Stage_Airline"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{4CEF7D5F-465A-4C77-86AE-9FBA13E9EA18}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Truncate table Stage_Airline"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{7B790200-0913-4B83-8239-A6030EB4A233}"
+              SQLTask:SqlStatementSource="Truncate table Stage_Airline;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Extract Airline data.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{F1050A39-C1B8-4179-93E7-90C042B4999E}"
+          DTS:From="Package\Extract Airline data\Truncate table Stage_Airline"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Extract Airline data\Extract data from Source to Stage_Airline" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Extract Airline data.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{05193A9A-D0E7-45C3-BC16-9BC44419843C}"
+          DTS:From="Package\Extract Airline data\Get CET"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Extract Airline data\Truncate table Stage_Airline" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Extract Airline data.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{B48689A4-BCD9-4EFA-9C0B-40FFA789563E}"
+          DTS:From="Package\Extract Airline data\Extract data from Source to Stage_Airline"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Extract Airline data\Set LSET_Airline to Metadata" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Extract Airport data"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{BBA10D29-31AD-42E4-806D-F5D82B78E686}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Extract Airport data">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Extract Airport data\Extract data from Source to Stage_Airport"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{CC4C85B7-0481-4195-8F9D-FBA605E39F05}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Extract data from Source to Stage_Airport"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Import data to Stage_Airport"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="Import data to Stage_Airport"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[Stage_Airport]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Import data to Stage_Airport.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[localhost.Project_Stage_DB]"
+                      connectionManagerRefId="Package.ConnectionManagers[localhost.Project_Stage_DB]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Import data to Stage_Airport.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Import data to Stage_Airport.Inputs[OLE DB Destination Input].Columns[IATA_CODE]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="3"
+                          cachedName="IATA_CODE"
+                          externalMetadataColumnId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Import data to Stage_Airport.Inputs[OLE DB Destination Input].ExternalColumns[IATA_CODE]"
+                          lineageId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Src_Airport.Outputs[Flat File Source Output].Columns[IATA_CODE]" />
+                        <inputColumn
+                          refId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Import data to Stage_Airport.Inputs[OLE DB Destination Input].Columns[AIRPORT]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="42"
+                          cachedName="AIRPORT"
+                          externalMetadataColumnId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Import data to Stage_Airport.Inputs[OLE DB Destination Input].ExternalColumns[AIRPORT]"
+                          lineageId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Src_Airport.Outputs[Flat File Source Output].Columns[AIRPORT]" />
+                        <inputColumn
+                          refId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Import data to Stage_Airport.Inputs[OLE DB Destination Input].Columns[CITY]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="17"
+                          cachedName="CITY"
+                          externalMetadataColumnId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Import data to Stage_Airport.Inputs[OLE DB Destination Input].ExternalColumns[CITY]"
+                          lineageId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Src_Airport.Outputs[Flat File Source Output].Columns[CITY]" />
+                        <inputColumn
+                          refId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Import data to Stage_Airport.Inputs[OLE DB Destination Input].Columns[STATE]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="2"
+                          cachedName="STATE"
+                          externalMetadataColumnId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Import data to Stage_Airport.Inputs[OLE DB Destination Input].ExternalColumns[STATE]"
+                          lineageId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Src_Airport.Outputs[Flat File Source Output].Columns[STATE]" />
+                        <inputColumn
+                          refId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Import data to Stage_Airport.Inputs[OLE DB Destination Input].Columns[COUNTRY]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="3"
+                          cachedName="COUNTRY"
+                          externalMetadataColumnId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Import data to Stage_Airport.Inputs[OLE DB Destination Input].ExternalColumns[COUNTRY]"
+                          lineageId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Src_Airport.Outputs[Flat File Source Output].Columns[COUNTRY]" />
+                        <inputColumn
+                          refId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Import data to Stage_Airport.Inputs[OLE DB Destination Input].Columns[LATITUDE]"
+                          cachedDataType="r4"
+                          cachedName="LATITUDE"
+                          externalMetadataColumnId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Import data to Stage_Airport.Inputs[OLE DB Destination Input].ExternalColumns[LATITUDE]"
+                          lineageId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Src_Airport.Outputs[Flat File Source Output].Columns[LATITUDE]" />
+                        <inputColumn
+                          refId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Import data to Stage_Airport.Inputs[OLE DB Destination Input].Columns[LONGITUDE]"
+                          cachedDataType="r4"
+                          cachedName="LONGITUDE"
+                          externalMetadataColumnId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Import data to Stage_Airport.Inputs[OLE DB Destination Input].ExternalColumns[LONGITUDE]"
+                          lineageId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Src_Airport.Outputs[Flat File Source Output].Columns[LONGITUDE]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Import data to Stage_Airport.Inputs[OLE DB Destination Input].ExternalColumns[IATA_CODE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="IATA_CODE" />
+                        <externalMetadataColumn
+                          refId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Import data to Stage_Airport.Inputs[OLE DB Destination Input].ExternalColumns[AIRPORT]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="AIRPORT" />
+                        <externalMetadataColumn
+                          refId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Import data to Stage_Airport.Inputs[OLE DB Destination Input].ExternalColumns[CITY]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="CITY" />
+                        <externalMetadataColumn
+                          refId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Import data to Stage_Airport.Inputs[OLE DB Destination Input].ExternalColumns[STATE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="STATE" />
+                        <externalMetadataColumn
+                          refId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Import data to Stage_Airport.Inputs[OLE DB Destination Input].ExternalColumns[COUNTRY]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="COUNTRY" />
+                        <externalMetadataColumn
+                          refId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Import data to Stage_Airport.Inputs[OLE DB Destination Input].ExternalColumns[LATITUDE]"
+                          dataType="numeric"
+                          name="LATITUDE"
+                          precision="9"
+                          scale="6" />
+                        <externalMetadataColumn
+                          refId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Import data to Stage_Airport.Inputs[OLE DB Destination Input].ExternalColumns[LONGITUDE]"
+                          dataType="numeric"
+                          name="LONGITUDE"
+                          precision="9"
+                          scale="6" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Import data to Stage_Airport.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Import data to Stage_Airport.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Import data to Stage_Airport.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Import data to Stage_Airport.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Import data to Stage_Airport.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Import data to Stage_Airport.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Src_Airport"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="1033"
+                  name="Src_Airport"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Src_Airport.Connections[FlatFileConnection]"
+                      connectionManagerID="{927924FB-2D47-4385-90E5-513334170E4D}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Src_Airport]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Src_Airport.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Src_Airport.Outputs[Flat File Source Output].Columns[IATA_CODE]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Src_Airport.Outputs[Flat File Source Output].ExternalColumns[IATA_CODE]"
+                          length="3"
+                          lineageId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Src_Airport.Outputs[Flat File Source Output].Columns[IATA_CODE]"
+                          name="IATA_CODE"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Src_Airport.Outputs[Flat File Source Output].Columns[AIRPORT]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Src_Airport.Outputs[Flat File Source Output].ExternalColumns[AIRPORT]"
+                          length="42"
+                          lineageId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Src_Airport.Outputs[Flat File Source Output].Columns[AIRPORT]"
+                          name="AIRPORT"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Src_Airport.Outputs[Flat File Source Output].Columns[CITY]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Src_Airport.Outputs[Flat File Source Output].ExternalColumns[CITY]"
+                          length="17"
+                          lineageId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Src_Airport.Outputs[Flat File Source Output].Columns[CITY]"
+                          name="CITY"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Src_Airport.Outputs[Flat File Source Output].Columns[STATE]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Src_Airport.Outputs[Flat File Source Output].ExternalColumns[STATE]"
+                          length="2"
+                          lineageId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Src_Airport.Outputs[Flat File Source Output].Columns[STATE]"
+                          name="STATE"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Src_Airport.Outputs[Flat File Source Output].Columns[COUNTRY]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Src_Airport.Outputs[Flat File Source Output].ExternalColumns[COUNTRY]"
+                          length="3"
+                          lineageId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Src_Airport.Outputs[Flat File Source Output].Columns[COUNTRY]"
+                          name="COUNTRY"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Src_Airport.Outputs[Flat File Source Output].Columns[LATITUDE]"
+                          dataType="r4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Src_Airport.Outputs[Flat File Source Output].ExternalColumns[LATITUDE]"
+                          lineageId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Src_Airport.Outputs[Flat File Source Output].Columns[LATITUDE]"
+                          name="LATITUDE"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Src_Airport.Outputs[Flat File Source Output].Columns[LONGITUDE]"
+                          dataType="r4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Src_Airport.Outputs[Flat File Source Output].ExternalColumns[LONGITUDE]"
+                          lineageId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Src_Airport.Outputs[Flat File Source Output].Columns[LONGITUDE]"
+                          name="LONGITUDE"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Src_Airport.Outputs[Flat File Source Output].ExternalColumns[IATA_CODE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="3"
+                          name="IATA_CODE" />
+                        <externalMetadataColumn
+                          refId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Src_Airport.Outputs[Flat File Source Output].ExternalColumns[AIRPORT]"
+                          codePage="1252"
+                          dataType="str"
+                          length="42"
+                          name="AIRPORT" />
+                        <externalMetadataColumn
+                          refId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Src_Airport.Outputs[Flat File Source Output].ExternalColumns[CITY]"
+                          codePage="1252"
+                          dataType="str"
+                          length="17"
+                          name="CITY" />
+                        <externalMetadataColumn
+                          refId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Src_Airport.Outputs[Flat File Source Output].ExternalColumns[STATE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2"
+                          name="STATE" />
+                        <externalMetadataColumn
+                          refId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Src_Airport.Outputs[Flat File Source Output].ExternalColumns[COUNTRY]"
+                          codePage="1252"
+                          dataType="str"
+                          length="3"
+                          name="COUNTRY" />
+                        <externalMetadataColumn
+                          refId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Src_Airport.Outputs[Flat File Source Output].ExternalColumns[LATITUDE]"
+                          dataType="r4"
+                          name="LATITUDE" />
+                        <externalMetadataColumn
+                          refId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Src_Airport.Outputs[Flat File Source Output].ExternalColumns[LONGITUDE]"
+                          dataType="r4"
+                          name="LONGITUDE" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Src_Airport.Outputs[Flat File Source Error Output]"
+                      isErrorOut="true"
+                      name="Flat File Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Src_Airport.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          codePage="1252"
+                          dataType="text"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Src_Airport.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
+                        <outputColumn
+                          refId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Src_Airport.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Src_Airport.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Src_Airport.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Src_Airport.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Extract Airport data\Extract data from Source to Stage_Airport.Paths[Flat File Source Output]"
+                  endId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Import data to Stage_Airport.Inputs[OLE DB Destination Input]"
+                  name="Flat File Source Output"
+                  startId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Src_Airport.Outputs[Flat File Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Extract Airport data\Get CET"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{d8f79560-dfab-4d85-89b4-f333d9ae35a7}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Get CET"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{D59E88B7-657D-4AC2-B909-B7FE5D0AE350}"
+              SQLTask:SqlStatementSource="SELECT GETDATE() AS CET FROM ETL_Metadata;"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="CET"
+                SQLTask:DtsVariableName="User::CET_Airport" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Extract Airport data\Set LSET_Airport to Metadata"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{1d754fab-e7be-4a3f-a8d6-8b4e6e8c54d9}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Set LSET_Airport to Metadata"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{D59E88B7-657D-4AC2-B909-B7FE5D0AE350}"
+              SQLTask:SqlStatementSource="Update ETL_Metadata &#xA;Set LSET = ? &#xA;Where SourceName = 'Airport'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::CET_Airport"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Extract Airport data\Truncate table Stage_Airport"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{bd6ac10f-6752-4f7c-b3e9-d80fb9566009}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Truncate table Stage_Airport"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{7B790200-0913-4B83-8239-A6030EB4A233}"
+              SQLTask:SqlStatementSource="Truncate table Stage_Airport;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Extract Airport data.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{FBF82D19-BD53-4EF8-91BB-5DBD461A56F3}"
+          DTS:From="Package\Extract Airport data\Get CET"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Extract Airport data\Truncate table Stage_Airport" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Extract Airport data.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{E96E4D40-56CE-4660-AC7E-69F3E45E3940}"
+          DTS:From="Package\Extract Airport data\Truncate table Stage_Airport"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Extract Airport data\Extract data from Source to Stage_Airport" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Extract Airport data.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{2F19B2F4-E5B7-4616-9767-4F8F7FAB251B}"
+          DTS:From="Package\Extract Airport data\Extract data from Source to Stage_Airport"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Extract Airport data\Set LSET_Airport to Metadata" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{6DBC85BB-9311-486B-8C2C-2A01D405DAD5}"
+      DTS:From="Package\Extract Airline data"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Extract Airport data" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="269.6,41.6"
+          Id="Package\Extract Airline data\Extract data from Source to Stage_Airline"
+          TopLeft="17.9888828028687,203.966665286554" />
+        <EdgeLayout
+          Id="Package\Extract Airline data.PrecedenceConstraints[Constraint]"
+          TopLeft="152.788882802869,141.566666009757">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,62.3999992767966"
+              Start="0,0"
+              End="0,54.8999992767966">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.8999992767966" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="209.6,41.6"
+          Id="Package\Extract Airline data\Truncate table Stage_Airline"
+          TopLeft="47.9888828028688,99.9666660097572" />
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Extract Airline data\Get CET"
+          TopLeft="70.3888828028687,5.5" />
+        <EdgeLayout
+          Id="Package\Extract Airline data.PrecedenceConstraints[Constraint 1]"
+          TopLeft="152.788882802869,47.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52.8666660097572"
+              Start="0,0"
+              End="0,45.3666660097572">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.3666660097572" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="215.2,41.6"
+          Id="Package\Extract Airline data\Set LSET_Airline to Metadata"
+          TopLeft="47.0333193552167,306.666663966709" />
+        <EdgeLayout
+          Id="Package\Extract Airline data.PrecedenceConstraints[Constraint 2]"
+          TopLeft="153.711101079043,245.566665286554">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,61.0999986801552"
+              Start="0,0"
+              End="0,53.5999986801552">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.5999986801552" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="304.8,404.8"
+          Size="304.8,448"
+          Id="Package\Extract Airline data"
+          TopLeft="136.66665919953,42.4666663713588" />
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Extract Airport data\Get CET"
+          TopLeft="73.699999180436,14.3333328331179" />
+        <NodeLayout
+          Size="211.2,41.6"
+          Id="Package\Extract Airport data\Truncate table Stage_Airport"
+          TopLeft="50.499999180436,112.311111034773" />
+        <EdgeLayout
+          Id="Package\Extract Airport data.PrecedenceConstraints[Constraint]"
+          TopLeft="156.099999180436,55.9333328331179">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,56.3777782016551"
+              Start="0,0"
+              End="0,48.8777782016551">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.8777782016551" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="271.2,41.6"
+          Id="Package\Extract Airport data\Extract data from Source to Stage_Airport"
+          TopLeft="20.499999180436,210.288889236428" />
+        <EdgeLayout
+          Id="Package\Extract Airport data.PrecedenceConstraints[Constraint 1]"
+          TopLeft="156.099999180436,153.911111034773">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,56.377778201655"
+              Start="0,0"
+              End="0,48.877778201655">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.877778201655" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="215.2,41.6"
+          Id="Package\Extract Airport data\Set LSET_Airport to Metadata"
+          TopLeft="48.499999180436,308.266667438083" />
+        <EdgeLayout
+          Id="Package\Extract Airport data.PrecedenceConstraints[Constraint 2]"
+          TopLeft="156.099999180436,251.888889236428">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,56.3777782016551"
+              Start="0,0"
+              End="0,48.8777782016551">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.8777782016551" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="313.6,404.8"
+          Size="313.6,448"
+          Id="Package\Extract Airport data"
+          TopLeft="513.5666372079,46.7999996745587" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="441.46665919953,268.633333022959">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="72.09997800837,0"
+              Start="0,0"
+              End="64.59997800837,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="64.59997800837,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Extract Airline data\Extract data from Source to Stage_Airline">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="207.2,41.6"
+          Id="Package\Extract Airline data\Extract data from Source to Stage_Airline\Import data to Stage_Airline"
+          TopLeft="337.499981559813,175.066665449275" />
+        <NodeLayout
+          Size="128.8,41.6"
+          Id="Package\Extract Airline data\Extract data from Source to Stage_Airline\Src_Airline"
+          TopLeft="379.166645949914,62.3999995660782" />
+        <EdgeLayout
+          Id="Package\Extract Airline data\Extract data from Source to Stage_Airline.Paths[Flat File Source Output]"
+          TopLeft="442.333313754864,103.999999566078">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,71.066665883197"
+              Start="0,0"
+              End="0,63.566665883197">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,63.566665883197" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extract Airline data\Extract data from Source to Stage_Airline\Import data to Stage_Airline">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Extract Airport data\Extract data from Source to Stage_Airport">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="130.4,41.6"
+          Id="Package\Extract Airport data\Extract data from Source to Stage_Airport\Src_Airport"
+          TopLeft="404.99999396503,79.9999988079071" />
+        <NodeLayout
+          Size="208.8,41.6"
+          Id="Package\Extract Airport data\Extract data from Source to Stage_Airport\Import data to Stage_Airport"
+          TopLeft="366.999994531274,212.999996826053" />
+        <EdgeLayout
+          Id="Package\Extract Airport data\Extract data from Source to Stage_Airport.Paths[Flat File Source Output]"
+          TopLeft="470.799994248152,121.599998807907">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,91.3999980181456"
+              Start="0,0"
+              End="0,83.8999980181456">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,83.8999980181456" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extract Airport data\Extract data from Source to Stage_Airport\Import data to Stage_Airport">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
