@@ -8,14 +8,14 @@ use Project_Stage_DB
 go
 
 
-IF OBJECT_ID('Airline') IS NOT NULL DROP TABLE Airline;
-CREATE TABLE Airline (
+IF OBJECT_ID('Stage_Airline') IS NOT NULL DROP TABLE Stage_Airline;
+CREATE TABLE Stage_Airline (
     IATA_CODE   VARCHAR(10) NULL,
     AIRLINE     VARCHAR(255) NULL
 )
 
-IF OBJECT_ID('Airport') IS NOT NULL DROP TABLE Airport;
-CREATE TABLE Airport (         
+IF OBJECT_ID('Stage_Airport') IS NOT NULL DROP TABLE Stage_Airport;
+CREATE TABLE Stage_Airport (         
     IATA_CODE   VARCHAR(10) NULL,
     AIRPORT     VARCHAR(255) NULL,
     CITY        VARCHAR(100) NULL,
@@ -26,8 +26,8 @@ CREATE TABLE Airport (
 )
 
 
-IF OBJECT_ID('Flight') IS NOT NULL DROP TABLE Flight;
-CREATE TABLE Flight (
+IF OBJECT_ID('Stage_Flight') IS NOT NULL DROP TABLE Stage_Flight;
+CREATE TABLE Stage_Flight (
     DATE DATE,
     AIRLINE VARCHAR(10),
     FLIGHT_NUMBER VARCHAR(10),
@@ -59,3 +59,8 @@ CREATE TABLE Flight (
     CREATED DATETIME,
     MODIFIED DATETIME
 );
+
+
+SELECT * FROM Stage_Airline;
+SELECT * FROM Stage_Airport;
+SELECT * FROM Stage_Flight;
