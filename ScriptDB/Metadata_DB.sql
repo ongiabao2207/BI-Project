@@ -21,3 +21,4 @@ INSERT INTO ETL_Metadata (SourceName) VALUES
 
 
 select * from ETL_Metadata;
+--(CREATED >= @[User::LSET_Flight] || MODIFIED >= @[User::LSET_Flight]) && (CREATED < @[User::CET_Flight] || MODIFIED < @[User::CET_Flight])
