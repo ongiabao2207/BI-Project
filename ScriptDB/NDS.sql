@@ -1,0 +1,114 @@
+IF DB_ID('NDS') IS NOT NULL
+BEGIN
+    ALTER DATABASE NDS SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+    DROP DATABASE NDS;
+END
+GO
+
+CREATE DATABASE NDS;
+GO
+USE NDS;
+GO
+
+IF OBJECT_ID('NDS_Flight', 'U') IS NOT NULL DROP TABLE NDS_Flight;
+IF OBJECT_ID('NDS_Airport', 'U') IS NOT NULL DROP TABLE NDS_Airport;
+IF OBJECT_ID('NDS_Airline', 'U') IS NOT NULL DROP TABLE NDS_Airline;
+IF OBJECT_ID('NDS_Reason', 'U') IS NOT NULL DROP TABLE NDS_Reason;
+IF OBJECT_ID('NDS_City', 'U') IS NOT NULL DROP TABLE NDS_City;
+IF OBJECT_ID('NDS_State', 'U') IS NOT NULL DROP TABLE NDS_State;
+IF OBJECT_ID('NDS_Country', 'U') IS NOT NULL DROP TABLE NDS_Country;
+IF OBJECT_ID('SourceData', 'U') IS NOT NULL DROP TABLE SourceData;
+GO
+
+
+CREATE TABLE SourceData (
+    SourceID INT IDENTITY(1,1) PRIMARY KEY,
+    SourceName NVARCHAR(50) UNIQUE NOT NULL,
+    DateCreated DATETIME NOT NULL DEFAULT GETDATE(),
+    Description NVARCHAR(255),
+    DateUpdated DATETIME NULL
+);
+
+
+CREATE TABLE NDS_Country (
+    Country_ID INT IDENTITY(1,1) PRIMARY KEY,
+    Country_Code NVARCHAR(10) UNIQUE NOT NULL
+);
+
+CREATE TABLE NDS_State (
+    State_ID INT IDENTITY(1,1) PRIMARY KEY,
+    State_Code NVARCHAR(10) UNIQUE NOT NULL,
+    Country_ID INT NOT NULL,
+    CONSTRAINT FK_State_Country FOREIGN KEY (Country_ID) REFERENCES NDS_Country(Country_ID)
+);
+
+
+CREATE TABLE NDS_City (
+    City_ID INT IDENTITY(1,1) PRIMARY KEY,
+    City_Name NVARCHAR(100) NOT NULL
+);
+
+
+CREATE TABLE NDS_Airport (
+    Airport_ID INT IDENTITY(1,1) PRIMARY KEY,
+    IATA_Code CHAR(3) UNIQUE NOT NULL,
+    City_ID INT NOT NULL,
+    State_ID INT NOT NULL,
+    Country_ID INT NOT NULL,
+    Latitude DECIMAL(9,6) NULL,
+    Longitude DECIMAL(9,6) NULL,
+    CONSTRAINT FK_Airport_City FOREIGN KEY (City_ID) REFERENCES NDS_City(City_ID),
+    CONSTRAINT FK_Airport_State FOREIGN KEY (State_ID) REFERENCES NDS_State(State_ID),
+    CONSTRAINT FK_Airport_Country FOREIGN KEY (Country_ID) REFERENCES NDS_Country(Country_ID)
+);
+
+
+CREATE TABLE NDS_Airline (
+    Airline_ID INT IDENTITY(1,1) PRIMARY KEY,
+    IATA_Code CHAR(2) UNIQUE NOT NULL,
+    Airline_Name NVARCHAR(200) NOT NULL
+);
+
+
+CREATE TABLE NDS_Reason (
+    Reason_ID INT IDENTITY(1,1) PRIMARY KEY,
+    Reason_Type NVARCHAR(20) NOT NULL,
+    Reason_Name NVARCHAR(100) NOT NULL
+);
+
+
+CREATE TABLE NDS_Flight (
+    Flight_ID BIGINT IDENTITY(1,1) PRIMARY KEY,
+    Date DATE NOT NULL,
+    Flight_number NVARCHAR(10),
+    Tail_number NVARCHAR(20),
+
+    Airline_ID INT NOT NULL,
+    Origin_Airport_ID INT NOT NULL,
+    Dest_Airport_ID INT NOT NULL,
+
+    Scheduled_departure TIME NULL,
+    Departure_delay INT NULL,
+    Taxi_out INT NULL,
+    Wheels_off TIME NULL,
+    Scheduled_time INT NULL,
+    Air_time INT NULL,
+    Distance INT NULL,
+    Wheels_on TIME NULL,
+    Taxi_in INT NULL,
+    Scheduled_arrival TIME NULL,
+    Arrival_delay INT NULL,
+    Diverted_Flag BIT NULL,
+    Canceled_Flag BIT NULL,
+    Canceled_Reason INT NULL,
+    Air_system_delay INT NULL,
+    Security_delay INT NULL,
+    Airline_delay INT NULL,
+    Late_aircraft_delay INT NULL,
+    Weather_delay INT NULL,
+
+    CONSTRAINT FK_Flight_Airline FOREIGN KEY (Airline_ID) REFERENCES NDS_Airline(Airline_ID),
+    CONSTRAINT FK_Flight_Origin FOREIGN KEY (Origin_Airport_ID) REFERENCES NDS_Airport(Airport_ID),
+    CONSTRAINT FK_Flight_Dest FOREIGN KEY (Dest_Airport_ID) REFERENCES NDS_Airport(Airport_ID),
+    CONSTRAINT FK_Flight_Reason FOREIGN KEY (Canceled_Reason) REFERENCES NDS_Reason(Reason_ID)
+);
