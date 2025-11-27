@@ -83,3 +83,6 @@ CREATE TABLE NDS_Flight (
     CONSTRAINT FK_Flight_Reason FOREIGN KEY (Canceled_Reason) REFERENCES NDS_Reason(Reason_Type),
     CONSTRAINT NK_Flight UNIQUE (Date, Airline, Flight_number, Scheduled_departure)
 );
+
+
+select * from NDS_Airline;
