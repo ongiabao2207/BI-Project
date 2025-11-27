@@ -1,6 +1,13 @@
-CREATE DATABASE DDS;
+IF DB_ID('Project_DDS_DB') IS NOT NULL
+BEGIN
+    ALTER DATABASE Project_DDS_DB SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+    DROP DATABASE Project_DDS_DB;
+END
 GO
-USE DDS;
+
+CREATE DATABASE Project_DDS_DB;
+GO
+USE Project_DDS_DB;
 GO
 
 -- Dim_Airline
@@ -9,7 +16,7 @@ GO
 CREATE TABLE Dim_Airline (
     Airline_ID     INT IDENTITY(1,1) PRIMARY KEY,      -- SK
     IATA_Code      CHAR(2)        NOT NULL,            -- NK
-    Airline_Name   NVARCHAR(200)  NOT NULL,
+    Airline_Name   VARCHAR(200)  NOT NULL,
 
     CONSTRAINT UQ_Dim_Airline_IATA UNIQUE (IATA_Code)
 )
@@ -20,9 +27,10 @@ GO
 CREATE TABLE Dim_Airport (
     Airport_ID     INT IDENTITY(1,1) PRIMARY KEY,      -- SK
     IATA_Code      CHAR(3)        NOT NULL,            -- NK
-    City           NVARCHAR(100)  NULL,
-    State          NVARCHAR(100)  NULL,
-    Country        NVARCHAR(100)  NULL,
+    Airport_Name   VARCHAR(200)  NOT NULL,
+    City           VARCHAR(100)  NULL,
+    State          VARCHAR(100)  NULL,
+    Country        VARCHAR(100)  NULL,
     Latitude       DECIMAL(9,6)   NULL,
     Longitude      DECIMAL(9,6)   NULL,
 
@@ -61,8 +69,8 @@ IF OBJECT_ID('Dim_Reason', 'U') IS NOT NULL DROP TABLE Dim_Reason;
 GO
 CREATE TABLE Dim_Reason (
     Reason_ID    INT IDENTITY(1,1) PRIMARY KEY,        -- SK
-    Reason_Type  NVARCHAR(20) NOT NULL,                -- Delay / Cancel
-    Reason_Name  NVARCHAR(100) NOT NULL,               
+    Reason_Type  CHAR(1) NOT NULL,                -- Delay / Cancel
+    Reason_Name  NVARCHAR(50) NOT NULL,               
     
     CONSTRAINT UQ_Dim_Reason_Type_Name UNIQUE (Reason_Type, Reason_Name)
 )
@@ -71,7 +79,7 @@ CREATE TABLE Dim_Reason (
 IF OBJECT_ID('Fact_Flight', 'U') IS NOT NULL DROP TABLE Fact_Flight;
 GO
 CREATE TABLE Fact_Flight (
-    Flight_ID          BIGINT IDENTITY(1,1) PRIMARY KEY,  -- SK 
+    Flight_ID          BIGINT PRIMARY KEY,  -- SK, save from NDS
     Depart_Date_ID     INT NOT NULL,
     Arrive_Date_ID     INT NOT NULL,
     Depart_Time_ID     INT NOT NULL,
@@ -79,8 +87,6 @@ CREATE TABLE Fact_Flight (
     Origin_Airport_ID  INT NOT NULL,
     Dest_Airport_ID    INT NOT NULL,
     Airline_ID         INT NOT NULL,
-    Flight_number      NVARCHAR(10) NULL,
-    Tail_number        NVARCHAR(20) NULL,
     Total_depart_delay INT NULL,
     Total_arrive_delay INT NULL,
     Air_system_delay   INT NULL,
