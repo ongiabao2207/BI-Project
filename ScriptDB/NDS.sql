@@ -54,16 +54,15 @@ CREATE TABLE NDS_Flight (
     Origin_Airport CHAR(3) NOT NULL,
     Dest_Airport CHAR(3) NOT NULL,
 
-    Scheduled_departure TIME NULL,
+    Scheduled_departure CHAR(5) NULL,
     Departure_delay INT NULL,
     Taxi_out INT NULL,
-    Wheels_off TIME NULL,
+    Wheels_off CHAR(5) NULL,
     Scheduled_time INT NULL,
     Air_time INT NULL,
-    Distance INT NULL,
-    Wheels_on TIME NULL,
+    Wheels_on CHAR(5) NULL,
     Taxi_in INT NULL,
-    Scheduled_arrival TIME NULL,
+    Scheduled_arrival CHAR(5) NULL,
     Arrival_delay INT NULL,
     Diverted_Flag BIT NULL,
     Canceled_Flag BIT NULL,
@@ -81,8 +80,19 @@ CREATE TABLE NDS_Flight (
     CONSTRAINT FK_Flight_Origin FOREIGN KEY (Origin_Airport) REFERENCES NDS_Airport(IATA_Code),
     CONSTRAINT FK_Flight_Dest FOREIGN KEY (Dest_Airport) REFERENCES NDS_Airport(IATA_Code),
     CONSTRAINT FK_Flight_Reason FOREIGN KEY (Canceled_Reason) REFERENCES NDS_Reason(Reason_Type),
-    CONSTRAINT NK_Flight UNIQUE (Date, Airline, Flight_number, Scheduled_departure)
+    --CONSTRAINT NK_Flight UNIQUE (Date, Airline, Flight_number, Scheduled_departure)
 );
 
 
+INSERT INTO NDS_Reason (Reason_Type, Reason_Name, Created)
+VALUES 
+('A', 'Airline/Carrier', GETDATE()),
+('B', 'Weather', GETDATE()),
+('C', 'National Air System', GETDATE()),
+('D', 'Security', GETDATE());
+
+
 select * from NDS_Airline;
+select * from NDS_Airport;
+select * from NDS_Reason;
+select * from NDS_Flight;
