@@ -1,4 +1,4 @@
-IF DB_ID('Project_DDS_DB') IS NOT NULL
+﻿IF DB_ID('Project_DDS_DB') IS NOT NULL
 BEGIN
     ALTER DATABASE Project_DDS_DB SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
     DROP DATABASE Project_DDS_DB;
@@ -139,3 +139,13 @@ ADD CONSTRAINT FK_FactFlight_CanceledReason
     FOREIGN KEY (Canceled_Reason)
     REFERENCES Dim_Reason (Reason_ID);
 GO
+
+
+-- Thêm cột vào airport 
+USE Project_DDS_DB; 
+GO
+ALTER TABLE Dim_Airport
+ADD
+    start_date    DATE        NOT NULL DEFAULT '1900-01-01', 
+    end_date      DATE        NOT NULL DEFAULT '9999-12-31', 
+    current_flag  CHAR(1)     NOT NULL DEFAULT 'Y';         -- Cờ hiệu hiện hành
