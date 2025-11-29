@@ -22,3 +22,27 @@ INSERT INTO ETL_Metadata (SourceName) VALUES
 
 select * from ETL_Metadata;
 --(CREATED >= @[User::LSET_Flight] || MODIFIED >= @[User::LSET_Flight]) && (CREATED < @[User::CET_Flight] || MODIFIED < @[User::CET_Flight])
+
+
+CREATE TABLE Flight_ETL_ErrorLog (
+    ErrorLog_ID BIGINT IDENTITY(1,1) PRIMARY KEY,
+    
+    -- 1. Thông tin định danh chuyến bay bị lỗi (để truy vết)
+    Date DATE,
+    Flight_number VARCHAR(10),
+    Scheduled_departure VARCHAR(10),
+    Origin_Airport CHAR(3),
+    Dest_Airport CHAR(3),
+    Source_ID INT,
+    
+    -- 2. Thông tin chi tiết về lỗi
+    Error_Column VARCHAR(50) NULL,      -- Trường bị lỗi (ví dụ: 'Canceled_Reason', 'Departure_delay')
+    Error_Description NVARCHAR(512) NOT NULL, -- Chi tiết mô tả lỗi
+    Error_Value VARCHAR(200) NULL, -- Lưu trữ giá trị gây lỗi
+    
+    -- 3. Thời gian và quá trình
+    SSIS_Package VARCHAR(100) NULL, -- Tên bước trong SSIS gây ra lỗi (ví dụ: Conditional Split, OLE DB Destination)
+    Error_Timestamp DATETIME NOT NULL DEFAULT GETDATE()
+);
+
+select * from Flight_ETL_ErrorLog;
