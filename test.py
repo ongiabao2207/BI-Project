@@ -11,25 +11,25 @@ try:
 
     # 2. Kiểm tra tính duy nhất cho các cột đơn lẻ (Khóa Chính Đơn)
 
-    # Ứng viên A: FLIGHT_NUMBER (Số hiệu chuyến bay)
-    unique_flights = df['FLIGHT_NUMBER'].nunique()
-    print(f"Số lượng FLIGHT_NUMBER duy nhất: {unique_flights}")
-    if unique_flights == total_records:
-        print("-> ✅ FLIGHT_NUMBER là Khóa Chính (vì nó duy nhất).\n")
-    else:
-        # Số hiệu chuyến bay (FLIGHT_NUMBER) thường không duy nhất, vì cùng một số hiệu 
-        # sẽ được sử dụng cho nhiều ngày khác nhau.
-        print("-> ❌ FLIGHT_NUMBER không phải là Khóa Chính.\n")
+    # # Ứng viên A: FLIGHT_NUMBER (Số hiệu chuyến bay)
+    # unique_flights = df['FLIGHT_NUMBER'].nunique()
+    # print(f"Số lượng FLIGHT_NUMBER duy nhất: {unique_flights}")
+    # if unique_flights == total_records:
+    #     print("-> ✅ FLIGHT_NUMBER là Khóa Chính (vì nó duy nhất).\n")
+    # else:
+    #     # Số hiệu chuyến bay (FLIGHT_NUMBER) thường không duy nhất, vì cùng một số hiệu 
+    #     # sẽ được sử dụng cho nhiều ngày khác nhau.
+    #     print("-> ❌ FLIGHT_NUMBER không phải là Khóa Chính.\n")
 
-    # Ứng viên B: TAIL_NUMBER (Số đuôi máy bay)
-    unique_tails = df['TAIL_NUMBER'].nunique()
-    print(f"Số lượng TAIL_NUMBER duy nhất: {unique_tails}")
-    if unique_tails == total_records:
-        print("-> ✅ TAIL_NUMBER là Khóa Chính (vì nó duy nhất).\n")
-    else:
-        # Số đuôi máy bay (TAIL_NUMBER) cũng không duy nhất, vì một máy bay 
-        # thực hiện nhiều chuyến bay khác nhau.
-        print("-> ❌ TAIL_NUMBER không phải là Khóa Chính.\n")
+    # # Ứng viên B: TAIL_NUMBER (Số đuôi máy bay)
+    # unique_tails = df['TAIL_NUMBER'].nunique()
+    # print(f"Số lượng TAIL_NUMBER duy nhất: {unique_tails}")
+    # if unique_tails == total_records:
+    #     print("-> ✅ TAIL_NUMBER là Khóa Chính (vì nó duy nhất).\n")
+    # else:
+    #     # Số đuôi máy bay (TAIL_NUMBER) cũng không duy nhất, vì một máy bay 
+    #     # thực hiện nhiều chuyến bay khác nhau.
+    #     print("-> ❌ TAIL_NUMBER không phải là Khóa Chính.\n")
 
     # 3. Kiểm tra tính duy nhất cho Khóa Tổng hợp (Composite Key)
 
@@ -37,22 +37,28 @@ try:
     # Khóa này đại diện cho "Một chuyến bay cụ thể của hãng A vào ngày B"
     
     # Tạo một cột đại diện cho Khóa Tổng hợp
-    # df['Composite_Key'] = df['DATE'].astype(str) + '_' + df['AIRLINE'] + '_' + df['FLIGHT_NUMBER'].astype(str)
-    df['Composite_Key'] = df['DATE'].astype(str) + '_' + df['AIRLINE'] + '_' + df['FLIGHT_NUMBER'].astype(str) + '_' + df['SCHEDULED_DEPARTURE'].astype(str)
+    #df['Composite_Key'] = df['DATE'].astype(str) + '_' + df['AIRLINE'] + '_' + df['FLIGHT_NUMBER'].astype(str)
+    # df['Composite_Key'] = df['DATE'].astype(str) + '_' + df['AIRLINE'] + '_' + df['FLIGHT_NUMBER'].astype(str) + '_' + df['SCHEDULED_DEPARTURE'].astype(str)
     # df['Composite_Key'] = df['DATE'].astype(str) + '_' + df['FLIGHT_NUMBER'].astype(str) + '_' + df['SCHEDULED_DEPARTURE'].astype(str)
+    # df['Composite_Key'] = df['DATE'].astype(str) + '_' + df['FLIGHT_NUMBER'].astype(str)
+    df['Composite_Key'] = df['DATE'].astype(str) + '_' + df['FLIGHT_NUMBER'].astype(str) + '_' + df['SCHEDULED_DEPARTURE'].astype(str) + '_' + df['ORIGIN_AIRPORT'] + '_' + df['DESTINATION_AIRPORT']
 
     # Kiểm tra tính duy nhất của khóa tổng hợp
     unique_composite_keys = df['Composite_Key'].nunique()
     
     print("\n--- Kiểm tra Khóa Tổng hợp ---")
-    # print(f"Số lượng Khóa Tổng hợp (DATE, AIRLINE, FLIGHT_NUMBER) duy nhất: {unique_composite_keys}")
-    print(f"Số lượng Khóa Tổng hợp (DATE, AIRLINE, FLIGHT_NUMBER, SCHEDULED_DEPARTURE) duy nhất: {unique_composite_keys}")
-    # print(f"Số lượng Khóa Tổng hợp (DATE, FLIGHT_NUMBER, SCHEDULED_DEPARTURE) duy nhất: {unique_composite_keys}")
+    #print(f"Số lượng Khóa Tổng hợp (DATE, AIRLINE, FLIGHT_NUMBER) duy nhất: {unique_composite_keys}")
+    #print(f"Số lượng Khóa Tổng hợp (DATE, AIRLINE, FLIGHT_NUMBER, SCHEDULED_DEPARTURE) duy nhất: {unique_composite_keys}")
+    #print(f"Số lượng Khóa Tổng hợp (DATE, FLIGHT_NUMBER, SCHEDULED_DEPARTURE) duy nhất: {unique_composite_keys}")
+    #print(f"Số lượng Khóa Tổng hợp (DATE, FLIGHT_NUMBER) duy nhất: {unique_composite_keys}")
+    print(f"Số lượng Khóa Tổng hợp (DATE, FLIGHT_NUMBER, SCHEDULED_DEPARTURE, ORIGIN_AIRPORT, DESTINATION_AIRPORT) duy nhất: {unique_composite_keys}")
     
     if unique_composite_keys == total_records:
-        # print("-> ✅ Khóa Tổng hợp **(DATE, AIRLINE, FLIGHT_NUMBER)** là Khóa Chính của tập dữ liệu này.")
-        print("-> ✅ Khóa Tổng hợp **(DATE, AIRLINE, FLIGHT_NUMBER, SCHEDULED_DEPARTURE)** là Khóa Chính của tập dữ liệu này.")
-        # print("-> ✅ Khóa Tổng hợp **(DATE, FLIGHT_NUMBER, SCHEDULED_DEPARTURE)** là Khóa Chính của tập dữ liệu này.")
+        #print("-> ✅ Khóa Tổng hợp **(DATE, AIRLINE, FLIGHT_NUMBER)** là Khóa Chính của tập dữ liệu này.")
+        #print("-> ✅ Khóa Tổng hợp **(DATE, AIRLINE, FLIGHT_NUMBER, SCHEDULED_DEPARTURE)** là Khóa Chính của tập dữ liệu này.")
+        #print("-> ✅ Khóa Tổng hợp **(DATE, FLIGHT_NUMBER, SCHEDULED_DEPARTURE)** là Khóa Chính của tập dữ liệu này.")
+        #print("-> ✅ Khóa Tổng hợp **(DATE, FLIGHT_NUMBER)** là Khóa Chính của tập dữ liệu này.")
+        print("-> ✅ Khóa Tổng hợp **(DATE, FLIGHT_NUMBER, SCHEDULED_DEPARTURE, ORIGIN_AIRPORT, DESTINATION_AIRPORT)** là Khóa Chính của tập dữ liệu này.")
         print("   Mỗi bản ghi đại diện cho một sự kiện chuyến bay cụ thể được xác định DUY NHẤT.")
     else:
         print("-> ❌ Khóa Tổng hợp (DATE, AIRLINE, FLIGHT_NUMBER) không duy nhất.")

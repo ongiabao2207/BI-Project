@@ -80,7 +80,7 @@ CREATE TABLE NDS_Flight (
     CONSTRAINT FK_Flight_Origin FOREIGN KEY (Origin_Airport) REFERENCES NDS_Airport(IATA_Code),
     CONSTRAINT FK_Flight_Dest FOREIGN KEY (Dest_Airport) REFERENCES NDS_Airport(IATA_Code),
     CONSTRAINT FK_Flight_Reason FOREIGN KEY (Canceled_Reason) REFERENCES NDS_Reason(Reason_Type),
-    --CONSTRAINT NK_Flight UNIQUE (Date, Airline, Flight_number, Scheduled_departure)
+    CONSTRAINT NK_Flight UNIQUE (Date, Flight_number, Scheduled_departure, Origin_Airport, Dest_Airport, Source_ID)
 );
 
 

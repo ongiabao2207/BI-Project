@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="StageToNDS"
   DTS:PackageType="5"
-  DTS:VersionBuild="99"
-  DTS:VersionGUID="{9A2CE742-84E6-41DB-9566-6414CFB45100}">
+  DTS:VersionBuild="121"
+  DTS:VersionGUID="{B9A66301-6349-4548-BDF0-79D602CDDCA6}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1875,12 +1875,12 @@ WHERE IATA_Code = ?;</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Import data from Stage to NDS_Flight\Check Cancellation_reason type.Outputs[Case 1]"
+                  refId="Package\Import data from Stage to NDS_Flight\Check Cancellation_reason type.Outputs[Invalid Reason_type]"
                   description="Output 1 of the Conditional Split Transformation"
                   errorOrTruncationOperation="Computation"
                   errorRowDisposition="FailComponent"
                   exclusionGroup="1"
-                  name="Case 1"
+                  name="Invalid Reason_type"
                   synchronousInputId="Package\Import data from Stage to NDS_Flight\Check Cancellation_reason type.Inputs[Conditional Split Input]"
                   truncationRowDisposition="FailComponent">
                   <properties>
@@ -1933,6 +1933,123 @@ WHERE IATA_Code = ?;</property>
                       refId="Package\Import data from Stage to NDS_Flight\Check Cancellation_reason type.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\Import data from Stage to NDS_Flight\Check Cancellation_reason type.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import data from Stage to NDS_Flight\Check NK null"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Check NK null"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Import data from Stage to NDS_Flight\Check NK null.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Check NK null.Inputs[Conditional Split Input].Columns[DATE]"
+                      cachedDataType="dbDate"
+                      cachedName="DATE"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[DATE]" />
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Check NK null.Inputs[Conditional Split Input].Columns[FLIGHT_NUMBER]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="FLIGHT_NUMBER"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[FLIGHT_NUMBER]" />
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Check NK null.Inputs[Conditional Split Input].Columns[ORIGIN_AIRPORT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="ORIGIN_AIRPORT"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[ORIGIN_AIRPORT]" />
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Check NK null.Inputs[Conditional Split Input].Columns[DESTINATION_AIRPORT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="DESTINATION_AIRPORT"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[DESTINATION_AIRPORT]" />
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Check NK null.Inputs[Conditional Split Input].Columns[SCHEDULED_DEPARTURE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="SCHEDULED_DEPARTURE"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[SCHEDULED_DEPARTURE]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import data from Stage to NDS_Flight\Check NK null.Outputs[Has NULL]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Has NULL"
+                  synchronousInputId="Package\Import data from Stage to NDS_Flight\Check NK null.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">[ISNULL](#{Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[DATE]}) || [ISNULL](#{Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[FLIGHT_NUMBER]}) || [ISNULL](#{Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[SCHEDULED_DEPARTURE]}) || [ISNULL](#{Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[ORIGIN_AIRPORT]}) || [ISNULL](#{Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[DESTINATION_AIRPORT]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">ISNULL(DATE) || ISNULL(FLIGHT_NUMBER) || ISNULL(SCHEDULED_DEPARTURE) || ISNULL(ORIGIN_AIRPORT) || ISNULL(DESTINATION_AIRPORT)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Import data from Stage to NDS_Flight\Check NK null.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\Import data from Stage to NDS_Flight\Check NK null.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Import data from Stage to NDS_Flight\Check NK null.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\Import data from Stage to NDS_Flight\Check NK null.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Check NK null.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Check NK null.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Check NK null.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Check NK null.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -2497,6 +2614,836 @@ WHERE IATA_Code = ?;</property>
               </outputs>
             </component>
             <component
+              refId="Package\Import data from Stage to NDS_Flight\Derived Column 3"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column 3"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Import data from Stage to NDS_Flight\Derived Column 3.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Derived Column 3.Inputs[Derived Column Input].Columns[CANCELLATION_REASON]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="CANCELLATION_REASON"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[CANCELLATION_REASON]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import data from Stage to NDS_Flight\Derived Column 3.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Import data from Stage to NDS_Flight\Derived Column 3.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Derived Column 3.Outputs[Derived Column Output].Columns[Error_Column]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Derived Column 3.Outputs[Derived Column Output].Columns[Error_Column]"
+                      name="Error_Column"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,50,1252)"Canceled_Reason"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,50,1252)"Canceled_Reason"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Derived Column 3.Outputs[Derived Column Output].Columns[Error_Description]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="46"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Derived Column 3.Outputs[Derived Column Output].Columns[Error_Description]"
+                      name="Error_Description"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">"Chuyến bay bị huỷ nhưng lý do huỷ không hợp lệ"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"Chuyến bay bị huỷ nhưng lý do huỷ không hợp lệ"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Derived Column 3.Outputs[Derived Column Output].Columns[Error_Value]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="200"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Derived Column 3.Outputs[Derived Column Output].Columns[Error_Value]"
+                      name="Error_Value"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,200,1252)#{Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[CANCELLATION_REASON]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,200,1252)CANCELLATION_REASON</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Derived Column 3.Outputs[Derived Column Output].Columns[SSIS_Package]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Derived Column 3.Outputs[Derived Column Output].Columns[SSIS_Package]"
+                      name="SSIS_Package"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,100,1252)"StageToNDS"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,100,1252)"StageToNDS"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Import data from Stage to NDS_Flight\Derived Column 3.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Import data from Stage to NDS_Flight\Derived Column 3.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Derived Column 3.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Derived Column 3.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Derived Column 3.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Derived Column 3.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import data from Stage to NDS_Flight\Derived Column 4"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column 4"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Import data from Stage to NDS_Flight\Derived Column 4.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Derived Column 4.Inputs[Derived Column Input].Columns[DATE]"
+                      cachedDataType="dbDate"
+                      cachedName="DATE"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[DATE]" />
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Derived Column 4.Inputs[Derived Column Input].Columns[FLIGHT_NUMBER]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="FLIGHT_NUMBER"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[FLIGHT_NUMBER]" />
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Derived Column 4.Inputs[Derived Column Input].Columns[ORIGIN_AIRPORT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="ORIGIN_AIRPORT"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[ORIGIN_AIRPORT]" />
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Derived Column 4.Inputs[Derived Column Input].Columns[DESTINATION_AIRPORT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="DESTINATION_AIRPORT"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[DESTINATION_AIRPORT]" />
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Derived Column 4.Inputs[Derived Column Input].Columns[SCHEDULED_DEPARTURE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="SCHEDULED_DEPARTURE"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[SCHEDULED_DEPARTURE]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import data from Stage to NDS_Flight\Derived Column 4.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Import data from Stage to NDS_Flight\Derived Column 4.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Derived Column 4.Outputs[Derived Column Output].Columns[Error_Column]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Derived Column 4.Outputs[Derived Column Output].Columns[Error_Column]"
+                      name="Error_Column"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,50,1252)"Composite NK"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,50,1252)"Composite NK"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Derived Column 4.Outputs[Derived Column Output].Columns[Error_Description]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="54"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Derived Column 4.Outputs[Derived Column Output].Columns[Error_Description]"
+                      name="Error_Description"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">"Một trong các thuộc tính tạo nên khoá tự nhiên bị NULL"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"Một trong các thuộc tính tạo nên khoá tự nhiên bị NULL"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Derived Column 4.Outputs[Derived Column Output].Columns[SSIS_Package]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Derived Column 4.Outputs[Derived Column Output].Columns[SSIS_Package]"
+                      name="SSIS_Package"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,100,1252)"StageToNDS"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,100,1252)"StageToNDS"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Derived Column 4.Outputs[Derived Column Output].Columns[Error_Value]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="200"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Derived Column 4.Outputs[Derived Column Output].Columns[Error_Value]"
+                      name="Error_Value"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,200,1252)(([ISNULL](#{Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[DATE]}) ? "NULL_DATE" : (DT_STR,10,1252)#{Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[DATE]}) + "|" + ([ISNULL](#{Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[FLIGHT_NUMBER]}) ? "NULL_FN" : #{Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[FLIGHT_NUMBER]}) + "|" + ([ISNULL](#{Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[SCHEDULED_DEPARTURE]}) ? "NULL_SD" : #{Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[SCHEDULED_DEPARTURE]}) + "|" + ([ISNULL](#{Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[ORIGIN_AIRPORT]}) ? "NULL_OA" : #{Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[ORIGIN_AIRPORT]}) + "|" + ([ISNULL](#{Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[DESTINATION_AIRPORT]}) ? "NULL_DA" : #{Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[DESTINATION_AIRPORT]}))</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,200,1252)((ISNULL(DATE) ? "NULL_DATE" : (DT_STR,10,1252)DATE) + "|" + (ISNULL(FLIGHT_NUMBER) ? "NULL_FN" : FLIGHT_NUMBER) + "|" + (ISNULL(SCHEDULED_DEPARTURE) ? "NULL_SD" : SCHEDULED_DEPARTURE) + "|" + (ISNULL(ORIGIN_AIRPORT) ? "NULL_OA" : ORIGIN_AIRPORT) + "|" + (ISNULL(DESTINATION_AIRPORT) ? "NULL_DA" : DESTINATION_AIRPORT))</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Import data from Stage to NDS_Flight\Derived Column 4.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Import data from Stage to NDS_Flight\Derived Column 4.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Derived Column 4.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Derived Column 4.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Derived Column 4.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Derived Column 4.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Flight_ETL_ErrorLog"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Flight_ETL_ErrorLog]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.Project_Metadata_DB]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.Project_Metadata_DB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog.Inputs[OLE DB Destination Input].Columns[DATE]"
+                      cachedDataType="dbDate"
+                      cachedName="DATE"
+                      externalMetadataColumnId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[DATE]" />
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog.Inputs[OLE DB Destination Input].Columns[FLIGHT_NUMBER]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="FLIGHT_NUMBER"
+                      externalMetadataColumnId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[Flight_number]"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[FLIGHT_NUMBER]" />
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog.Inputs[OLE DB Destination Input].Columns[ORIGIN_AIRPORT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="ORIGIN_AIRPORT"
+                      externalMetadataColumnId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[Origin_Airport]"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[ORIGIN_AIRPORT]" />
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog.Inputs[OLE DB Destination Input].Columns[SCHEDULED_DEPARTURE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="SCHEDULED_DEPARTURE"
+                      externalMetadataColumnId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[Scheduled_departure]"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[SCHEDULED_DEPARTURE]" />
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog.Inputs[OLE DB Destination Input].Columns[Error_Column]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Error_Column"
+                      externalMetadataColumnId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[Error_Column]"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Derived Column 3.Outputs[Derived Column Output].Columns[Error_Column]" />
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog.Inputs[OLE DB Destination Input].Columns[Error_Description]"
+                      cachedDataType="wstr"
+                      cachedLength="46"
+                      cachedName="Error_Description"
+                      externalMetadataColumnId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[Error_Description]"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Derived Column 3.Outputs[Derived Column Output].Columns[Error_Description]" />
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog.Inputs[OLE DB Destination Input].Columns[Error_Value]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="Error_Value"
+                      externalMetadataColumnId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[Error_Value]"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Derived Column 3.Outputs[Derived Column Output].Columns[Error_Value]" />
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog.Inputs[OLE DB Destination Input].Columns[SSIS_Package]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="SSIS_Package"
+                      externalMetadataColumnId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[SSIS_Package]"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Derived Column 3.Outputs[Derived Column Output].Columns[SSIS_Package]" />
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog.Inputs[OLE DB Destination Input].Columns[DESTINATION_AIRPORT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="DESTINATION_AIRPORT"
+                      externalMetadataColumnId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[Dest_Airport]"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[DESTINATION_AIRPORT]" />
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog.Inputs[OLE DB Destination Input].Columns[SourceFile_ID]"
+                      cachedDataType="i4"
+                      cachedName="SourceFile_ID"
+                      externalMetadataColumnId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[Source_ID]"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[SourceFile_ID]" />
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog.Inputs[OLE DB Destination Input].Columns[CREATED]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="CREATED"
+                      externalMetadataColumnId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[Error_Timestamp]"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[CREATED]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[ErrorLog_ID]"
+                      dataType="i8"
+                      name="ErrorLog_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
+                      dataType="dbDate"
+                      name="Date" />
+                    <externalMetadataColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[Flight_number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Flight_number" />
+                    <externalMetadataColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[Scheduled_departure]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Scheduled_departure" />
+                    <externalMetadataColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[Origin_Airport]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="Origin_Airport" />
+                    <externalMetadataColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[Dest_Airport]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="Dest_Airport" />
+                    <externalMetadataColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[Source_ID]"
+                      dataType="i4"
+                      name="Source_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[Error_Column]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Error_Column" />
+                    <externalMetadataColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[Error_Description]"
+                      dataType="wstr"
+                      length="512"
+                      name="Error_Description" />
+                    <externalMetadataColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[Error_Value]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="Error_Value" />
+                    <externalMetadataColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[SSIS_Package]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="SSIS_Package" />
+                    <externalMetadataColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[Error_Timestamp]"
+                      dataType="dbTimeStamp"
+                      name="Error_Timestamp" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog 1"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Flight_ETL_ErrorLog 1"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Flight_ETL_ErrorLog]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog 1.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.Project_Metadata_DB]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.Project_Metadata_DB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog 1.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog 1.Inputs[OLE DB Destination Input].Columns[DATE]"
+                      cachedDataType="dbDate"
+                      cachedName="DATE"
+                      externalMetadataColumnId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog 1.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[DATE]" />
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog 1.Inputs[OLE DB Destination Input].Columns[FLIGHT_NUMBER]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="FLIGHT_NUMBER"
+                      externalMetadataColumnId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog 1.Inputs[OLE DB Destination Input].ExternalColumns[Flight_number]"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[FLIGHT_NUMBER]" />
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog 1.Inputs[OLE DB Destination Input].Columns[ORIGIN_AIRPORT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="ORIGIN_AIRPORT"
+                      externalMetadataColumnId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog 1.Inputs[OLE DB Destination Input].ExternalColumns[Origin_Airport]"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[ORIGIN_AIRPORT]" />
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog 1.Inputs[OLE DB Destination Input].Columns[SCHEDULED_DEPARTURE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="SCHEDULED_DEPARTURE"
+                      externalMetadataColumnId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog 1.Inputs[OLE DB Destination Input].ExternalColumns[Scheduled_departure]"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[SCHEDULED_DEPARTURE]" />
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog 1.Inputs[OLE DB Destination Input].Columns[Error_Column]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Error_Column"
+                      externalMetadataColumnId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog 1.Inputs[OLE DB Destination Input].ExternalColumns[Error_Column]"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Derived Column 4.Outputs[Derived Column Output].Columns[Error_Column]" />
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog 1.Inputs[OLE DB Destination Input].Columns[Error_Description]"
+                      cachedDataType="wstr"
+                      cachedLength="54"
+                      cachedName="Error_Description"
+                      externalMetadataColumnId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog 1.Inputs[OLE DB Destination Input].ExternalColumns[Error_Description]"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Derived Column 4.Outputs[Derived Column Output].Columns[Error_Description]" />
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog 1.Inputs[OLE DB Destination Input].Columns[Error_Value]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="Error_Value"
+                      externalMetadataColumnId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog 1.Inputs[OLE DB Destination Input].ExternalColumns[Error_Value]"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Derived Column 4.Outputs[Derived Column Output].Columns[Error_Value]" />
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog 1.Inputs[OLE DB Destination Input].Columns[SSIS_Package]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="SSIS_Package"
+                      externalMetadataColumnId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog 1.Inputs[OLE DB Destination Input].ExternalColumns[SSIS_Package]"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Derived Column 4.Outputs[Derived Column Output].Columns[SSIS_Package]" />
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog 1.Inputs[OLE DB Destination Input].Columns[DESTINATION_AIRPORT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="DESTINATION_AIRPORT"
+                      externalMetadataColumnId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog 1.Inputs[OLE DB Destination Input].ExternalColumns[Dest_Airport]"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[DESTINATION_AIRPORT]" />
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog 1.Inputs[OLE DB Destination Input].Columns[SourceFile_ID]"
+                      cachedDataType="i4"
+                      cachedName="SourceFile_ID"
+                      externalMetadataColumnId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog 1.Inputs[OLE DB Destination Input].ExternalColumns[Source_ID]"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[SourceFile_ID]" />
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog 1.Inputs[OLE DB Destination Input].Columns[CREATED]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="CREATED"
+                      externalMetadataColumnId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog 1.Inputs[OLE DB Destination Input].ExternalColumns[Error_Timestamp]"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[CREATED]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog 1.Inputs[OLE DB Destination Input].ExternalColumns[ErrorLog_ID]"
+                      dataType="i8"
+                      name="ErrorLog_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog 1.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
+                      dataType="dbDate"
+                      name="Date" />
+                    <externalMetadataColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog 1.Inputs[OLE DB Destination Input].ExternalColumns[Flight_number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Flight_number" />
+                    <externalMetadataColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog 1.Inputs[OLE DB Destination Input].ExternalColumns[Scheduled_departure]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Scheduled_departure" />
+                    <externalMetadataColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog 1.Inputs[OLE DB Destination Input].ExternalColumns[Origin_Airport]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="Origin_Airport" />
+                    <externalMetadataColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog 1.Inputs[OLE DB Destination Input].ExternalColumns[Dest_Airport]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="Dest_Airport" />
+                    <externalMetadataColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog 1.Inputs[OLE DB Destination Input].ExternalColumns[Source_ID]"
+                      dataType="i4"
+                      name="Source_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog 1.Inputs[OLE DB Destination Input].ExternalColumns[Error_Column]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Error_Column" />
+                    <externalMetadataColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog 1.Inputs[OLE DB Destination Input].ExternalColumns[Error_Description]"
+                      dataType="wstr"
+                      length="512"
+                      name="Error_Description" />
+                    <externalMetadataColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog 1.Inputs[OLE DB Destination Input].ExternalColumns[Error_Value]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="Error_Value" />
+                    <externalMetadataColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog 1.Inputs[OLE DB Destination Input].ExternalColumns[SSIS_Package]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="SSIS_Package" />
+                    <externalMetadataColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog 1.Inputs[OLE DB Destination Input].ExternalColumns[Error_Timestamp]"
+                      dataType="dbTimeStamp"
+                      name="Error_Timestamp" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog 1.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog 1.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog 1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog 1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Import data from Stage to NDS_Flight\Insert new rows"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
@@ -2928,7 +3875,7 @@ WHERE IATA_Code = ?;</property>
                   expressionType="Notify"
                   name="SqlCommandParam"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[NDS_Flight]) [refTable]
-where [refTable].[Date] = ? and [refTable].[Airline] = ? and [refTable].[Flight_number] = ? and [refTable].[Scheduled_departure] = ?</property>
+where [refTable].[Source_ID] = ? and [refTable].[Date] = ? and [refTable].[Flight_number] = ? and [refTable].[Origin_Airport] = ? and [refTable].[Dest_Airport] = ? and [refTable].[Scheduled_departure] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the type of connection used to access the reference dataset."
@@ -2964,7 +3911,7 @@ where [refTable].[Date] = ? and [refTable].[Airline] = ? and [refTable].[Flight_
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[DATE]};#{Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[AIRLINE]};#{Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[FLIGHT_NUMBER]};#{Package\Import data from Stage to NDS_Flight\Derived Column 2.Outputs[Derived Column Output].Columns[NEW_SCHED_DEP]};</property>
+                  name="ParameterMap">#{Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[SourceFile_ID]};#{Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[DATE]};#{Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[FLIGHT_NUMBER]};#{Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[ORIGIN_AIRPORT]};#{Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[DESTINATION_AIRPORT]};#{Package\Import data from Stage to NDS_Flight\Derived Column 2.Outputs[Derived Column Output].Columns[NEW_SCHED_DEP]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -3004,24 +3951,6 @@ where [refTable].[Date] = ? and [refTable].[Airline] = ? and [refTable].[Flight_
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Import data from Stage to NDS_Flight\Lookup PK in NDS_Flight.Inputs[Lookup Input].Columns[AIRLINE]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="2"
-                      cachedName="AIRLINE"
-                      lineageId="Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[AIRLINE]">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">Airline</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn" />
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
                       refId="Package\Import data from Stage to NDS_Flight\Lookup PK in NDS_Flight.Inputs[Lookup Input].Columns[FLIGHT_NUMBER]"
                       cachedCodepage="1252"
                       cachedDataType="str"
@@ -3051,6 +3980,58 @@ where [refTable].[Date] = ? and [refTable].[Airline] = ? and [refTable].[Flight_
                           dataType="System.String"
                           description="Specifies the column in the reference table that a column joins."
                           name="JoinToReferenceColumn">Scheduled_departure</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Lookup PK in NDS_Flight.Inputs[Lookup Input].Columns[SourceFile_ID]"
+                      cachedDataType="i4"
+                      cachedName="SourceFile_ID"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[SourceFile_ID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">Source_ID</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Lookup PK in NDS_Flight.Inputs[Lookup Input].Columns[ORIGIN_AIRPORT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="ORIGIN_AIRPORT"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[ORIGIN_AIRPORT]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">Origin_Airport</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Lookup PK in NDS_Flight.Inputs[Lookup Input].Columns[DESTINATION_AIRPORT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="DESTINATION_AIRPORT"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[DESTINATION_AIRPORT]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">Dest_Airport</property>
                         <property
                           dataType="System.Null"
                           description="Specifies the column in the reference table from which a column is copied."
@@ -3854,7 +4835,30 @@ where [refTable].[Date] = ? and [refTable].[Airline] = ? and [refTable].[Flight_
                   description="The SQL command to be executed."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">-- Update sau</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE NDS_Flight
+SET
+    Tail_number = ?,                     -- 1. Tail_number VARCHAR(20)
+    Airline = ?,                         -- 2. Airline CHAR(2)
+    Scheduled_time = ?,                  -- 3. Scheduled_time INT
+    Air_time = ?,                        -- 4. Air_time INT
+    Departure_delay = ?,                 -- 5. Departure_delay INT
+    Taxi_out = ?,                        -- 6. Taxi_out INT
+    Wheels_off = ?,                      -- 7. Wheels_off CHAR(5)
+    Wheels_on = ?,                       -- 8. Wheels_on CHAR(5)
+    Taxi_in = ?,                         -- 9. Taxi_in INT
+    Scheduled_arrival = ?,               -- 10. Scheduled_arrival CHAR(5)
+    Arrival_delay = ?,                   -- 11. Arrival_delay INT
+    Diverted_Flag = ?,                   -- 12. Diverted_Flag BIT
+    Canceled_Flag = ?,                   -- 13. Canceled_Flag BIT
+    Canceled_Reason = ?,                 -- 14. Canceled_Reason CHAR(1)
+    Air_system_delay = ?,                -- 15. Air_system_delay INT
+    Security_delay = ?,                  -- 16. Security_delay INT
+    Airline_delay = ?,                   -- 17. Airline_delay INT
+    Late_aircraft_delay = ?,             -- 18. Late_aircraft_delay INT
+    Weather_delay = ?,                   -- 19. Weather_delay INT
+    Modified = ?
+WHERE
+    Flight_ID = ?;                       -- 22. Flight_ID BIGINT (Tham số xác định bản ghi)</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -3875,8 +4879,392 @@ where [refTable].[Date] = ? and [refTable].[Airline] = ? and [refTable].[Flight_
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].Columns[TAIL_NUMBER]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="TAIL_NUMBER"
+                      externalMetadataColumnId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[TAIL_NUMBER]" />
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].Columns[AIRLINE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="AIRLINE"
+                      externalMetadataColumnId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[AIRLINE]" />
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].Columns[SCHEDULED_TIME]"
+                      cachedDataType="i4"
+                      cachedName="SCHEDULED_TIME"
+                      externalMetadataColumnId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[SCHEDULED_TIME]" />
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].Columns[AIR_TIME]"
+                      cachedDataType="i4"
+                      cachedName="AIR_TIME"
+                      externalMetadataColumnId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[AIR_TIME]" />
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].Columns[DEPARTURE_DELAY]"
+                      cachedDataType="i4"
+                      cachedName="DEPARTURE_DELAY"
+                      externalMetadataColumnId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[DEPARTURE_DELAY]" />
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].Columns[TAXI_OUT]"
+                      cachedDataType="i4"
+                      cachedName="TAXI_OUT"
+                      externalMetadataColumnId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[TAXI_OUT]" />
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].Columns[WHEELS_OFF]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="WHEELS_OFF"
+                      externalMetadataColumnId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[WHEELS_OFF]" />
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].Columns[WHEELS_ON]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="WHEELS_ON"
+                      externalMetadataColumnId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[WHEELS_ON]" />
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].Columns[TAXI_IN]"
+                      cachedDataType="i4"
+                      cachedName="TAXI_IN"
+                      externalMetadataColumnId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[TAXI_IN]" />
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].Columns[NEW_SCHED_ARR]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="NEW_SCHED_ARR"
+                      externalMetadataColumnId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Derived Column 2.Outputs[Derived Column Output].Columns[NEW_SCHED_ARR]" />
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].Columns[ARRIVAL_DELAY]"
+                      cachedDataType="i4"
+                      cachedName="ARRIVAL_DELAY"
+                      externalMetadataColumnId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[ARRIVAL_DELAY]" />
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].Columns[DIVERTED]"
+                      cachedDataType="bool"
+                      cachedName="DIVERTED"
+                      externalMetadataColumnId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[DIVERTED]" />
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].Columns[CANCELLED]"
+                      cachedDataType="bool"
+                      cachedName="CANCELLED"
+                      externalMetadataColumnId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].ExternalColumns[Param_12]"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[CANCELLED]" />
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].Columns[CANCELLATION_REASON]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="CANCELLATION_REASON"
+                      externalMetadataColumnId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].ExternalColumns[Param_13]"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[CANCELLATION_REASON]" />
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].Columns[AIR_SYSTEM_DELAY]"
+                      cachedDataType="i4"
+                      cachedName="AIR_SYSTEM_DELAY"
+                      externalMetadataColumnId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].ExternalColumns[Param_14]"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[AIR_SYSTEM_DELAY]" />
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].Columns[SECURITY_DELAY]"
+                      cachedDataType="i4"
+                      cachedName="SECURITY_DELAY"
+                      externalMetadataColumnId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].ExternalColumns[Param_15]"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[SECURITY_DELAY]" />
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].Columns[AIRLINE_DELAY]"
+                      cachedDataType="i4"
+                      cachedName="AIRLINE_DELAY"
+                      externalMetadataColumnId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].ExternalColumns[Param_16]"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[AIRLINE_DELAY]" />
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].Columns[LATE_AIRCRAFT_DELAY]"
+                      cachedDataType="i4"
+                      cachedName="LATE_AIRCRAFT_DELAY"
+                      externalMetadataColumnId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].ExternalColumns[Param_17]"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[LATE_AIRCRAFT_DELAY]" />
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].Columns[WEATHER_DELAY]"
+                      cachedDataType="i4"
+                      cachedName="WEATHER_DELAY"
+                      externalMetadataColumnId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].ExternalColumns[Param_18]"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[WEATHER_DELAY]" />
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].Columns[CREATED]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="CREATED"
+                      externalMetadataColumnId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].ExternalColumns[Param_19]"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Stage_Flight.Outputs[OLE DB Source Output].Columns[CREATED]" />
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].Columns[Flight_ID]"
+                      cachedDataType="i8"
+                      cachedName="Flight_ID"
+                      externalMetadataColumnId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].ExternalColumns[Param_20]"
+                      lineageId="Package\Import data from Stage to NDS_Flight\Lookup PK in NDS_Flight.Outputs[Lookup Match Output].Columns[Flight_ID]" />
+                  </inputColumns>
                   <externalMetadataColumns
-                    isUsed="True" />
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="i4"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      dataType="i4"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      dataType="i4"
+                      name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      dataType="i4"
+                      name="Param_5">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="Param_6">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="Param_7">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                      dataType="i4"
+                      name="Param_8">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="Param_9">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
+                      dataType="i4"
+                      name="Param_10">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
+                      dataType="bool"
+                      name="Param_11">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].ExternalColumns[Param_12]"
+                      dataType="bool"
+                      name="Param_12">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].ExternalColumns[Param_13]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Param_13">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].ExternalColumns[Param_14]"
+                      dataType="i4"
+                      name="Param_14">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].ExternalColumns[Param_15]"
+                      dataType="i4"
+                      name="Param_15">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].ExternalColumns[Param_16]"
+                      dataType="i4"
+                      name="Param_16">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].ExternalColumns[Param_17]"
+                      dataType="i4"
+                      name="Param_17">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].ExternalColumns[Param_18]"
+                      dataType="i4"
+                      name="Param_18">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].ExternalColumns[Param_19]"
+                      dataType="dbTimeStamp"
+                      name="Param_19">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input].ExternalColumns[Param_20]"
+                      dataType="i8"
+                      name="Param_20">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
                 </input>
               </inputs>
               <outputs>
@@ -3919,25 +5307,50 @@ where [refTable].[Date] = ? and [refTable].[Airline] = ? and [refTable].[Flight_
               name="Conditional Split Default Output"
               startId="Package\Import data from Stage to NDS_Flight\Check Cancellation_reason type.Outputs[Conditional Split Default Output]" />
             <path
-              refId="Package\Import data from Stage to NDS_Flight.Paths[Derived Column Output]"
+              refId="Package\Import data from Stage to NDS_Flight.Paths[Conditional Split Default Output1]"
               endId="Package\Import data from Stage to NDS_Flight\Check Cancellation_reason type.Inputs[Conditional Split Input]"
-              name="Derived Column Output"
-              startId="Package\Import data from Stage to NDS_Flight\Add created column.Outputs[Derived Column Output]" />
+              name="Conditional Split Default Output"
+              startId="Package\Import data from Stage to NDS_Flight\Check NK null.Outputs[Conditional Split Default Output]" />
             <path
-              refId="Package\Import data from Stage to NDS_Flight.Paths[Derived Column Output1]"
+              refId="Package\Import data from Stage to NDS_Flight.Paths[Derived Column Output]"
               endId="Package\Import data from Stage to NDS_Flight\Derived Column 1.Inputs[Derived Column Input]"
               name="Derived Column Output"
               startId="Package\Import data from Stage to NDS_Flight\Derived Column.Outputs[Derived Column Output]" />
             <path
-              refId="Package\Import data from Stage to NDS_Flight.Paths[Derived Column Output2]"
+              refId="Package\Import data from Stage to NDS_Flight.Paths[Derived Column Output1]"
               endId="Package\Import data from Stage to NDS_Flight\Derived Column 2.Inputs[Derived Column Input]"
               name="Derived Column Output"
               startId="Package\Import data from Stage to NDS_Flight\Derived Column 1.Outputs[Derived Column Output]" />
             <path
-              refId="Package\Import data from Stage to NDS_Flight.Paths[Derived Column Output3]"
+              refId="Package\Import data from Stage to NDS_Flight.Paths[Derived Column Output2]"
               endId="Package\Import data from Stage to NDS_Flight\Lookup PK in NDS_Flight.Inputs[Lookup Input]"
               name="Derived Column Output"
               startId="Package\Import data from Stage to NDS_Flight\Derived Column 2.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Import data from Stage to NDS_Flight.Paths[Derived Column Output3]"
+              endId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\Import data from Stage to NDS_Flight\Derived Column 3.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Import data from Stage to NDS_Flight.Paths[Derived Column Output4]"
+              endId="Package\Import data from Stage to NDS_Flight\Check NK null.Inputs[Conditional Split Input]"
+              name="Derived Column Output"
+              startId="Package\Import data from Stage to NDS_Flight\Add created column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Import data from Stage to NDS_Flight.Paths[Derived Column Output5]"
+              endId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog 1.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\Import data from Stage to NDS_Flight\Derived Column 4.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Import data from Stage to NDS_Flight.Paths[Has NULL]"
+              endId="Package\Import data from Stage to NDS_Flight\Derived Column 4.Inputs[Derived Column Input]"
+              name="Has NULL"
+              startId="Package\Import data from Stage to NDS_Flight\Check NK null.Outputs[Has NULL]" />
+            <path
+              refId="Package\Import data from Stage to NDS_Flight.Paths[Invalid Reason_type]"
+              endId="Package\Import data from Stage to NDS_Flight\Derived Column 3.Inputs[Derived Column Input]"
+              name="Invalid Reason_type"
+              startId="Package\Import data from Stage to NDS_Flight\Check Cancellation_reason type.Outputs[Invalid Reason_type]" />
             <path
               refId="Package\Import data from Stage to NDS_Flight.Paths[Lookup Match Output]"
               endId="Package\Import data from Stage to NDS_Flight\Update existed rows.Inputs[OLE DB Command Input]"
@@ -4517,90 +5930,44 @@ where [refTable].[Date] = ? and [refTable].[Airline] = ? and [refTable].[Flight_
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="174.4,41.6"
-          Id="Package\Import data from Stage to NDS_Flight\Update existed rows"
-          TopLeft="158.492052760018,717.324418219758" />
-        <NodeLayout
-          Size="228,41.6"
-          Id="Package\Import data from Stage to NDS_Flight\Check Cancellation_reason type"
-          TopLeft="316.666649364764,191.763515885368" />
-        <NodeLayout
-          Size="172,41.6"
-          Id="Package\Import data from Stage to NDS_Flight\Add created column"
-          TopLeft="347.420616028515,106.439333590932" />
-        <EdgeLayout
-          Id="Package\Import data from Stage to NDS_Flight.Paths[Derived Column Output]"
-          TopLeft="432.043632696639,148.039333590932">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,43.7241822944361"
-              Start="0,0"
-              End="0,36.2241822944361">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,36.2241822944361" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <AnnotationLayout
-          Text="Chỗ này sẽ tách lỗi sau"
-          ParentId="Package\Import data from Stage to NDS_Flight"
-          FontInfo="{assembly:Null}"
-          Size="149.6,40"
-          Id="02dff6c5-62aa-47bf-a8a6-d505ca49a775"
-          TopLeft="134.841263600184,224.610694206777" />
-        <AnnotationLayout
-          Text="Chỗ này viết script update sau"
-          ParentId="Package\Import data from Stage to NDS_Flight"
-          FontInfo="{assembly:Null}"
-          Size="188,40"
-          Id="48319b1a-b301-44b6-98ea-88a75e8eb5a2"
-          TopLeft="13.6507925445261,675.321804485598" />
-        <NodeLayout
-          Size="136.8,41.6"
-          Id="Package\Import data from Stage to NDS_Flight\Stage_Flight"
-          TopLeft="360.317461084482,5.09803921121764" />
-        <EdgeLayout
-          Id="Package\Import data from Stage to NDS_Flight.Paths[OLE DB Source Output]"
-          TopLeft="431.069038556498,46.6980392112176">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,59.7412943797146"
-              Start="0,0"
-              End="0,52.2412943797146">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.2412943797146" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="152.8,41.6"
-          Id="Package\Import data from Stage to NDS_Flight\Derived Column"
-          TopLeft="355.55555631244,290.84967308792" />
+          Size="195.2,41.6"
+          Id="Package\Import data from Stage to NDS_Flight\Lookup PK in NDS_Flight"
+          TopLeft="503.462586080208,918.38655426419" />
         <NodeLayout
           Size="162.4,41.6"
           Id="Package\Import data from Stage to NDS_Flight\Derived Column 1"
-          TopLeft="350.793651540398,391.960784110403" />
+          TopLeft="516.160998805653,710.46498553694" />
+        <NodeLayout
+          Size="154.4,41.6"
+          Id="Package\Import data from Stage to NDS_Flight\Insert new rows"
+          TopLeft="725.684808775483,1038.30812273822" />
+        <NodeLayout
+          Size="228,41.6"
+          Id="Package\Import data from Stage to NDS_Flight\Check Cancellation_reason type"
+          TopLeft="320.748282026514,508.738305548538" />
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\Import data from Stage to NDS_Flight\Derived Column"
+          TopLeft="520.922903577694,609.353874514455" />
+        <NodeLayout
+          Size="174.4,41.6"
+          Id="Package\Import data from Stage to NDS_Flight\Update existed rows"
+          TopLeft="323.859400025272,1035.8286196463" />
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\Import data from Stage to NDS_Flight\Derived Column 2"
+          TopLeft="517.748300396333,819.027077042442" />
+        <NodeLayout
+          Size="172,41.6"
+          Id="Package\Import data from Stage to NDS_Flight\Add created column"
+          TopLeft="325.992044554327,106.439333590932" />
+        <NodeLayout
+          Size="136.8,41.6"
+          Id="Package\Import data from Stage to NDS_Flight\Stage_Flight"
+          TopLeft="347.052154933795,2.91316526355294" />
         <EdgeLayout
-          Id="Package\Import data from Stage to NDS_Flight.Paths[Derived Column Output1]"
-          TopLeft="431.974603926419,332.44967308792">
+          Id="Package\Import data from Stage to NDS_Flight.Paths[Derived Column Output]"
+          TopLeft="597.341951191673,650.953874514456">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4620,24 +5987,56 @@ where [refTable].[Date] = ? and [refTable].[Airline] = ? and [refTable].[Flight_
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="162.4,41.6"
-          Id="Package\Import data from Stage to NDS_Flight\Derived Column 2"
-          TopLeft="352.380953131079,500.522875615905" />
         <EdgeLayout
-          Id="Package\Import data from Stage to NDS_Flight.Paths[Derived Column Output2]"
-          TopLeft="432.787302335739,433.560784110403">
+          Id="Package\Import data from Stage to NDS_Flight.Paths[Conditional Split Default Output]"
+          TopLeft="471.414948693181,550.338305548538">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,66.9620915055023"
+              EndConnector="125.907954884514,59.0155689659176"
               Start="0,0"
-              End="0,59.4620915055023">
+              End="125.907954884514,51.5155689659176">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,59.4620915055023" />
+                    End="0,19.852982578559" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.852982578559"
+                    Point2="0,23.852982578559"
+                    Point3="4,23.852982578559" />
+                  <mssgle:LineSegment
+                    End="121.907954884514,23.852982578559" />
+                  <mssgle:CubicBezierSegment
+                    Point1="121.907954884514,23.852982578559"
+                    Point2="125.907954884514,23.852982578559"
+                    Point3="125.907954884514,27.852982578559" />
+                  <mssgle:LineSegment
+                    End="125.907954884514,51.5155689659176" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-7.65992880774314,28.852982578559,141.2278125,11.658203125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import data from Stage to NDS_Flight.Paths[OLE DB Source Output]"
+          TopLeft="413.722099744061,44.5131652635529">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,61.9261683273791"
+              Start="0,0"
+              End="0,54.4261683273791">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.4261683273791" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4646,13 +6045,81 @@ where [refTable].[Date] = ? and [refTable].[Airline] = ? and [refTable].[Flight_
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="195.2,41.6"
-          Id="Package\Import data from Stage to NDS_Flight\Lookup PK in NDS_Flight"
-          TopLeft="338.095238814954,599.882352837653" />
         <EdgeLayout
-          Id="Package\Import data from Stage to NDS_Flight.Paths[Derived Column Output3]"
-          TopLeft="434.638095973016,542.122875615905">
+          Id="Package\Import data from Stage to NDS_Flight.Paths[Lookup No Match Output]"
+          TopLeft="632.262586080208,959.986554264191">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="170.622222695275,78.3215684740278"
+              Start="0,0"
+              End="170.622222695275,70.8215684740278">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.7106838211918" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.7106838211918"
+                    Point2="0,31.7106838211918"
+                    Point3="4,31.7106838211918" />
+                  <mssgle:LineSegment
+                    End="166.622222695275,31.7106838211918" />
+                  <mssgle:CubicBezierSegment
+                    Point1="166.622222695275,31.7106838211918"
+                    Point2="170.622222695275,31.7106838211918"
+                    Point3="170.622222695275,35.7106838211918" />
+                  <mssgle:LineSegment
+                    End="170.622222695275,70.8215684740278" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="29.5047246288875,36.7106838211918,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import data from Stage to NDS_Flight.Paths[Lookup Match Output]"
+          TopLeft="569.862586080209,959.986554264191">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-158.803186054936,75.8420653821047"
+              Start="0,0"
+              End="-158.803186054936,68.3420653821047">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.7067874473888" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.7067874473888"
+                    Point2="0,30.7067874473888"
+                    Point3="-4,30.7067874473888" />
+                  <mssgle:LineSegment
+                    End="-154.803186054936,30.7067874473888" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-154.803186054936,30.7067874473888"
+                    Point2="-158.803186054936,30.7067874473888"
+                    Point3="-158.803186054936,34.7067874473888" />
+                  <mssgle:LineSegment
+                    End="-158.803186054936,68.3420653821047" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-127.592979746218,35.7067874473888,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import data from Stage to NDS_Flight.Paths[Derived Column Output2]"
+          TopLeft="600.00544323827,860.627077042442">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4673,121 +6140,219 @@ where [refTable].[Date] = ? and [refTable].[Airline] = ? and [refTable].[Flight_
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Import data from Stage to NDS_Flight.Paths[Lookup Match Output]"
-          TopLeft="404.495238814954,641.482352837653">
+          Id="Package\Import data from Stage to NDS_Flight.Paths[Derived Column Output1]"
+          TopLeft="598.154649600993,752.06498553694">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-158.803186054936,75.8420653821048"
+              EndConnector="0,66.9620915055024"
               Start="0,0"
-              End="-158.803186054936,68.3420653821048">
+              End="0,59.4620915055024">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26.7067874473888" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26.7067874473888"
-                    Point2="0,30.7067874473888"
-                    Point3="-4,30.7067874473888" />
+                    End="0,59.4620915055024" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\Import data from Stage to NDS_Flight\Derived Column 3"
+          TopLeft="129.081632927842,608.833613098741" />
+        <EdgeLayout
+          Id="Package\Import data from Stage to NDS_Flight.Paths[Invalid Reason_type]"
+          TopLeft="398.081615359847,550.338305548538">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-187.799982432005,58.4953075502031"
+              Start="0,0"
+              End="-187.799982432005,50.9953075502031">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="-154.803186054936,30.7067874473888" />
+                    End="0,19.642702703218" />
                   <mssgle:CubicBezierSegment
-                    Point1="-154.803186054936,30.7067874473888"
-                    Point2="-158.803186054936,30.7067874473888"
-                    Point3="-158.803186054936,34.7067874473888" />
+                    Point1="0,19.642702703218"
+                    Point2="0,23.642702703218"
+                    Point3="-4,23.642702703218" />
                   <mssgle:LineSegment
-                    End="-158.803186054936,68.3420653821048" />
+                    End="-183.799982432005,23.642702703218" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-183.799982432005,23.642702703218"
+                    Point2="-187.799982432005,23.642702703218"
+                    Point3="-187.799982432005,27.642702703218" />
+                  <mssgle:LineSegment
+                    End="-187.799982432005,50.9953075502031" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-127.592979746218,35.7067874473888,96.3827734375,11.609375"
+              BoundingBox="-139.312940434753,28.642702703218,90.8258984375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="154.4,41.6"
-          Id="Package\Import data from Stage to NDS_Flight\Insert new rows"
-          TopLeft="560.317461510229,719.803921311681" />
+          Size="173.6,41.6"
+          Id="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog"
+          TopLeft="125.538775748492,702.751260118018" />
         <EdgeLayout
-          Id="Package\Import data from Stage to NDS_Flight.Paths[Lookup No Match Output]"
-          TopLeft="466.895238814954,641.482352837653">
+          Id="Package\Import data from Stage to NDS_Flight.Paths[Derived Column Output3]"
+          TopLeft="211.310204338167,650.433613098741">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="170.622222695275,78.3215684740279"
+              EndConnector="0,52.317647019277"
               Start="0,0"
-              End="170.622222695275,70.8215684740279">
+              End="0,44.817647019277">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,27.7106838211918" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,27.7106838211918"
-                    Point2="0,31.7106838211918"
-                    Point3="4,31.7106838211918" />
-                  <mssgle:LineSegment
-                    End="166.622222695275,31.7106838211918" />
-                  <mssgle:CubicBezierSegment
-                    Point1="166.622222695275,31.7106838211918"
-                    Point2="170.622222695275,31.7106838211918"
-                    Point3="170.622222695275,35.7106838211918" />
-                  <mssgle:LineSegment
-                    End="170.622222695275,70.8215684740279" />
+                    End="0,44.817647019277" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="29.5047246288876,36.7106838211918,111.6127734375,11.609375"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Chuẩn hoá lại các cột thời gian theo dạng chuỗi HH:MM"
+          ParentId="Package\Import data from Stage to NDS_Flight"
+          FontInfo="{assembly:Null}"
+          Size="260,60"
+          Id="df0e7f4a-595c-41bc-93c8-a8269c7e823a"
+          TopLeft="720.281634119935,730.974789594801" />
+        <NodeLayout
+          Size="143.2,41.6"
+          Id="Package\Import data from Stage to NDS_Flight\Check NK null"
+          TopLeft="342.857143586996,219.579831740303" />
+        <EdgeLayout
+          Id="Package\Import data from Stage to NDS_Flight.Paths[Derived Column Output4]"
+          TopLeft="413.224594070662,148.039333590932">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,71.5404981493708"
+              Start="0,0"
+              End="0,64.0404981493708">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,64.0404981493708" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Import data from Stage to NDS_Flight.Paths[Conditional Split Default Output]"
-          TopLeft="431.311102838602,233.363515885368">
+          Id="Package\Import data from Stage to NDS_Flight.Paths[Conditional Split Default Output1]"
+          TopLeft="435.869379473422,261.179831740303">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,57.4861572025512"
+              EndConnector="0,247.558473808235"
               Start="0,0"
-              End="0,49.9861572025512">
+              End="0,240.058473808235">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,49.9861572025512" />
+                    End="0,240.058473808235" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-70.61390625,19.1639770387756,141.2278125,11.658203125"
+              BoundingBox="-70.61390625,114.200135341617,141.2278125,11.658203125"
               RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\Import data from Stage to NDS_Flight\Derived Column 4"
+          TopLeft="131.632653341436,313.42857121695" />
+        <EdgeLayout
+          Id="Package\Import data from Stage to NDS_Flight.Paths[Has NULL]"
+          TopLeft="391.923810253662,261.179831740303">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-179.091156912227,52.2487394766471"
+              Start="0,0"
+              End="-179.091156912227,44.7487394766471">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.2458962733769" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.2458962733769"
+                    Point2="0,21.2458962733769"
+                    Point3="-4,21.2458962733769" />
+                  <mssgle:LineSegment
+                    End="-175.091156912227,21.2458962733769" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-175.091156912227,21.2458962733769"
+                    Point2="-179.091156912227,21.2458962733769"
+                    Point3="-179.091156912227,25.2458962733769" />
+                  <mssgle:LineSegment
+                    End="-179.091156912227,44.7487394766471" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-111.552512049863,26.2458962733769,44.0138671875,9.421875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="183.2,41.6"
+          Id="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog 1"
+          TopLeft="118.39591859043,411.252661192039" />
+        <EdgeLayout
+          Id="Package\Import data from Stage to NDS_Flight.Paths[Derived Column Output5]"
+          TopLeft="211.414285965933,355.02857121695">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,56.224089975089"
+              Start="0,0"
+              End="0,48.724089975089">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.724089975089" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Import data from Stage to NDS_Flight\Stage_Flight">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Import data from Stage to NDS_Flight\Lookup PK in NDS_Flight">
     <Properties>
@@ -4804,7 +6369,7 @@ where [refTable].[Date] = ? and [refTable].[Airline] = ? and [refTable].[Flight_
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -4813,6 +6378,45 @@ where [refTable].[Date] = ? and [refTable].[Airline] = ? and [refTable].[Flight_
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Import data from Stage to NDS_Flight\Insert new rows">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import data from Stage to NDS_Flight\Stage_Flight">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog 1">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
