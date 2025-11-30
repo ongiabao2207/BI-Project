@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="StageToNDS"
   DTS:PackageType="5"
-  DTS:VersionBuild="123"
-  DTS:VersionGUID="{DCA58B7E-012C-4A28-912D-242E79E00203}">
+  DTS:VersionBuild="131"
+  DTS:VersionGUID="{B16047E3-F16F-484E-B795-18E8EE3DACE0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -400,7 +400,7 @@ where [refTable].[IATA_Code] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Import data from Stage to NDS_Airline\70:invalid};</property>
+                  name="ParameterMap">#{Package\Import data from Stage to NDS_Airline\540:invalid};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -5420,45 +5420,45 @@ WHERE
         <NodeLayout
           Size="118.4,41.6"
           Id="Package\Get CET"
-          TopLeft="568.333302280971,35.533333086239" />
+          TopLeft="458.611079825179,75.3617644238768" />
         <NodeLayout
           Size="260.8,41.6"
           Id="Package\Import data from Stage to NDS_Airline"
-          TopLeft="353.333314028052,155.999998915196" />
+          TopLeft="237.261885209538,197.527776656573" />
         <NodeLayout
           Size="264,41.6"
           Id="Package\Import data from Stage to NDS_Airport"
-          TopLeft="654.99996421238,155.999998915195" />
+          TopLeft="538.928535393866,197.527776656572" />
         <NodeLayout
           Size="257.6,41.6"
           Id="Package\Import data from Stage to NDS_Flight"
-          TopLeft="507.499972271423,272.999998101592" />
+          TopLeft="391.428543452909,314.527775842969" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="609.133302280971,77.133333086239">
+          TopLeft="499.411079825179,116.961764423877">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-125.399988252919,78.866665828957"
+              EndConnector="-131.749194615641,80.5660122326962"
               Start="0,0"
-              End="-125.399988252919,71.366665828957">
+              End="-131.749194615641,73.0660122326962">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,28.1775996582144" />
+                    End="0,28.87093299094" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,28.1775996582144"
-                    Point2="0,32.1775996582144"
-                    Point3="-4,32.1775996582144" />
+                    Point1="0,28.87093299094"
+                    Point2="0,32.87093299094"
+                    Point3="-4,32.87093299094" />
                   <mssgle:LineSegment
-                    End="-121.399988252919,32.1775996582144" />
+                    End="-127.749194615641,32.87093299094" />
                   <mssgle:CubicBezierSegment
-                    Point1="-121.399988252919,32.1775996582144"
-                    Point2="-125.399988252919,32.1775996582144"
-                    Point3="-125.399988252919,36.1775996582144" />
+                    Point1="-127.749194615641,32.87093299094"
+                    Point2="-131.749194615641,32.87093299094"
+                    Point3="-131.749194615641,36.87093299094" />
                   <mssgle:LineSegment
-                    End="-125.399988252919,71.366665828957" />
+                    End="-131.749194615641,73.0660122326962" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5469,30 +5469,30 @@ WHERE
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="645.933302280971,77.133333086239">
+          TopLeft="536.211079825179,116.961764423877">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="141.066661931409,78.866665828956"
+              EndConnector="134.717455568687,80.5660122326952"
               Start="0,0"
-              End="141.066661931409,71.366665828956">
+              End="134.717455568687,73.0660122326952">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,28.1775996582141" />
+                    End="0,28.8709329909397" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,28.1775996582141"
-                    Point2="0,32.1775996582141"
-                    Point3="4,32.1775996582141" />
+                    Point1="0,28.8709329909397"
+                    Point2="0,32.8709329909397"
+                    Point3="4,32.8709329909397" />
                   <mssgle:LineSegment
-                    End="137.066661931409,32.1775996582141" />
+                    End="130.717455568687,32.8709329909397" />
                   <mssgle:CubicBezierSegment
-                    Point1="137.066661931409,32.1775996582141"
-                    Point2="141.066661931409,32.1775996582141"
-                    Point3="141.066661931409,36.1775996582141" />
+                    Point1="130.717455568687,32.8709329909397"
+                    Point2="134.717455568687,32.8709329909397"
+                    Point3="134.717455568687,36.8709329909397" />
                   <mssgle:LineSegment
-                    End="141.066661931409,71.366665828956" />
+                    End="134.717455568687,73.0660122326952" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5503,7 +5503,7 @@ WHERE
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="483.733314028052,197.599998915196">
+          TopLeft="367.661885209538,239.127776656573">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -5537,7 +5537,7 @@ WHERE
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="786.99996421238,197.599998915195">
+          TopLeft="670.928535393866,239.127776656572">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -5575,7 +5575,7 @@ WHERE
           FontInfo="{assembly:Null}"
           Size="440.8,40"
           Id="855902e7-940f-4bb5-8aae-ae25c9e278c6"
-          TopLeft="79.1666623411909,32.0666664436791" />
+          TopLeft="297.21768232608,5.62058803548756" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -5593,13 +5593,39 @@ WHERE
           Id="Package\Import data from Stage to NDS_Airline\Insert new rows"
           TopLeft="499.166639393404,300.066664780312" />
         <NodeLayout
-          Size="170.4,41.6"
+          Size="140,41.6"
+          Id="Package\Import data from Stage to NDS_Airline\Stage_Airline"
+          TopLeft="342.999994888902,30.599999627471" />
+        <NodeLayout
+          Size="172,41.6"
           Id="Package\Import data from Stage to NDS_Airline\Add created column"
           TopLeft="327.49998210619,114.733332724638" />
         <NodeLayout
           Size="200,41.6"
           Id="Package\Import data from Stage to NDS_Airline\Lookup PK in NDS_Airline"
           TopLeft="312.499982925754,190.666665340795" />
+        <EdgeLayout
+          Id="Package\Import data from Stage to NDS_Airline.Paths[OLE DB Source Output]"
+          TopLeft="413.249988497546,72.199999627471">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42.533333097167"
+              Start="0,0"
+              End="0,35.033333097167">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.033333097167" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Import data from Stage to NDS_Airline.Paths[Lookup No Match Output]"
           TopLeft="444.499982925754,232.266665340795">
@@ -5674,44 +5700,18 @@ WHERE
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Import data from Stage to NDS_Airline.Paths[Derived Column Output]"
-          TopLeft="412.599982515972,156.333332724638">
+          TopLeft="412.999982515972,156.333332724638">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,34.3333326161572"
+              EndConnector="0,34.333332616157"
               Start="0,0"
-              End="0,26.8333326161572">
+              End="0,26.833332616157">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26.8333326161572" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="140,41.6"
-          Id="Package\Import data from Stage to NDS_Airline\Stage_Airline"
-          TopLeft="342.999994888902,30.599999627471" />
-        <EdgeLayout
-          Id="Package\Import data from Stage to NDS_Airline.Paths[OLE DB Source Output]"
-          TopLeft="412.849988497546,72.199999627471">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,42.533333097167"
-              Start="0,0"
-              End="0,35.033333097167">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,35.033333097167" />
+                    End="0,26.833332616157" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5723,6 +5723,19 @@ WHERE
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import data from Stage to NDS_Airline\Stage_Airline">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Import data from Stage to NDS_Airport">
     <LayoutInfo>
@@ -5731,17 +5744,17 @@ WHERE
         <NodeLayout
           Size="201.6,41.6"
           Id="Package\Import data from Stage to NDS_Airport\Lookup PK in NDS_Airport"
-          TopLeft="386.999994233251,240.99999640882" />
+          TopLeft="394.999994114042,240.99999640882" />
         <NodeLayout
-          Size="151.2,41.6"
+          Size="154.4,41.6"
           Id="Package\Import data from Stage to NDS_Airport\Insert new rows"
           TopLeft="577.999991387128,344.59999512732" />
         <NodeLayout
-          Size="172.8,41.6"
+          Size="174.4,41.6"
           Id="Package\Import data from Stage to NDS_Airport\Update existed rows"
           TopLeft="262.999996080995,343.999994874001" />
         <NodeLayout
-          Size="170.4,41.6"
+          Size="172,41.6"
           Id="Package\Import data from Stage to NDS_Airport\Add created column"
           TopLeft="403.999993979931,141.999997884035" />
         <NodeLayout
@@ -5750,121 +5763,117 @@ WHERE
           TopLeft="415.999993801117,41.9999993741512" />
         <EdgeLayout
           Id="Package\Import data from Stage to NDS_Airport.Paths[Lookup Match Output]"
-          TopLeft="487.799994233251,282.59999640882">
+          TopLeft="463.533327447375,282.59999640882">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-138.399998152256,61.3999984651804"
+              EndConnector="-113.33333136638,61.399998465181"
               Start="0,0"
-              End="-138.399998152256,53.8999984651804">
+              End="-113.33333136638,53.899998465181">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26.6999992325902" />
+                    End="0,20.8500781189788" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,26.6999992325902"
-                    Point2="0,30.6999992325902"
-                    Point3="-4,30.6999992325902" />
+                    Point1="0,20.8500781189788"
+                    Point2="0,24.8500781189788"
+                    Point3="-4,24.8500781189788" />
                   <mssgle:LineSegment
-                    End="-134.399998152256,30.6999992325902" />
+                    End="-109.33333136638,24.8500781189788" />
                   <mssgle:CubicBezierSegment
-                    Point1="-134.399998152256,30.6999992325902"
-                    Point2="-138.399998152256,30.6999992325902"
-                    Point3="-138.399998152256,34.6999992325902" />
+                    Point1="-109.33333136638,24.8500781189788"
+                    Point2="-113.33333136638,24.8500781189788"
+                    Point3="-113.33333136638,28.8500781189788" />
                   <mssgle:LineSegment
-                    End="-138.399998152256,53.8999984651804" />
+                    End="-113.33333136638,53.899998465181" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-117.391385794878,35.6999992325902,96.3827734375,11.609375"
+              BoundingBox="-104.85805240194,29.8500781189788,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Import data from Stage to NDS_Airport.Paths[Derived Column Output]"
-          TopLeft="488.499994106591,183.599997884035">
+          TopLeft="492.899994046986,183.599997884035">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,57.3999985247851"
+              EndConnector="0,57.399998524785"
               Start="0,0"
-              End="0,49.8999985247851">
+              End="0,49.899998524785">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,49.8999985247851" />
+                    End="0,49.899998524785" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Import data from Stage to NDS_Airport.Paths[OLE DB Source Output]"
-          TopLeft="488.199993890524,83.5999993741513">
+          TopLeft="488.599993890524,83.5999993741512">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,58.3999985098839"
+              EndConnector="0,58.3999985098838"
               Start="0,0"
-              End="0,50.8999985098839">
+              End="0,50.8999985098838">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,50.8999985098839" />
+                    End="0,50.8999985098838" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Import data from Stage to NDS_Airport.Paths[Lookup No Match Output]"
-          TopLeft="520.066660899917,282.59999640882">
+          TopLeft="528.066660780708,282.59999640882">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="133.533330487211,61.9999987185001"
+              EndConnector="127.13333060642,61.9999987185"
               Start="0,0"
-              End="133.533330487211,54.4999987185001">
+              End="127.13333060642,54.4999987185">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,21.0929128671725" />
+                    End="0,21.0929128671724" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,21.0929128671725"
-                    Point2="0,25.0929128671725"
-                    Point3="4,25.0929128671725" />
+                    Point1="0,21.0929128671724"
+                    Point2="0,25.0929128671724"
+                    Point3="4,25.0929128671724" />
                   <mssgle:LineSegment
-                    End="129.533330487211,25.0929128671725" />
+                    End="123.13333060642,25.0929128671724" />
                   <mssgle:CubicBezierSegment
-                    Point1="129.533330487211,25.0929128671725"
-                    Point2="133.533330487211,25.0929128671725"
-                    Point3="133.533330487211,29.0929128671725" />
+                    Point1="123.13333060642,25.0929128671724"
+                    Point2="127.13333060642,25.0929128671724"
+                    Point3="127.13333060642,29.0929128671724" />
                   <mssgle:LineSegment
-                    End="133.533330487211,54.4999987185001" />
+                    End="127.13333060642,54.4999987185" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="10.9602785248555,30.0929128671725,111.6127734375,11.609375"
+              BoundingBox="7.76027858445985,30.0929128671724,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -5926,6 +5935,10 @@ WHERE
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="136.8,41.6"
+          Id="Package\Import data from Stage to NDS_Flight\Stage_Flight"
+          TopLeft="347.052154933795,2.91316526355294" />
+        <NodeLayout
           Size="195.2,41.6"
           Id="Package\Import data from Stage to NDS_Flight\Lookup PK in NDS_Flight"
           TopLeft="503.462586080208,918.38655426419" />
@@ -5933,6 +5946,22 @@ WHERE
           Size="162.4,41.6"
           Id="Package\Import data from Stage to NDS_Flight\Derived Column 1"
           TopLeft="516.160998805653,710.46498553694" />
+        <NodeLayout
+          Size="172,41.6"
+          Id="Package\Import data from Stage to NDS_Flight\Add created column"
+          TopLeft="325.992044554327,106.439333590932" />
+        <NodeLayout
+          Size="143.2,41.6"
+          Id="Package\Import data from Stage to NDS_Flight\Check NK null"
+          TopLeft="342.857143586996,219.579831740303" />
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\Import data from Stage to NDS_Flight\Derived Column 4"
+          TopLeft="131.632653341436,313.42857121695" />
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\Import data from Stage to NDS_Flight\Derived Column 2"
+          TopLeft="517.748300396333,819.027077042442" />
         <NodeLayout
           Size="154.4,41.6"
           Id="Package\Import data from Stage to NDS_Flight\Insert new rows"
@@ -5942,83 +5971,25 @@ WHERE
           Id="Package\Import data from Stage to NDS_Flight\Check Cancellation_reason type"
           TopLeft="320.748282026514,508.738305548538" />
         <NodeLayout
+          Size="183.2,41.6"
+          Id="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog 1"
+          TopLeft="118.39591859043,411.252661192039" />
+        <NodeLayout
+          Size="173.6,41.6"
+          Id="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog"
+          TopLeft="125.538775748492,702.751260118018" />
+        <NodeLayout
           Size="152.8,41.6"
           Id="Package\Import data from Stage to NDS_Flight\Derived Column"
           TopLeft="520.922903577694,609.353874514455" />
         <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\Import data from Stage to NDS_Flight\Derived Column 3"
+          TopLeft="129.081632927842,608.833613098741" />
+        <NodeLayout
           Size="174.4,41.6"
           Id="Package\Import data from Stage to NDS_Flight\Update existed rows"
           TopLeft="323.859400025272,1035.8286196463" />
-        <NodeLayout
-          Size="162.4,41.6"
-          Id="Package\Import data from Stage to NDS_Flight\Derived Column 2"
-          TopLeft="517.748300396333,819.027077042442" />
-        <NodeLayout
-          Size="172,41.6"
-          Id="Package\Import data from Stage to NDS_Flight\Add created column"
-          TopLeft="325.992044554327,106.439333590932" />
-        <NodeLayout
-          Size="136.8,41.6"
-          Id="Package\Import data from Stage to NDS_Flight\Stage_Flight"
-          TopLeft="347.052154933795,2.91316526355294" />
-        <EdgeLayout
-          Id="Package\Import data from Stage to NDS_Flight.Paths[Derived Column Output]"
-          TopLeft="597.341951191673,650.953874514456">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,59.5111110224832"
-              Start="0,0"
-              End="0,52.0111110224832">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.0111110224832" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Import data from Stage to NDS_Flight.Paths[Conditional Split Default Output]"
-          TopLeft="471.414948693181,550.338305548538">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="125.907954884514,59.0155689659176"
-              Start="0,0"
-              End="125.907954884514,51.5155689659176">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,19.852982578559" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,19.852982578559"
-                    Point2="0,23.852982578559"
-                    Point3="4,23.852982578559" />
-                  <mssgle:LineSegment
-                    End="121.907954884514,23.852982578559" />
-                  <mssgle:CubicBezierSegment
-                    Point1="121.907954884514,23.852982578559"
-                    Point2="125.907954884514,23.852982578559"
-                    Point3="125.907954884514,27.852982578559" />
-                  <mssgle:LineSegment
-                    End="125.907954884514,51.5155689659176" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-7.65992880774314,28.852982578559,141.2278125,11.658203125"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\Import data from Stage to NDS_Flight.Paths[OLE DB Source Output]"
           TopLeft="413.722099744061,44.5131652635529">
@@ -6038,7 +6009,9 @@ WHERE
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6114,54 +6087,6 @@ WHERE
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Import data from Stage to NDS_Flight.Paths[Derived Column Output2]"
-          TopLeft="600.00544323827,860.627077042442">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,57.7594772217479"
-              Start="0,0"
-              End="0,50.2594772217479">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,50.2594772217479" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Import data from Stage to NDS_Flight.Paths[Derived Column Output1]"
-          TopLeft="598.154649600993,752.06498553694">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,66.9620915055024"
-              Start="0,0"
-              End="0,59.4620915055024">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,59.4620915055024" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="162.4,41.6"
-          Id="Package\Import data from Stage to NDS_Flight\Derived Column 3"
-          TopLeft="129.081632927842,608.833613098741" />
-        <EdgeLayout
           Id="Package\Import data from Stage to NDS_Flight.Paths[Invalid Reason_type]"
           TopLeft="398.081615359847,550.338305548538">
           <EdgeLayout.Curve>
@@ -6197,93 +6122,6 @@ WHERE
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="173.6,41.6"
-          Id="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog"
-          TopLeft="125.538775748492,702.751260118018" />
-        <EdgeLayout
-          Id="Package\Import data from Stage to NDS_Flight.Paths[Derived Column Output3]"
-          TopLeft="211.310204338167,650.433613098741">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,52.317647019277"
-              Start="0,0"
-              End="0,44.817647019277">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,44.817647019277" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <AnnotationLayout
-          Text="Chuẩn hoá lại các cột thời gian theo dạng chuỗi HH:MM"
-          ParentId="Package\Import data from Stage to NDS_Flight"
-          FontInfo="{assembly:Null}"
-          Size="260,60"
-          Id="df0e7f4a-595c-41bc-93c8-a8269c7e823a"
-          TopLeft="720.281634119935,730.974789594801" />
-        <NodeLayout
-          Size="143.2,41.6"
-          Id="Package\Import data from Stage to NDS_Flight\Check NK null"
-          TopLeft="342.857143586996,219.579831740303" />
-        <EdgeLayout
-          Id="Package\Import data from Stage to NDS_Flight.Paths[Derived Column Output4]"
-          TopLeft="413.224594070662,148.039333590932">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,71.5404981493708"
-              Start="0,0"
-              End="0,64.0404981493708">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,64.0404981493708" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Import data from Stage to NDS_Flight.Paths[Conditional Split Default Output1]"
-          TopLeft="435.869379473422,261.179831740303">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,247.558473808235"
-              Start="0,0"
-              End="0,240.058473808235">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,240.058473808235" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-70.61390625,114.200135341617,141.2278125,11.658203125"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="162.4,41.6"
-          Id="Package\Import data from Stage to NDS_Flight\Derived Column 4"
-          TopLeft="131.632653341436,313.42857121695" />
         <EdgeLayout
           Id="Package\Import data from Stage to NDS_Flight.Paths[Has NULL]"
           TopLeft="391.923810253662,261.179831740303">
@@ -6320,10 +6158,6 @@ WHERE
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="183.2,41.6"
-          Id="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog 1"
-          TopLeft="118.39591859043,411.252661192039" />
         <EdgeLayout
           Id="Package\Import data from Stage to NDS_Flight.Paths[Derived Column Output5]"
           TopLeft="211.414285965933,355.02857121695">
@@ -6343,19 +6177,221 @@ WHERE
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import data from Stage to NDS_Flight.Paths[Derived Column Output4]"
+          TopLeft="413.224594070662,148.039333590932">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,71.5404981493708"
+              Start="0,0"
+              End="0,64.0404981493708">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,64.0404981493708" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import data from Stage to NDS_Flight.Paths[Derived Column Output3]"
+          TopLeft="211.310204338167,650.433613098741">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52.317647019277"
+              Start="0,0"
+              End="0,44.817647019277">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.817647019277" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import data from Stage to NDS_Flight.Paths[Derived Column Output2]"
+          TopLeft="600.00544323827,860.627077042442">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,57.7594772217479"
+              Start="0,0"
+              End="0,50.2594772217479">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.2594772217479" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import data from Stage to NDS_Flight.Paths[Derived Column Output1]"
+          TopLeft="598.154649600993,752.06498553694">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,66.9620915055024"
+              Start="0,0"
+              End="0,59.4620915055024">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,59.4620915055024" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import data from Stage to NDS_Flight.Paths[Derived Column Output]"
+          TopLeft="597.341951191673,650.953874514456">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.5111110224832"
+              Start="0,0"
+              End="0,52.0111110224832">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.0111110224832" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import data from Stage to NDS_Flight.Paths[Conditional Split Default Output1]"
+          TopLeft="435.869379473422,261.179831740303">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,247.558473808235"
+              Start="0,0"
+              End="0,240.058473808235">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,240.058473808235" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-70.61390625,114.200135341617,141.2278125,11.658203125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import data from Stage to NDS_Flight.Paths[Conditional Split Default Output]"
+          TopLeft="471.414948693181,550.338305548538">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="125.907954884514,59.0155689659176"
+              Start="0,0"
+              End="125.907954884514,51.5155689659176">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.852982578559" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.852982578559"
+                    Point2="0,23.852982578559"
+                    Point3="4,23.852982578559" />
+                  <mssgle:LineSegment
+                    End="121.907954884514,23.852982578559" />
+                  <mssgle:CubicBezierSegment
+                    Point1="121.907954884514,23.852982578559"
+                    Point2="125.907954884514,23.852982578559"
+                    Point3="125.907954884514,27.852982578559" />
+                  <mssgle:LineSegment
+                    End="125.907954884514,51.5155689659176" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-7.65992880774314,28.852982578559,141.2278125,11.658203125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Chuẩn hoá lại các cột thời gian theo dạng chuỗi HH:MM"
+          ParentId="Package\Import data from Stage to NDS_Flight"
+          FontInfo="{assembly:Null}"
+          Size="260,NaN"
+          Id="df0e7f4a-595c-41bc-93c8-a8269c7e823a"
+          TopLeft="720.281634119935,730.974789594801" />
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import data from Stage to NDS_Flight\Stage_Flight">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Import data from Stage to NDS_Flight\Lookup PK in NDS_Flight">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -6386,32 +6422,6 @@ WHERE
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Import data from Stage to NDS_Flight\Stage_Flight">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog 1">
     <Properties>
       <Property>
@@ -6425,7 +6435,7 @@ WHERE
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Import data from Stage to NDS_Airline\Stage_Airline">
+    design-time-name="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

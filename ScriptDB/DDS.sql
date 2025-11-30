@@ -149,3 +149,11 @@ ADD
     start_date    DATE        NOT NULL DEFAULT '1900-01-01', 
     end_date      DATE        NOT NULL DEFAULT '9999-12-31', 
     current_flag  CHAR(1)     NOT NULL DEFAULT 'Y';         -- Cờ hiệu hiện hành
+
+
+Select * from Dim_Airline;
+Select * from Dim_Airport;
+Select * from Dim_Reason;
+Select * from Dim_Date;
+Select * from Dim_Time;
+Select * from Fact_Flight;

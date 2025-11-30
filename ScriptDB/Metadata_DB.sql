@@ -41,7 +41,7 @@ CREATE TABLE Flight_ETL_ErrorLog (
     Error_Value VARCHAR(200) NULL, -- Lưu trữ giá trị gây lỗi
     
     -- 3. Thời gian và quá trình
-    SSIS_Package VARCHAR(100) NULL, -- Tên bước trong SSIS gây ra lỗi (ví dụ: Conditional Split, OLE DB Destination)
+    SSIS_Package VARCHAR(100) NULL, -- Tên package trong SSIS gây ra lỗi
     Error_Timestamp DATETIME NOT NULL DEFAULT GETDATE()
 );
 
