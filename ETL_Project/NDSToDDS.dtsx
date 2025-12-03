@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="NDSToDDS"
   DTS:PackageType="5"
-  DTS:VersionBuild="18"
-  DTS:VersionGUID="{EB7A3BAC-B993-4C45-ADDA-C829C52976CE}">
+  DTS:VersionBuild="25"
+  DTS:VersionGUID="{A04E4D92-F9C0-402C-A5CF-F12370ED9D82}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -101,7 +101,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Execute SQL Task"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -125,7 +125,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Get CET"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -147,12 +147,12 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Load DimDate"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{089DD635-97CC-4F60-BD45-B137F3EC30F2}"
-          SQLTask:SqlStatementSource="DELETE FROM Dim_Date;&#xA;&#xA;DECLARE @StartDate DATE = '2020-01-01';&#xA;DECLARE @EndDate   DATE = '2030-12-31';&#xA;&#xA;WHILE @StartDate &lt;= @EndDate&#xA;BEGIN&#xA;    INSERT INTO Dim_Date&#xA;    (&#xA;        Full_Date, &#xA;        Day, &#xA;        Month, &#xA;        Quarter, &#xA;        Year, &#xA;        Season, &#xA;        Day_of_week, &#xA;        Is_Weekend&#xA;    )&#xA;    SELECT&#xA;        @StartDate AS Full_Date,&#xA;        DAY(@StartDate) AS Day,&#xA;        MONTH(@StartDate) AS Month,&#xA;        DATEPART(QUARTER, @StartDate) AS Quarter,&#xA;        YEAR(@StartDate) AS Year,&#xA;        CASE &#xA;            WHEN MONTH(@StartDate) BETWEEN 3 AND 5 THEN 'Spring'&#xA;            WHEN MONTH(@StartDate) BETWEEN 6 AND 8 THEN 'Summer'&#xA;            WHEN MONTH(@StartDate) BETWEEN 9 AND 11 THEN 'Autumn'&#xA;            ELSE 'Winter'&#xA;        END AS Season,&#xA;        DATEPART(WEEKDAY, @StartDate) AS Day_of_week,&#xA;        CASE WHEN DATEPART(WEEKDAY, @StartDate) IN (1,7) THEN 1 ELSE 0 END AS Is_Weekend;&#xA;&#xA;    SET @StartDate = DATEADD(DAY, 1, @StartDate);&#xA;END;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="DELETE FROM Dim_Date;&#xA;&#xA;DECLARE @StartDate DATE = '1900-01-01';&#xA;DECLARE @EndDate   DATE = '2100-12-31';&#xA;&#xA;WHILE @StartDate &lt;= @EndDate&#xA;BEGIN&#xA;    INSERT INTO Dim_Date&#xA;    (&#xA;        Full_Date, &#xA;        Day, &#xA;        Month, &#xA;        Quarter, &#xA;        Year, &#xA;        Season, &#xA;        Day_of_week, &#xA;        Is_Weekend&#xA;    )&#xA;    SELECT&#xA;        @StartDate AS Full_Date,&#xA;        DAY(@StartDate) AS Day,&#xA;        MONTH(@StartDate) AS Month,&#xA;        DATEPART(QUARTER, @StartDate) AS Quarter,&#xA;        YEAR(@StartDate) AS Year,&#xA;        CASE &#xA;            WHEN MONTH(@StartDate) BETWEEN 3 AND 5 THEN 'Spring'&#xA;            WHEN MONTH(@StartDate) BETWEEN 6 AND 8 THEN 'Summer'&#xA;            WHEN MONTH(@StartDate) BETWEEN 9 AND 11 THEN 'Autumn'&#xA;            ELSE 'Winter'&#xA;        END AS Season,&#xA;        DATEPART(WEEKDAY, @StartDate) AS Day_of_week,&#xA;        CASE WHEN DATEPART(WEEKDAY, @StartDate) IN (1,7) THEN 1 ELSE 0 END AS Is_Weekend;&#xA;&#xA;    SET @StartDate = DATEADD(DAY, 1, @StartDate);&#xA;END;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -164,7 +164,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Load DimTime"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="4">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -2675,10 +2675,10 @@ where [refTable].[IATA_Code] = ?</property>
               name="Lookup Match Output"
               startId="Package\Load FactFlight\Lookup ArriveTime.Outputs[Lookup Match Output]" />
             <path
-              refId="Package\Load FactFlight.Paths[Lookup No Match Output]"
+              refId="Package\Load FactFlight.Paths[Lookup Match Output7]"
               endId="Package\Load FactFlight\OLE DB Destination.Inputs[OLE DB Destination Input]"
-              name="Lookup No Match Output"
-              startId="Package\Load FactFlight\Lookup CancelReason.Outputs[Lookup No Match Output]" />
+              name="Lookup Match Output"
+              startId="Package\Load FactFlight\Lookup CancelReason.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Load FactFlight.Paths[OLE DB Source Output]"
               endId="Package\Load FactFlight\Lookup Airline.Inputs[Lookup Input]"
@@ -3460,33 +3460,6 @@ where [refTable].[IATA_Code] = ?</property>
                       refId="Package\Sequence Container\Dim_Airport\Derived Column.Inputs[Derived Column Input]"
                       description="Input to the Derived Column Transformation"
                       name="Derived Column Input">
-                      <inputColumns>
-                        <inputColumn
-                          refId="Package\Sequence Container\Dim_Airport\Derived Column.Inputs[Derived Column Input].Columns[current_flag]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="1"
-                          cachedName="current_flag"
-                          errorOrTruncationOperation="Computation"
-                          errorRowDisposition="FailComponent"
-                          lineageId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Output].Columns[current_flag]"
-                          truncationRowDisposition="FailComponent"
-                          usageType="readWrite">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.String"
-                              description="Derived Column Expression"
-                              name="Expression">(DT_STR,1,1252)("Expired")</property>
-                            <property
-                              containsID="true"
-                              dataType="System.String"
-                              description="Derived Column Friendly Expression"
-                              expressionType="Notify"
-                              name="FriendlyExpression">(DT_STR,1,1252)("Expired")</property>
-                          </properties>
-                        </inputColumn>
-                      </inputColumns>
                       <externalMetadataColumns />
                     </input>
                   </inputs>
@@ -3497,6 +3470,31 @@ where [refTable].[IATA_Code] = ?</property>
                       exclusionGroup="1"
                       name="Derived Column Output"
                       synchronousInputId="Package\Sequence Container\Dim_Airport\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Dim_Airport\Derived Column.Outputs[Derived Column Output].Columns[current_flag]"
+                          dataType="bool"
+                          description="current_flag"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Sequence Container\Dim_Airport\Derived Column.Outputs[Derived Column Output].Columns[current_flag]"
+                          name="current_flag"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_BOOL)("0")</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_BOOL)("0")</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
                       <externalMetadataColumns />
                     </output>
                     <output
@@ -3536,33 +3534,6 @@ where [refTable].[IATA_Code] = ?</property>
                       refId="Package\Sequence Container\Dim_Airport\Derived Column 1.Inputs[Derived Column Input]"
                       description="Input to the Derived Column Transformation"
                       name="Derived Column Input">
-                      <inputColumns>
-                        <inputColumn
-                          refId="Package\Sequence Container\Dim_Airport\Derived Column 1.Inputs[Derived Column Input].Columns[current_flag]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="1"
-                          cachedName="current_flag"
-                          errorOrTruncationOperation="Computation"
-                          errorRowDisposition="FailComponent"
-                          lineageId="Package\Sequence Container\Dim_Airport\Union All.Outputs[Union All Output 1].Columns[current_flag]"
-                          truncationRowDisposition="FailComponent"
-                          usageType="readWrite">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.String"
-                              description="Derived Column Expression"
-                              name="Expression">(DT_STR,1,1252)("Current")</property>
-                            <property
-                              containsID="true"
-                              dataType="System.String"
-                              description="Derived Column Friendly Expression"
-                              expressionType="Notify"
-                              name="FriendlyExpression">(DT_STR,1,1252)("Current")</property>
-                          </properties>
-                        </inputColumn>
-                      </inputColumns>
                       <externalMetadataColumns />
                     </input>
                   </inputs>
@@ -3573,6 +3544,31 @@ where [refTable].[IATA_Code] = ?</property>
                       exclusionGroup="1"
                       name="Derived Column Output"
                       synchronousInputId="Package\Sequence Container\Dim_Airport\Derived Column 1.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Dim_Airport\Derived Column 1.Outputs[Derived Column Output].Columns[current_flag]"
+                          dataType="bool"
+                          description="current_flag"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Sequence Container\Dim_Airport\Derived Column 1.Outputs[Derived Column Output].Columns[current_flag]"
+                          name="current_flag"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_BOOL)("1")</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_BOOL)("1")</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
                       <externalMetadataColumns />
                     </output>
                     <output
@@ -3729,25 +3725,11 @@ where [refTable].[IATA_Code] = ?</property>
                           externalMetadataColumnId="Package\Sequence Container\Dim_Airport\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Longitude]"
                           lineageId="Package\Sequence Container\Dim_Airport\Union All.Outputs[Union All Output 1].Columns[Longitude]" />
                         <inputColumn
-                          refId="Package\Sequence Container\Dim_Airport\Insert Destination.Inputs[OLE DB Destination Input].Columns[start_date]"
-                          cachedDataType="dbDate"
-                          cachedName="start_date"
-                          externalMetadataColumnId="Package\Sequence Container\Dim_Airport\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[start_date]"
-                          lineageId="Package\Sequence Container\Dim_Airport\Union All.Outputs[Union All Output 1].Columns[start_date]" />
-                        <inputColumn
-                          refId="Package\Sequence Container\Dim_Airport\Insert Destination.Inputs[OLE DB Destination Input].Columns[end_date]"
-                          cachedDataType="dbDate"
-                          cachedName="end_date"
-                          externalMetadataColumnId="Package\Sequence Container\Dim_Airport\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[end_date]"
-                          lineageId="Package\Sequence Container\Dim_Airport\Union All.Outputs[Union All Output 1].Columns[end_date]" />
-                        <inputColumn
                           refId="Package\Sequence Container\Dim_Airport\Insert Destination.Inputs[OLE DB Destination Input].Columns[current_flag]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="1"
+                          cachedDataType="bool"
                           cachedName="current_flag"
                           externalMetadataColumnId="Package\Sequence Container\Dim_Airport\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[current_flag]"
-                          lineageId="Package\Sequence Container\Dim_Airport\Union All.Outputs[Union All Output 1].Columns[current_flag]" />
+                          lineageId="Package\Sequence Container\Dim_Airport\Derived Column 1.Outputs[Derived Column Output].Columns[current_flag]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -3798,18 +3780,8 @@ where [refTable].[IATA_Code] = ?</property>
                           precision="9"
                           scale="6" />
                         <externalMetadataColumn
-                          refId="Package\Sequence Container\Dim_Airport\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[start_date]"
-                          dataType="dbDate"
-                          name="start_date" />
-                        <externalMetadataColumn
-                          refId="Package\Sequence Container\Dim_Airport\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[end_date]"
-                          dataType="dbDate"
-                          name="end_date" />
-                        <externalMetadataColumn
                           refId="Package\Sequence Container\Dim_Airport\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[current_flag]"
-                          codePage="1252"
-                          dataType="str"
-                          length="1"
+                          dataType="bool"
                           name="current_flag" />
                       </externalMetadataColumns>
                     </input>
@@ -3857,7 +3829,7 @@ where [refTable].[IATA_Code] = ?</property>
                       description="The SQL command to be executed."
                       expressionType="Notify"
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[Dim_Airport] SET [current_flag] = ? WHERE [IATA_Code] = ? AND [current_flag] = 'Current'</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[Dim_Airport] SET [current_flag] = ? WHERE [IATA_Code] = ? AND [current_flag] = '1'</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -3880,14 +3852,6 @@ where [refTable].[IATA_Code] = ?</property>
                       name="OLE DB Command Input">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\Sequence Container\Dim_Airport\OLE DB Command.Inputs[OLE DB Command Input].Columns[current_flag]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="1"
-                          cachedName="current_flag"
-                          externalMetadataColumnId="Package\Sequence Container\Dim_Airport\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                          lineageId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Output].Columns[current_flag]" />
-                        <inputColumn
                           refId="Package\Sequence Container\Dim_Airport\OLE DB Command.Inputs[OLE DB Command Input].Columns[IATA_Code]"
                           cachedCodepage="1252"
                           cachedDataType="str"
@@ -3895,14 +3859,18 @@ where [refTable].[IATA_Code] = ?</property>
                           cachedName="IATA_Code"
                           externalMetadataColumnId="Package\Sequence Container\Dim_Airport\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
                           lineageId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Output].Columns[IATA_Code]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Dim_Airport\OLE DB Command.Inputs[OLE DB Command Input].Columns[current_flag]"
+                          cachedDataType="bool"
+                          cachedName="current_flag"
+                          externalMetadataColumnId="Package\Sequence Container\Dim_Airport\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          lineageId="Package\Sequence Container\Dim_Airport\Derived Column.Outputs[Derived Column Output].Columns[current_flag]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Dim_Airport\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                          codePage="1252"
-                          dataType="str"
-                          length="1"
+                          dataType="bool"
                           name="Param_0">
                           <properties>
                             <property
@@ -3977,7 +3945,7 @@ where [refTable].[IATA_Code] = ?</property>
                       description="The SQL command to be executed."
                       expressionType="Notify"
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[Dim_Airport] SET [Airport_Name] = ?,[City] = ?,[Country] = ?,[current_flag] = ?,[end_date] = ?,[Latitude] = ?,[Longitude] = ?,[start_date] = ?,[State] = ? WHERE [IATA_Code] = ?</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[Dim_Airport] SET [Airport_Name] = ?,[City] = ?,[Country] = ?,[Latitude] = ?,[Longitude] = ?,[State] = ? WHERE [IATA_Code] = ?</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -4024,26 +3992,12 @@ where [refTable].[IATA_Code] = ?</property>
                           externalMetadataColumnId="Package\Sequence Container\Dim_Airport\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
                           lineageId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Output].Columns[Country]" />
                         <inputColumn
-                          refId="Package\Sequence Container\Dim_Airport\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[current_flag]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="1"
-                          cachedName="current_flag"
-                          externalMetadataColumnId="Package\Sequence Container\Dim_Airport\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
-                          lineageId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Output].Columns[current_flag]" />
-                        <inputColumn
-                          refId="Package\Sequence Container\Dim_Airport\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[end_date]"
-                          cachedDataType="dbDate"
-                          cachedName="end_date"
-                          externalMetadataColumnId="Package\Sequence Container\Dim_Airport\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
-                          lineageId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Output].Columns[end_date]" />
-                        <inputColumn
                           refId="Package\Sequence Container\Dim_Airport\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[IATA_Code]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="3"
                           cachedName="IATA_Code"
-                          externalMetadataColumnId="Package\Sequence Container\Dim_Airport\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                          externalMetadataColumnId="Package\Sequence Container\Dim_Airport\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
                           lineageId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Output].Columns[IATA_Code]" />
                         <inputColumn
                           refId="Package\Sequence Container\Dim_Airport\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[Latitude]"
@@ -4051,7 +4005,7 @@ where [refTable].[IATA_Code] = ?</property>
                           cachedName="Latitude"
                           cachedPrecision="9"
                           cachedScale="6"
-                          externalMetadataColumnId="Package\Sequence Container\Dim_Airport\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                          externalMetadataColumnId="Package\Sequence Container\Dim_Airport\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
                           lineageId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Output].Columns[Latitude]" />
                         <inputColumn
                           refId="Package\Sequence Container\Dim_Airport\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[Longitude]"
@@ -4059,21 +4013,15 @@ where [refTable].[IATA_Code] = ?</property>
                           cachedName="Longitude"
                           cachedPrecision="9"
                           cachedScale="6"
-                          externalMetadataColumnId="Package\Sequence Container\Dim_Airport\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                          externalMetadataColumnId="Package\Sequence Container\Dim_Airport\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
                           lineageId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Output].Columns[Longitude]" />
-                        <inputColumn
-                          refId="Package\Sequence Container\Dim_Airport\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[start_date]"
-                          cachedDataType="dbDate"
-                          cachedName="start_date"
-                          externalMetadataColumnId="Package\Sequence Container\Dim_Airport\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
-                          lineageId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Output].Columns[start_date]" />
                         <inputColumn
                           refId="Package\Sequence Container\Dim_Airport\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[State]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="100"
                           cachedName="State"
-                          externalMetadataColumnId="Package\Sequence Container\Dim_Airport\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                          externalMetadataColumnId="Package\Sequence Container\Dim_Airport\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
                           lineageId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Output].Columns[State]" />
                       </inputColumns>
                       <externalMetadataColumns
@@ -4119,84 +4067,49 @@ where [refTable].[IATA_Code] = ?</property>
                         </externalMetadataColumn>
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Dim_Airport\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
-                          codePage="1252"
-                          dataType="str"
-                          length="1"
-                          name="Param_3">
+                          dataType="numeric"
+                          name="Param_3"
+                          precision="9"
+                          scale="6">
                           <properties>
                             <property
                               dataType="System.Int32"
                               description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                              name="DBParamInfoFlags">65</property>
+                              name="DBParamInfoFlags">81</property>
                           </properties>
                         </externalMetadataColumn>
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Dim_Airport\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
-                          dataType="dbDate"
-                          name="Param_4">
+                          dataType="numeric"
+                          name="Param_4"
+                          precision="9"
+                          scale="6">
                           <properties>
                             <property
                               dataType="System.Int32"
                               description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                              name="DBParamInfoFlags">65</property>
+                              name="DBParamInfoFlags">81</property>
                           </properties>
                         </externalMetadataColumn>
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Dim_Airport\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
-                          dataType="numeric"
-                          name="Param_5"
-                          precision="9"
-                          scale="6">
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="Param_5">
                           <properties>
                             <property
                               dataType="System.Int32"
                               description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                              name="DBParamInfoFlags">81</property>
+                              name="DBParamInfoFlags">65</property>
                           </properties>
                         </externalMetadataColumn>
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Dim_Airport\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
-                          dataType="numeric"
-                          name="Param_6"
-                          precision="9"
-                          scale="6">
-                          <properties>
-                            <property
-                              dataType="System.Int32"
-                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                              name="DBParamInfoFlags">81</property>
-                          </properties>
-                        </externalMetadataColumn>
-                        <externalMetadataColumn
-                          refId="Package\Sequence Container\Dim_Airport\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
-                          dataType="dbDate"
-                          name="Param_7">
-                          <properties>
-                            <property
-                              dataType="System.Int32"
-                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                              name="DBParamInfoFlags">65</property>
-                          </properties>
-                        </externalMetadataColumn>
-                        <externalMetadataColumn
-                          refId="Package\Sequence Container\Dim_Airport\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
-                          codePage="1252"
-                          dataType="str"
-                          length="100"
-                          name="Param_8">
-                          <properties>
-                            <property
-                              dataType="System.Int32"
-                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                              name="DBParamInfoFlags">65</property>
-                          </properties>
-                        </externalMetadataColumn>
-                        <externalMetadataColumn
-                          refId="Package\Sequence Container\Dim_Airport\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
                           codePage="1252"
                           dataType="str"
                           length="3"
-                          name="Param_9">
+                          name="Param_6">
                           <properties>
                             <property
                               dataType="System.Int32"
@@ -4255,7 +4168,7 @@ where [refTable].[IATA_Code] = ?</property>
                     <property
                       dataType="System.String"
                       description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">[dbo].[Dim_Airport]</property>
+                      name="OpenRowset">[dbo].[NDS_Airport]</property>
                     <property
                       dataType="System.String"
                       description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -4290,8 +4203,8 @@ where [refTable].[IATA_Code] = ?</property>
                   <connections>
                     <connection
                       refId="Package\Sequence Container\Dim_Airport\OLE DB Source.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[localhost.Project_DDS_DB]"
-                      connectionManagerRefId="Package.ConnectionManagers[localhost.Project_DDS_DB]"
+                      connectionManagerID="Package.ConnectionManagers[localhost.Project_NDS_DB]"
+                      connectionManagerRefId="Package.ConnectionManagers[localhost.Project_NDS_DB]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -4300,15 +4213,6 @@ where [refTable].[IATA_Code] = ?</property>
                       refId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Output]"
                       name="OLE DB Source Output">
                       <outputColumns>
-                        <outputColumn
-                          refId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Output].Columns[Airport_ID]"
-                          dataType="i4"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Airport_ID]"
-                          lineageId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Output].Columns[Airport_ID]"
-                          name="Airport_ID"
-                          truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Output].Columns[IATA_Code]"
                           codePage="1252"
@@ -4387,41 +4291,26 @@ where [refTable].[IATA_Code] = ?</property>
                           scale="6"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Output].Columns[start_date]"
-                          dataType="dbDate"
+                          refId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Output].Columns[Created]"
+                          dataType="dbTimeStamp"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[start_date]"
-                          lineageId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Output].Columns[start_date]"
-                          name="start_date"
+                          externalMetadataColumnId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Created]"
+                          lineageId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Output].Columns[Created]"
+                          name="Created"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Output].Columns[end_date]"
-                          dataType="dbDate"
+                          refId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Output].Columns[Modified]"
+                          dataType="dbTimeStamp"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[end_date]"
-                          lineageId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Output].Columns[end_date]"
-                          name="end_date"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Output].Columns[current_flag]"
-                          codePage="1252"
-                          dataType="str"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[current_flag]"
-                          length="1"
-                          lineageId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Output].Columns[current_flag]"
-                          name="current_flag"
+                          externalMetadataColumnId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Modified]"
+                          lineageId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Output].Columns[Modified]"
+                          name="Modified"
                           truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
                         isUsed="True">
-                        <externalMetadataColumn
-                          refId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Airport_ID]"
-                          dataType="i4"
-                          name="Airport_ID" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[IATA_Code]"
                           codePage="1252"
@@ -4465,19 +4354,13 @@ where [refTable].[IATA_Code] = ?</property>
                           precision="9"
                           scale="6" />
                         <externalMetadataColumn
-                          refId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[start_date]"
-                          dataType="dbDate"
-                          name="start_date" />
+                          refId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Created]"
+                          dataType="dbTimeStamp"
+                          name="Created" />
                         <externalMetadataColumn
-                          refId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[end_date]"
-                          dataType="dbDate"
-                          name="end_date" />
-                        <externalMetadataColumn
-                          refId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[current_flag]"
-                          codePage="1252"
-                          dataType="str"
-                          length="1"
-                          name="current_flag" />
+                          refId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Modified]"
+                          dataType="dbTimeStamp"
+                          name="Modified" />
                       </externalMetadataColumns>
                     </output>
                     <output
@@ -4485,11 +4368,6 @@ where [refTable].[IATA_Code] = ?</property>
                       isErrorOut="true"
                       name="OLE DB Source Error Output">
                       <outputColumns>
-                        <outputColumn
-                          refId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Airport_ID]"
-                          dataType="i4"
-                          lineageId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Airport_ID]"
-                          name="Airport_ID" />
                         <outputColumn
                           refId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[IATA_Code]"
                           codePage="1252"
@@ -4540,22 +4418,15 @@ where [refTable].[IATA_Code] = ?</property>
                           precision="9"
                           scale="6" />
                         <outputColumn
-                          refId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[start_date]"
-                          dataType="dbDate"
-                          lineageId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[start_date]"
-                          name="start_date" />
+                          refId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Created]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Created]"
+                          name="Created" />
                         <outputColumn
-                          refId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[end_date]"
-                          dataType="dbDate"
-                          lineageId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[end_date]"
-                          name="end_date" />
-                        <outputColumn
-                          refId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[current_flag]"
-                          codePage="1252"
-                          dataType="str"
-                          length="1"
-                          lineageId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[current_flag]"
-                          name="current_flag" />
+                          refId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Modified]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Modified]"
+                          name="Modified" />
                         <outputColumn
                           refId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                           dataType="i4"
@@ -4585,11 +4456,11 @@ where [refTable].[IATA_Code] = ?</property>
                       dataType="System.String"
                       description="Specifies the SELECT statement used to create a schema rowset."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [Airport_Name], [City], [Country], [current_flag], [IATA_Code], [Latitude], [Longitude], [State] FROM [dbo].[Dim_Airport]</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [Airport_Name], [City], [Country], [IATA_Code], [Latitude], [Longitude], [State],[current_flag] FROM [dbo].[Dim_Airport]</property>
                     <property
                       dataType="System.String"
                       description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
-                      name="CurrentRowWhere">[current_flag] = 'Current'</property>
+                      name="CurrentRowWhere">[current_flag] = '1'</property>
                     <property
                       dataType="System.Boolean"
                       description="Indicates whether historical attribute updates are directed to the transformation output for changing attribute updates."
@@ -4760,12 +4631,6 @@ where [refTable].[IATA_Code] = ?</property>
                           length="100"
                           name="Country" />
                         <externalMetadataColumn
-                          refId="Package\Sequence Container\Dim_Airport\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[current_flag]"
-                          codePage="1252"
-                          dataType="str"
-                          length="1"
-                          name="current_flag" />
-                        <externalMetadataColumn
                           refId="Package\Sequence Container\Dim_Airport\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[IATA_Code]"
                           codePage="1252"
                           dataType="str"
@@ -4789,6 +4654,10 @@ where [refTable].[IATA_Code] = ?</property>
                           dataType="str"
                           length="100"
                           name="State" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Dim_Airport\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[current_flag]"
+                          dataType="bool"
+                          name="current_flag" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -4855,19 +4724,6 @@ where [refTable].[IATA_Code] = ?</property>
                       refId="Package\Sequence Container\Dim_Airport\Union All.Inputs[Union All Input 1]"
                       name="Union All Input 1">
                       <inputColumns>
-                        <inputColumn
-                          refId="Package\Sequence Container\Dim_Airport\Union All.Inputs[Union All Input 1].Columns[Airport_ID]"
-                          cachedDataType="i4"
-                          cachedName="Airport_ID"
-                          lineageId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Output].Columns[Airport_ID]">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.Int32"
-                              description="Output column lineage ID"
-                              name="OutputColumnLineageID">#{Package\Sequence Container\Dim_Airport\Union All.Outputs[Union All Output 1].Columns[Airport_ID]}</property>
-                          </properties>
-                        </inputColumn>
                         <inputColumn
                           refId="Package\Sequence Container\Dim_Airport\Union All.Inputs[Union All Input 1].Columns[IATA_Code]"
                           cachedCodepage="1252"
@@ -4974,44 +4830,29 @@ where [refTable].[IATA_Code] = ?</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\Sequence Container\Dim_Airport\Union All.Inputs[Union All Input 1].Columns[start_date]"
-                          cachedDataType="dbDate"
-                          cachedName="start_date"
-                          lineageId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Output].Columns[start_date]">
+                          refId="Package\Sequence Container\Dim_Airport\Union All.Inputs[Union All Input 1].Columns[Created]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="Created"
+                          lineageId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Output].Columns[Created]">
                           <properties>
                             <property
                               containsID="true"
                               dataType="System.Int32"
                               description="Output column lineage ID"
-                              name="OutputColumnLineageID">#{Package\Sequence Container\Dim_Airport\Union All.Outputs[Union All Output 1].Columns[start_date]}</property>
+                              name="OutputColumnLineageID">#{Package\Sequence Container\Dim_Airport\Union All.Outputs[Union All Output 1].Columns[Created]}</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\Sequence Container\Dim_Airport\Union All.Inputs[Union All Input 1].Columns[end_date]"
-                          cachedDataType="dbDate"
-                          cachedName="end_date"
-                          lineageId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Output].Columns[end_date]">
+                          refId="Package\Sequence Container\Dim_Airport\Union All.Inputs[Union All Input 1].Columns[Modified]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="Modified"
+                          lineageId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Output].Columns[Modified]">
                           <properties>
                             <property
                               containsID="true"
                               dataType="System.Int32"
                               description="Output column lineage ID"
-                              name="OutputColumnLineageID">#{Package\Sequence Container\Dim_Airport\Union All.Outputs[Union All Output 1].Columns[end_date]}</property>
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
-                          refId="Package\Sequence Container\Dim_Airport\Union All.Inputs[Union All Input 1].Columns[current_flag]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="1"
-                          cachedName="current_flag"
-                          lineageId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Output].Columns[current_flag]">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.Int32"
-                              description="Output column lineage ID"
-                              name="OutputColumnLineageID">#{Package\Sequence Container\Dim_Airport\Union All.Outputs[Union All Output 1].Columns[current_flag]}</property>
+                              name="OutputColumnLineageID">#{Package\Sequence Container\Dim_Airport\Union All.Outputs[Union All Output 1].Columns[Modified]}</property>
                           </properties>
                         </inputColumn>
                       </inputColumns>
@@ -5022,19 +4863,6 @@ where [refTable].[IATA_Code] = ?</property>
                       hasSideEffects="true"
                       name="Union All Input 2">
                       <inputColumns>
-                        <inputColumn
-                          refId="Package\Sequence Container\Dim_Airport\Union All.Inputs[Union All Input 2].Columns[Airport_ID]"
-                          cachedDataType="i4"
-                          cachedName="Airport_ID"
-                          lineageId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Output].Columns[Airport_ID]">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.Int32"
-                              description="Output column lineage ID"
-                              name="OutputColumnLineageID">#{Package\Sequence Container\Dim_Airport\Union All.Outputs[Union All Output 1].Columns[Airport_ID]}</property>
-                          </properties>
-                        </inputColumn>
                         <inputColumn
                           refId="Package\Sequence Container\Dim_Airport\Union All.Inputs[Union All Input 2].Columns[IATA_Code]"
                           cachedCodepage="1252"
@@ -5141,44 +4969,29 @@ where [refTable].[IATA_Code] = ?</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\Sequence Container\Dim_Airport\Union All.Inputs[Union All Input 2].Columns[start_date]"
-                          cachedDataType="dbDate"
-                          cachedName="start_date"
-                          lineageId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Output].Columns[start_date]">
+                          refId="Package\Sequence Container\Dim_Airport\Union All.Inputs[Union All Input 2].Columns[Created]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="Created"
+                          lineageId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Output].Columns[Created]">
                           <properties>
                             <property
                               containsID="true"
                               dataType="System.Int32"
                               description="Output column lineage ID"
-                              name="OutputColumnLineageID">#{Package\Sequence Container\Dim_Airport\Union All.Outputs[Union All Output 1].Columns[start_date]}</property>
+                              name="OutputColumnLineageID">#{Package\Sequence Container\Dim_Airport\Union All.Outputs[Union All Output 1].Columns[Created]}</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\Sequence Container\Dim_Airport\Union All.Inputs[Union All Input 2].Columns[end_date]"
-                          cachedDataType="dbDate"
-                          cachedName="end_date"
-                          lineageId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Output].Columns[end_date]">
+                          refId="Package\Sequence Container\Dim_Airport\Union All.Inputs[Union All Input 2].Columns[Modified]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="Modified"
+                          lineageId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Output].Columns[Modified]">
                           <properties>
                             <property
                               containsID="true"
                               dataType="System.Int32"
                               description="Output column lineage ID"
-                              name="OutputColumnLineageID">#{Package\Sequence Container\Dim_Airport\Union All.Outputs[Union All Output 1].Columns[end_date]}</property>
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
-                          refId="Package\Sequence Container\Dim_Airport\Union All.Inputs[Union All Input 2].Columns[current_flag]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="1"
-                          cachedName="current_flag"
-                          lineageId="Package\Sequence Container\Dim_Airport\OLE DB Source.Outputs[OLE DB Source Output].Columns[current_flag]">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.Int32"
-                              description="Output column lineage ID"
-                              name="OutputColumnLineageID">#{Package\Sequence Container\Dim_Airport\Union All.Outputs[Union All Output 1].Columns[current_flag]}</property>
+                              name="OutputColumnLineageID">#{Package\Sequence Container\Dim_Airport\Union All.Outputs[Union All Output 1].Columns[Modified]}</property>
                           </properties>
                         </inputColumn>
                       </inputColumns>
@@ -5197,11 +5010,6 @@ where [refTable].[IATA_Code] = ?</property>
                       refId="Package\Sequence Container\Dim_Airport\Union All.Outputs[Union All Output 1]"
                       name="Union All Output 1">
                       <outputColumns>
-                        <outputColumn
-                          refId="Package\Sequence Container\Dim_Airport\Union All.Outputs[Union All Output 1].Columns[Airport_ID]"
-                          dataType="i4"
-                          lineageId="Package\Sequence Container\Dim_Airport\Union All.Outputs[Union All Output 1].Columns[Airport_ID]"
-                          name="Airport_ID" />
                         <outputColumn
                           refId="Package\Sequence Container\Dim_Airport\Union All.Outputs[Union All Output 1].Columns[IATA_Code]"
                           codePage="1252"
@@ -5252,22 +5060,15 @@ where [refTable].[IATA_Code] = ?</property>
                           precision="9"
                           scale="6" />
                         <outputColumn
-                          refId="Package\Sequence Container\Dim_Airport\Union All.Outputs[Union All Output 1].Columns[start_date]"
-                          dataType="dbDate"
-                          lineageId="Package\Sequence Container\Dim_Airport\Union All.Outputs[Union All Output 1].Columns[start_date]"
-                          name="start_date" />
+                          refId="Package\Sequence Container\Dim_Airport\Union All.Outputs[Union All Output 1].Columns[Created]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Sequence Container\Dim_Airport\Union All.Outputs[Union All Output 1].Columns[Created]"
+                          name="Created" />
                         <outputColumn
-                          refId="Package\Sequence Container\Dim_Airport\Union All.Outputs[Union All Output 1].Columns[end_date]"
-                          dataType="dbDate"
-                          lineageId="Package\Sequence Container\Dim_Airport\Union All.Outputs[Union All Output 1].Columns[end_date]"
-                          name="end_date" />
-                        <outputColumn
-                          refId="Package\Sequence Container\Dim_Airport\Union All.Outputs[Union All Output 1].Columns[current_flag]"
-                          codePage="1252"
-                          dataType="str"
-                          length="1"
-                          lineageId="Package\Sequence Container\Dim_Airport\Union All.Outputs[Union All Output 1].Columns[current_flag]"
-                          name="current_flag" />
+                          refId="Package\Sequence Container\Dim_Airport\Union All.Outputs[Union All Output 1].Columns[Modified]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Sequence Container\Dim_Airport\Union All.Outputs[Union All Output 1].Columns[Modified]"
+                          name="Modified" />
                       </outputColumns>
                       <externalMetadataColumns />
                     </output>
@@ -5940,7 +5741,7 @@ where [refTable].[Reason_Type] = ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Set LSET Dim_Airline"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="4">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -5962,7 +5763,7 @@ where [refTable].[Reason_Type] = ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Set LSET Dim_Airport"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -5984,7 +5785,7 @@ where [refTable].[Reason_Type] = ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Set LSET Dim_Reason"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -6093,17 +5894,100 @@ where [refTable].[Reason_Type] = ?</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="146.666666666667,42.6666666666667"
+          Size="164,42.4"
+          Id="Package\Execute SQL Task"
+          TopLeft="568.535689116057,481.852366730373" />
+        <NodeLayout
+          Size="164,42.4"
+          Id="Package\Get CET"
+          TopLeft="576.749974974033,2.88291427220945" />
+        <NodeLayout
+          Size="146.4,42.4"
           Id="Package\Load DimDate"
           TopLeft="347.589275540253,189.142852892195" />
         <NodeLayout
-          Size="148,42.6666666666667"
+          Size="148,42.4"
           Id="Package\Load DimTime"
           TopLeft="76.5178564044514,193.885707520076" />
         <NodeLayout
-          Size="150.666666666667,42.6666666666667"
+          Size="150.4,42.4"
           Id="Package\Load FactFlight"
           TopLeft="228.749996479601,339.135704885551" />
+        <NodeLayout
+          Size="133.6,42.4"
+          Id="Package\Sequence Container\Dim_Airline"
+          TopLeft="39.4166790905098,6.1666525125508" />
+        <NodeLayout
+          Size="136,42.4"
+          Id="Package\Sequence Container\Dim_Airport"
+          TopLeft="33.0833403555052,72.211352496753" />
+        <NodeLayout
+          Size="137.6,42.4"
+          Id="Package\Sequence Container\Dim_Reason"
+          TopLeft="32.3333460407121,141.178560771658" />
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          TopLeft="103.583343056341,48.8333191792175">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,23.3780333175356"
+              Start="0,0"
+              End="0,15.8780333175356">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.8780333175356" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
+          TopLeft="101.208343198109,114.87801916342">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,26.3005416082385"
+              Start="0,0"
+              End="0,18.8005416082385">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.8005416082385" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="205.6,238.4"
+          Size="205.6,281.6"
+          Id="Package\Sequence Container"
+          TopLeft="548.059499555224,166.107139558451" />
+        <NodeLayout
+          Size="164,42.4"
+          Id="Package\Set LSET Dim_Airline"
+          TopLeft="365.321412486158,79.683343209126" />
+        <NodeLayout
+          Size="164,42.4"
+          Id="Package\Set LSET Dim_Airport"
+          TopLeft="575.142831677838,80.2309618582454" />
+        <NodeLayout
+          Size="184,42.4"
+          Id="Package\Set LSET Dim_Reason"
+          TopLeft="765.619027901619,79.3023904739518" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="420.922608873586,231.809519558861">
@@ -6172,69 +6056,6 @@ where [refTable].[Reason_Type] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="133.333333333334,42.6666666666667"
-          Id="Package\Sequence Container\Dim_Airline"
-          TopLeft="39.4166790905098,6.1666525125508" />
-        <NodeLayout
-          Size="136,42.6666666666667"
-          Id="Package\Sequence Container\Dim_Airport"
-          TopLeft="33.0833403555052,72.211352496753" />
-        <NodeLayout
-          Size="138,42.6666666666667"
-          Id="Package\Sequence Container\Dim_Reason"
-          TopLeft="32.3333460407121,141.178560771658" />
-        <EdgeLayout
-          Id="Package\Sequence Container.PrecedenceConstraints[Constraint]"
-          TopLeft="103.583343056341,48.8333191792175">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,23.3780333175356"
-              Start="0,0"
-              End="0,15.8780333175356">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,15.8780333175356" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
-          TopLeft="101.208343198109,114.87801916342">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,26.3005416082385"
-              Start="0,0"
-              End="0,18.8005416082385">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,18.8005416082385" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="205.333333333334,238.666666666667"
-          Size="205.333333333334,281.333333333334"
-          Id="Package\Sequence Container"
-          TopLeft="548.059499555224,166.107139558451" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
           TopLeft="548.059499555224,306.773806225118">
@@ -6269,14 +6090,6 @@ where [refTable].[Reason_Type] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="164,42.6666666666667"
-          Id="Package\Get CET"
-          TopLeft="576.749974974033,2.88291427220945" />
-        <NodeLayout
-          Size="164,42.6666666666667"
-          Id="Package\Set LSET Dim_Airline"
-          TopLeft="365.321412486158,79.683343209126" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
           TopLeft="619.749974974033,45.5495809388761">
@@ -6311,10 +6124,6 @@ where [refTable].[Reason_Type] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="164,42.6666666666667"
-          Id="Package\Set LSET Dim_Airport"
-          TopLeft="575.142831677838,80.2309618582454" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
           TopLeft="657.946403325936,45.5495809388761">
@@ -6337,10 +6146,6 @@ where [refTable].[Reason_Type] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="184,42.6666666666667"
-          Id="Package\Set LSET Dim_Reason"
-          TopLeft="765.619027901619,79.3023904739518" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 5]"
           TopLeft="697.749974974033,45.5495809388761">
@@ -6465,10 +6270,6 @@ where [refTable].[Reason_Type] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="164,42.6666666666667"
-          Id="Package\Execute SQL Task"
-          TopLeft="568.535689116057,481.852366730373" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 9]"
           TopLeft="650.630927668974,447.440472891785">
@@ -6500,51 +6301,51 @@ where [refTable].[Reason_Type] = ?</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="170.666666666667,42.6666666666667"
+          Size="170.4,42.4"
           Id="Package\Load FactFlight\Lookup DestAirport"
           TopLeft="78.9999976456166,271.666659186284" />
         <NodeLayout
-          Size="182.666666666667,42.6666666666667"
+          Size="182.4,42.4"
           Id="Package\Load FactFlight\Lookup CancelReason"
           TopLeft="64.499998241663,802.890936019213" />
         <NodeLayout
-          Size="172,42.6666666666667"
+          Size="170.4,41.6"
           Id="Package\Load FactFlight\OLE DB Destination"
           TopLeft="71.4999980330468,886.499994903803" />
         <NodeLayout
-          Size="150.666666666667,42.6666666666667"
+          Size="150.4,42.4"
           Id="Package\Load FactFlight\OLE DB Source"
           TopLeft="74.4999979436398,19.4999995827675" />
         <NodeLayout
-          Size="177.333333333334,42.6666666666667"
+          Size="177.6,42.4"
           Id="Package\Load FactFlight\Lookup OriginAirport"
           TopLeft="68.499999910593,201.499995946884" />
         <NodeLayout
-          Size="170.666666666667,42.6666666666667"
+          Size="170.4,42.4"
           Id="Package\Load FactFlight\Lookup DepartDate"
           TopLeft="71.4999980330467,351.499996721745" />
         <NodeLayout
-          Size="166.666666666667,42.6666666666667"
+          Size="166.4,42.4"
           Id="Package\Load FactFlight\Lookup ArriveDate"
           TopLeft="81.4999977350236,430.49999448657" />
         <NodeLayout
-          Size="164,42.6666666666667"
+          Size="164,42.4"
           Id="Package\Load FactFlight\Derived Column 1"
           TopLeft="75.9999977350236,651.666659126679" />
         <NodeLayout
-          Size="146.666666666667,42.6666666666667"
+          Size="146.4,42.4"
           Id="Package\Load FactFlight\Lookup Airline"
           TopLeft="78.4999987185002,108.499997824431" />
         <NodeLayout
-          Size="172,42.6666666666667"
+          Size="172,42.4"
           Id="Package\Load FactFlight\Lookup DepartTime"
           TopLeft="70.4999980628491,582.826548318468" />
         <NodeLayout
-          Size="168,42.6666666666667"
+          Size="168,42.4"
           Id="Package\Load FactFlight\Lookup ArriveTime"
           TopLeft="70.4999980628491,723.452749438408" />
         <NodeLayout
-          Size="154.666666666667,42.6666666666667"
+          Size="154.4,42.4"
           Id="Package\Load FactFlight\Derived Column"
           TopLeft="84.4999976456166,503.159886509581" />
         <EdgeLayout
@@ -6567,7 +6368,7 @@ where [refTable].[Reason_Type] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,9.02864793439716,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,9.02864793439715,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -6591,7 +6392,7 @@ where [refTable].[Reason_Type] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,4.19531078636652,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,4.1953107863665,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -6638,9 +6439,7 @@ where [refTable].[Reason_Type] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6662,9 +6461,7 @@ where [refTable].[Reason_Type] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6686,33 +6483,7 @@ where [refTable].[Reason_Type] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load FactFlight.Paths[Lookup No Match Output]"
-          TopLeft="156.666664804022,845.55760268588">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,40.942392217923"
-              Start="0,0"
-              End="0,33.442392217923">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,33.442392217923" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-55.80638671875,10.9165086089615,111.6127734375,11.609375"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6759,7 +6530,7 @@ where [refTable].[Reason_Type] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,3.53203457077217,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,3.53203457077215,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -6807,7 +6578,31 @@ where [refTable].[Reason_Type] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,8.61197804907917,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,8.61197804907915,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load FactFlight.Paths[Lookup Match Output7]"
+          TopLeft="156.199998137355,845.290936019213">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41.20905888459"
+              Start="0,0"
+              End="0,33.70905888459">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.70905888459" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,11.049841942295,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -6971,7 +6766,7 @@ where [refTable].[Reason_Type] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -7030,25 +6825,25 @@ where [refTable].[Reason_Type] = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="174.666666666667,41.3333333333334"
-          Id="Package\Sequence Container\Dim_Airline\Update Airline Name"
-          TopLeft="489.999973227582,203.599998662074" />
-        <NodeLayout
-          Size="168,41.3333333333334"
-          Id="Package\Sequence Container\Dim_Airline\Source NDS Airline"
-          TopLeft="205.833322087096,29.4666664617592" />
-        <NodeLayout
-          Size="159.333333333334,41.3333333333334"
-          Id="Package\Sequence Container\Dim_Airline\Check for Update"
-          TopLeft="497.4999728178,130.866665756636" />
-        <NodeLayout
-          Size="160.666666666667,41.3333333333334"
+          Size="160.8,41.6"
           Id="Package\Sequence Container\Dim_Airline\Lookup Airline SK"
           TopLeft="210.833321813908,124.799999132156" />
         <NodeLayout
-          Size="171.333333333334,41.3333333333334"
+          Size="168,41.6"
+          Id="Package\Sequence Container\Dim_Airline\Source NDS Airline"
+          TopLeft="205.833322087096,29.4666664617592" />
+        <NodeLayout
+          Size="171.2,41.6"
           Id="Package\Sequence Container\Dim_Airline\OLE DB Destination"
           TopLeft="211.66665510171,203.666665250394" />
+        <NodeLayout
+          Size="174.4,41.6"
+          Id="Package\Sequence Container\Dim_Airline\Update Airline Name"
+          TopLeft="489.999973227582,203.599998662074" />
+        <NodeLayout
+          Size="159.2,41.6"
+          Id="Package\Sequence Container\Dim_Airline\Check for Update"
+          TopLeft="497.4999728178,130.866665756636" />
         <EdgeLayout
           Id="Package\Sequence Container\Dim_Airline.Paths[Output True]"
           TopLeft="577.149973022691,172.466665756636">
@@ -7139,7 +6934,7 @@ where [refTable].[Reason_Type] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="10.9919387831957,5,96.3827734375,11.609375"
+              BoundingBox="10.9919387831955,5,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -7165,7 +6960,7 @@ where [refTable].[Reason_Type] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -7175,7 +6970,7 @@ where [refTable].[Reason_Type] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -7196,24 +6991,384 @@ where [refTable].[Reason_Type] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
+    design-time-name="Package\Sequence Container\Dim_Airport">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="150.4,42.4"
+          Id="Package\Sequence Container\Dim_Airport\OLE DB Source"
+          TopLeft="155.7,5.50000000000005" />
+        <NodeLayout
+          Size="208,41.6"
+          Id="Package\Sequence Container\Dim_Airport\Slowly Changing Dimension"
+          TopLeft="126.9,107.9" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Dim_Airport.Paths[OLE DB Source Output]"
+          TopLeft="230.9,47.9">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\Sequence Container\Dim_Airport\Derived Column"
+          TopLeft="17.5,209.5" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Dim_Airport.Paths[Historical Attribute Inserts Output]"
+          TopLeft="180.9,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-87,59.9999999999999"
+              Start="0,0"
+              End="-87,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.506329113924" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.506329113924"
+                    Point2="0,20.506329113924"
+                    Point3="-4,20.506329113924" />
+                  <mssgle:LineSegment
+                    End="-83,20.506329113924" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-83,20.506329113924"
+                    Point2="-87,20.506329113924"
+                    Point3="-87,24.506329113924" />
+                  <mssgle:LineSegment
+                    End="-87,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-118.55638671875,25.506329113924,150.1127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Sequence Container\Dim_Airport\OLE DB Command"
+          TopLeft="5.50000000000003,311.1" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Dim_Airport.Paths[Derived Column Output]"
+          TopLeft="90.9,251.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="120,41.6"
+          Id="Package\Sequence Container\Dim_Airport\Union All"
+          TopLeft="170.9,412.7" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Dim_Airport.Paths[New Output]"
+          TopLeft="230.9,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="18.6666666666667,263.2"
+              Start="0,0"
+              End="18.6666666666667,255.7">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,151.842105263158" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,151.842105263158"
+                    Point2="0,155.842105263158"
+                    Point3="4,155.842105263158" />
+                  <mssgle:LineSegment
+                    End="14.6666666666667,155.842105263158" />
+                  <mssgle:CubicBezierSegment
+                    Point1="14.6666666666667,155.842105263158"
+                    Point2="18.6666666666667,155.842105263158"
+                    Point3="18.6666666666667,159.842105263158" />
+                  <mssgle:LineSegment
+                    End="18.6666666666667,255.7" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-17.7580533854167,160.842105263158,54.1827734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\Dim_Airport.Paths[OLE DB Command Output]"
+          TopLeft="87.9,352.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="124.333333333333,59.9999999999999"
+              Start="0,0"
+              End="124.333333333333,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5263157894736" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.5263157894736"
+                    Point2="0,35.5263157894736"
+                    Point3="4,35.5263157894736" />
+                  <mssgle:LineSegment
+                    End="120.333333333333,35.5263157894736" />
+                  <mssgle:CubicBezierSegment
+                    Point1="120.333333333333,35.5263157894736"
+                    Point2="124.333333333333,35.5263157894736"
+                    Point3="124.333333333333,39.5263157894736" />
+                  <mssgle:LineSegment
+                    End="124.333333333333,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\Sequence Container\Dim_Airport\Derived Column 1"
+          TopLeft="149.7,514.3" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Dim_Airport.Paths[Union All Output 1]"
+          TopLeft="230.9,454.3">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\Sequence Container\Dim_Airport\Insert Destination"
+          TopLeft="149.7,615.9" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Dim_Airport.Paths[Derived Column Output1]"
+          TopLeft="230.9,555.9">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="174.4,41.6"
+          Id="Package\Sequence Container\Dim_Airport\OLE DB Command 1"
+          TopLeft="291.7,209.5" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Dim_Airport.Paths[Inferred Member Updates Output]"
+          TopLeft="280.9,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="98,59.9999999999999"
+              Start="0,0"
+              End="98,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.506329113924" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.506329113924"
+                    Point2="0,20.506329113924"
+                    Point3="4,20.506329113924" />
+                  <mssgle:LineSegment
+                    End="94,20.506329113924" />
+                  <mssgle:CubicBezierSegment
+                    Point1="94,20.506329113924"
+                    Point2="98,20.506329113924"
+                    Point3="98,24.506329113924" />
+                  <mssgle:LineSegment
+                    End="98,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-25.40298828125,25.506329113924,148.8059765625,11.658203125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Dim_Airport\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Dim_Airport\Slowly Changing Dimension">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;ConnectionID&gt;{089DD635-97CC-4F60-BD45-B137F3EC30F2}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[Dim_Airport]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[Airport_Name]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Airport_Name&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[City]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;City&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[Country]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Country&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[IATA_Code]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;IATA_Code&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[Latitude]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Latitude&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[Longitude]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Longitude&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[State]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;State&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Derived Column&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Union All&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Derived Column 1&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command 1&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;true&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn&gt;current_flag&lt;/CurrentIndicatorColumn&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent&gt;1&lt;/ValueCurrent&gt;
+  &lt;ValueExpired&gt;0&lt;/ValueExpired&gt;
+  &lt;StartDateColumn /&gt;
+  &lt;EndDateColumn /&gt;
+  &lt;DateVariable /&gt;
+  &lt;EnableInferredSupport&gt;true&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
     design-time-name="Package\Sequence Container\Dim_Reason">
     <LayoutInfo>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="168,41.3333333333334"
+          Size="168,41.6"
           Id="Package\Sequence Container\Dim_Reason\Lookup Reason SK"
           TopLeft="255.666662457916,85.8666647006403" />
         <NodeLayout
-          Size="166.666666666667,41.3333333333334"
+          Size="166.4,41.6"
           Id="Package\Sequence Container\Dim_Reason\Insert New Reason"
           TopLeft="256.333328785168,284.266662416988" />
         <NodeLayout
-          Size="174.666666666667,41.3333333333334"
+          Size="174.4,41.6"
           Id="Package\Sequence Container\Dim_Reason\Source NDS Reason"
           TopLeft="245.999996334314,0.999999985098796" />
         <NodeLayout
-          Size="156,41.3333333333334"
+          Size="156,41.6"
           Id="Package\Sequence Container\Dim_Reason\Data Conversion"
           TopLeft="260.833329214818,194.79999798576" />
         <EdgeLayout
@@ -7293,7 +7448,7 @@ where [refTable].[Reason_Type] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -7303,7 +7458,7 @@ where [refTable].[Reason_Type] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -7336,278 +7491,8 @@ where [refTable].[Reason_Type] = ?</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Sequence Container\Dim_Airport">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="150.666666666667,42.6666666666667"
-          Id="Package\Sequence Container\Dim_Airport\OLE DB Source"
-          TopLeft="157.5,5.49999999999993" />
-        <NodeLayout
-          Size="209.333333333334,42.6666666666667"
-          Id="Package\Sequence Container\Dim_Airport\Slowly Changing Dimension"
-          TopLeft="140.166666309039,108.166666666666" />
-        <EdgeLayout
-          Id="Package\Sequence Container\Dim_Airport.Paths[OLE DB Source Output]"
-          TopLeft="232.833333333333,48.1666666666666">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="11.9999996423722,59.9999999999999"
-              Start="0,0"
-              End="11.9999996423722,52.4999999999999">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,25.9999999999999" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,25.9999999999999"
-                    Point2="0,29.9999999999999"
-                    Point3="4,29.9999999999999" />
-                  <mssgle:LineSegment
-                    End="7.99999964237219,29.9999999999999" />
-                  <mssgle:CubicBezierSegment
-                    Point1="7.99999964237219,29.9999999999999"
-                    Point2="11.9999996423722,29.9999999999999"
-                    Point3="11.9999996423722,33.9999999999999" />
-                  <mssgle:LineSegment
-                    End="11.9999996423722,52.4999999999999" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="154.666666666667,42.6666666666667"
-          Id="Package\Sequence Container\Dim_Airport\Derived Column"
-          TopLeft="17.5,210.833333333333" />
-        <EdgeLayout
-          Id="Package\Sequence Container\Dim_Airport.Paths[Historical Attribute Inserts Output]"
-          TopLeft="194.499999642372,150.833333333333">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-99.6666663090388,59.9999999999999"
-              Start="0,0"
-              End="-99.6666663090388,52.4999999999999">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16.503144654088" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,16.503144654088"
-                    Point2="0,20.503144654088"
-                    Point3="-4,20.503144654088" />
-                  <mssgle:LineSegment
-                    End="-95.6666663090388,20.503144654088" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-95.6666663090388,20.503144654088"
-                    Point2="-99.6666663090388,20.503144654088"
-                    Point3="-99.6666663090388,24.503144654088" />
-                  <mssgle:LineSegment
-                    End="-99.6666663090388,52.4999999999999" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-124.889719873269,25.503144654088,150.1127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="166.666666666667,42.6666666666667"
-          Id="Package\Sequence Container\Dim_Airport\OLE DB Command"
-          TopLeft="5.50000000000004,313.5" />
-        <EdgeLayout
-          Id="Package\Sequence Container\Dim_Airport.Paths[Derived Column Output]"
-          TopLeft="91.8333333333334,253.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000001"
-              Start="0,0"
-              End="0,52.5000000000001">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5000000000001" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="121.333333333334,42.6666666666667"
-          Id="Package\Sequence Container\Dim_Airport\Union All"
-          TopLeft="172.166666666667,416.166666666667" />
-        <EdgeLayout
-          Id="Package\Sequence Container\Dim_Airport.Paths[New Output]"
-          TopLeft="248.277777598964,150.833333333333">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,265.333333333333"
-              Start="0,0"
-              End="0,257.833333333333">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,257.833333333333" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-27.09138671875,123.199869791667,54.1827734375,11.43359375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Sequence Container\Dim_Airport.Paths[OLE DB Command Output]"
-          TopLeft="88.8333333333334,356.166666666667">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="125.111111111111,60.0000000000001"
-              Start="0,0"
-              End="125.111111111111,52.5000000000001">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,31.531453362256" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,31.531453362256"
-                    Point2="0,35.531453362256"
-                    Point3="4,35.531453362256" />
-                  <mssgle:LineSegment
-                    End="121.111111111111,35.531453362256" />
-                  <mssgle:CubicBezierSegment
-                    Point1="121.111111111111,35.531453362256"
-                    Point2="125.111111111111,35.531453362256"
-                    Point3="125.111111111111,39.531453362256" />
-                  <mssgle:LineSegment
-                    End="125.111111111111,52.5000000000001" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="164,42.6666666666667"
-          Id="Package\Sequence Container\Dim_Airport\Derived Column 1"
-          TopLeft="150.833333333333,518.833333333333" />
-        <EdgeLayout
-          Id="Package\Sequence Container\Dim_Airport.Paths[Union All Output 1]"
-          TopLeft="232.833333333333,458.833333333333">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="164,42.6666666666667"
-          Id="Package\Sequence Container\Dim_Airport\Insert Destination"
-          TopLeft="150.833333333333,621.5" />
-        <EdgeLayout
-          Id="Package\Sequence Container\Dim_Airport.Paths[Derived Column Output1]"
-          TopLeft="232.833333333333,561.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000001"
-              Start="0,0"
-              End="0,52.5000000000001">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5000000000001" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="176,42.6666666666667"
-          Id="Package\Sequence Container\Dim_Airport\OLE DB Command 1"
-          TopLeft="293.833333333333,210.833333333333" />
-        <EdgeLayout
-          Id="Package\Sequence Container\Dim_Airport.Paths[Inferred Member Updates Output]"
-          TopLeft="295.166666309039,150.833333333333">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="86.6666670242946,59.9999999999999"
-              Start="0,0"
-              End="86.6666670242946,52.4999999999999">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16.503144654088" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,16.503144654088"
-                    Point2="0,20.503144654088"
-                    Point3="4,20.503144654088" />
-                  <mssgle:LineSegment
-                    End="82.6666670242946,20.503144654088" />
-                  <mssgle:CubicBezierSegment
-                    Point1="82.6666670242946,20.503144654088"
-                    Point2="86.6666670242946,20.503144654088"
-                    Point3="86.6666670242946,24.503144654088" />
-                  <mssgle:LineSegment
-                    End="86.6666670242946,52.4999999999999" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-31.0696547691027,25.503144654088,148.8059765625,11.658203125"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container\Dim_Airport\OLE DB Source">
+    design-time-name="Package\Sequence Container\Dim_Airport\Insert Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -7616,101 +7501,6 @@ where [refTable].[Reason_Type] = ?</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container\Dim_Airport\Slowly Changing Dimension">
-    <Properties>
-      <Property>
-        <Name>SCDMetadata</Name>
-        <Value
-          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;SCDWizardMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-  &lt;ConnectionID&gt;{089DD635-97CC-4F60-BD45-B137F3EC30F2}&lt;/ConnectionID&gt;
-  &lt;TableName&gt;[dbo].[Dim_Airport]&lt;/TableName&gt;
-  &lt;InputToColumnsCollection&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[Airport_Name]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;Airport_Name&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[City]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;City&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[Country]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;Country&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[current_flag]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;current_flag&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[end_date]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;end_date&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[IATA_Code]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;IATA_Code&lt;/ColumnName&gt;
-      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
-      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[Latitude]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;Latitude&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[Longitude]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;Longitude&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[start_date]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;start_date&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[State]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;State&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-  &lt;/InputToColumnsCollection&gt;
-  &lt;GeneratedComponentsIdentificationStrings&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Derived Column&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Union All&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Derived Column 1&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command 1&lt;/anyType&gt;
-  &lt;/GeneratedComponentsIdentificationStrings&gt;
-  &lt;FailFixedAttribute&gt;true&lt;/FailFixedAttribute&gt;
-  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
-  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
-  &lt;CurrentIndicatorColumn&gt;current_flag&lt;/CurrentIndicatorColumn&gt;
-  &lt;InferredIndicatorColumn /&gt;
-  &lt;ValueCurrent&gt;Current&lt;/ValueCurrent&gt;
-  &lt;ValueExpired&gt;Expired&lt;/ValueExpired&gt;
-  &lt;StartDateColumn /&gt;
-  &lt;EndDateColumn /&gt;
-  &lt;DateVariable /&gt;
-  &lt;EnableInferredSupport&gt;true&lt;/EnableInferredSupport&gt;
-&lt;/SCDWizardMetadata&gt;</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

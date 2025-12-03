@@ -146,9 +146,7 @@ USE Project_DDS_DB;
 GO
 ALTER TABLE Dim_Airport
 ADD
-    start_date    DATE        NOT NULL DEFAULT '1900-01-01', 
-    end_date      DATE        NOT NULL DEFAULT '9999-12-31', 
-    current_flag  CHAR(1)     NOT NULL DEFAULT 'Y';         -- Cờ hiệu hiện hành
+    current_flag  BIT;         -- Cờ hiệu hiện hành
 
 
 Select * from Dim_Airline;
