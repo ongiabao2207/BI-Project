@@ -148,7 +148,6 @@
       DTS:ObjectName="Load DimDate"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
-      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -2677,10 +2676,7 @@ where [refTable].[IATA_Code] = ?</property>
               startId="Package\Load FactFlight\Lookup ArriveTime.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Load FactFlight.Paths[Lookup Match Output7]"
-              refId="Package\Load FactFlight.Paths[Lookup Match Output7]"
               endId="Package\Load FactFlight\OLE DB Destination.Inputs[OLE DB Destination Input]"
-              name="Lookup Match Output"
-              startId="Package\Load FactFlight\Lookup CancelReason.Outputs[Lookup Match Output]" />
               name="Lookup Match Output"
               startId="Package\Load FactFlight\Lookup CancelReason.Outputs[Lookup Match Output]" />
             <path
@@ -5746,7 +5742,6 @@ where [refTable].[Reason_Type] = ?</property>
       DTS:ObjectName="Set LSET Dim_Airline"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="2">
-      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -5790,7 +5785,6 @@ where [refTable].[Reason_Type] = ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Set LSET Dim_Reason"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="3">
       DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -5934,21 +5928,16 @@ where [refTable].[Reason_Type] = ?</property>
         <EdgeLayout
           Id="Package\Sequence Container.PrecedenceConstraints[Constraint]"
           TopLeft="103.583343056341,48.8333191792175">
-          Id="Package\Sequence Container.PrecedenceConstraints[Constraint]"
-          TopLeft="103.583343056341,48.8333191792175">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
               EndConnector="0,23.3780333175356"
-              EndConnector="0,23.3780333175356"
               Start="0,0"
-              End="0,15.8780333175356">
               End="0,15.8780333175356">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,15.8780333175356" />
                     End="0,15.8780333175356" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
@@ -5961,21 +5950,16 @@ where [refTable].[Reason_Type] = ?</property>
         <EdgeLayout
           Id="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
           TopLeft="101.208343198109,114.87801916342">
-          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
-          TopLeft="101.208343198109,114.87801916342">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
               EndConnector="0,26.3005416082385"
-              EndConnector="0,26.3005416082385"
               Start="0,0"
-              End="0,18.8005416082385">
               End="0,18.8005416082385">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18.8005416082385" />
                     End="0,18.8005416082385" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
@@ -6007,33 +5991,16 @@ where [refTable].[Reason_Type] = ?</property>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="420.922608873586,231.809519558861">
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="420.922608873586,231.809519558861">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
               EndConnector="-93.061501282874,107.32618532669"
-              EndConnector="-93.061501282874,107.32618532669"
               Start="0,0"
-              End="-93.061501282874,99.8261853266901">
               End="-93.061501282874,99.8261853266901">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,59.7190487316076" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,59.7190487316076"
-                    Point2="0,63.7190487316076"
-                    Point3="-4,63.7190487316076" />
-                  <mssgle:LineSegment
-                    End="-89.061501282874,63.7190487316076" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-89.061501282874,63.7190487316076"
-                    Point2="-93.061501282874,63.7190487316076"
-                    Point3="-93.061501282874,67.7190487316076" />
-                  <mssgle:LineSegment
-                    End="-93.061501282874,99.8261853266901" />
                     End="0,59.7190487316076" />
                   <mssgle:CubicBezierSegment
                     Point1="0,59.7190487316076"
@@ -6058,33 +6025,16 @@ where [refTable].[Reason_Type] = ?</property>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
           TopLeft="150.517856404451,236.552374186743">
-          Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="150.517856404451,236.552374186743">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
               EndConnector="129.787695630705,102.583330698808"
-              EndConnector="129.787695630705,102.583330698808"
               Start="0,0"
-              End="129.787695630705,95.0833306988083">
               End="129.787695630705,95.0833306988083">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,56.9032383658424" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,56.9032383658424"
-                    Point2="0,60.9032383658424"
-                    Point3="4,60.9032383658424" />
-                  <mssgle:LineSegment
-                    End="125.787695630705,60.9032383658424" />
-                  <mssgle:CubicBezierSegment
-                    Point1="125.787695630705,60.9032383658424"
-                    Point2="129.787695630705,60.9032383658424"
-                    Point3="129.787695630705,64.9032383658424" />
-                  <mssgle:LineSegment
-                    End="129.787695630705,95.0833306988083" />
                     End="0,56.9032383658424" />
                   <mssgle:CubicBezierSegment
                     Point1="0,56.9032383658424"
@@ -6490,7 +6440,6 @@ where [refTable].[Reason_Type] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
-            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6513,7 +6462,6 @@ where [refTable].[Reason_Type] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
-            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6535,7 +6483,6 @@ where [refTable].[Reason_Type] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -6940,9 +6887,7 @@ where [refTable].[Reason_Type] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7016,7 +6961,6 @@ where [refTable].[Reason_Type] = ?</property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
           type="q2:string">false</Value>
-          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -7026,7 +6970,6 @@ where [refTable].[Reason_Type] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
           type="q4:string">0</Value>
       </Property>
       <Property>
@@ -7079,9 +7022,7 @@ where [refTable].[Reason_Type] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
@@ -7221,9 +7162,7 @@ where [refTable].[Reason_Type] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-31.0696547691027,25.503144654088,148.8059765625,11.658203125"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
@@ -7249,9 +7188,7 @@ where [refTable].[Reason_Type] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-124.889719873269,25.503144654088,150.1127734375,11.609375"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
@@ -7277,9 +7214,7 @@ where [refTable].[Reason_Type] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
