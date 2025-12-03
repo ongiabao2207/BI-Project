@@ -29,6 +29,18 @@
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.Project_Metadata_DB 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{714C201A-E23B-4E37-AAF2-843E288B0161}"
+      DTS:ObjectName="localhost.Project_Metadata_DB 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=Project_Metadata_DB;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-StageToNDS-{714C201A-E23B-4E37-AAF2-843E288B0161}localhost.Project_Metadata_DB 1;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[localhost.Project_NDS_DB]"
       DTS:CreationName="OLEDB"
       DTS:DTSID="{40B29E1E-4723-46A6-9EBF-414B3879BFFA}"
@@ -65,6 +77,18 @@
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.Project_NDS_DB 3]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{0F2AFFAA-7819-4D31-9DD8-026BA3973BDA}"
+      DTS:ObjectName="localhost.Project_NDS_DB 3">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=Project_NDS_DB;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-StageToNDS-{0F2AFFAA-7819-4D31-9DD8-026BA3973BDA}localhost.Project_NDS_DB 3;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[localhost.Project_Stage_DB]"
       DTS:CreationName="OLEDB"
       DTS:DTSID="{967EB369-D85D-4A26-9212-81CD27541F5F}"
@@ -74,6 +98,18 @@
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
           DTS:ConnectionString="Data Source=localhost;Initial Catalog=Project_Stage_DB;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-StageToNDS-{967EB369-D85D-4A26-9212-81CD27541F5F}localhost.Project_Stage_DB;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.Project_Stage_DB 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{709E79F0-B6F2-4050-B119-37E2CF85A74C}"
+      DTS:ObjectName="localhost.Project_Stage_DB 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=Project_Stage_DB;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-StageToNDS-{709E79F0-B6F2-4050-B119-37E2CF85A74C}localhost.Project_Stage_DB 1;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -102,7 +138,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{1A4EFA04-25FB-4B87-B447-FE119CFC7BD7}"
+          SQLTask:Connection="{714C201A-E23B-4E37-AAF2-843E288B0161}"
           SQLTask:SqlStatementSource="SELECT GETDATE() AS CET FROM ETL_Metadata;"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
@@ -257,8 +293,8 @@
               <connections>
                 <connection
                   refId="Package\Import data from Stage to NDS_Airline\Insert new rows.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[localhost.Project_NDS_DB 1]"
-                  connectionManagerRefId="Package.ConnectionManagers[localhost.Project_NDS_DB 1]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.Project_NDS_DB 3]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.Project_NDS_DB 3]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -413,8 +449,8 @@ where [refTable].[IATA_Code] = ?</property>
               <connections>
                 <connection
                   refId="Package\Import data from Stage to NDS_Airline\Lookup PK in NDS_Airline.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[localhost.Project_NDS_DB]"
-                  connectionManagerRefId="Package.ConnectionManagers[localhost.Project_NDS_DB]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.Project_NDS_DB 3]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.Project_NDS_DB 3]"
                   description="Connection manager used to access lookup data."
                   name="OleDbConnection" />
               </connections>
@@ -537,8 +573,8 @@ where [refTable].[IATA_Code] = ?</property>
               <connections>
                 <connection
                   refId="Package\Import data from Stage to NDS_Airline\Stage_Airline.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[localhost.Project_Stage_DB]"
-                  connectionManagerRefId="Package.ConnectionManagers[localhost.Project_Stage_DB]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.Project_Stage_DB 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.Project_Stage_DB 1]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -650,8 +686,8 @@ WHERE IATA_Code = ?;</property>
               <connections>
                 <connection
                   refId="Package\Import data from Stage to NDS_Airline\Update existed rows.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[localhost.Project_NDS_DB]"
-                  connectionManagerRefId="Package.ConnectionManagers[localhost.Project_NDS_DB]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.Project_NDS_DB 3]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.Project_NDS_DB 3]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -932,8 +968,8 @@ WHERE IATA_Code = ?;</property>
               <connections>
                 <connection
                   refId="Package\Import data from Stage to NDS_Airport\Insert new rows.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[localhost.Project_NDS_DB 1]"
-                  connectionManagerRefId="Package.ConnectionManagers[localhost.Project_NDS_DB 1]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.Project_NDS_DB 3]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.Project_NDS_DB 3]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1158,8 +1194,8 @@ where [refTable].[IATA_Code] = ?</property>
               <connections>
                 <connection
                   refId="Package\Import data from Stage to NDS_Airport\Lookup PK in NDS_Airport.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[localhost.Project_NDS_DB 1]"
-                  connectionManagerRefId="Package.ConnectionManagers[localhost.Project_NDS_DB 1]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.Project_NDS_DB 3]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.Project_NDS_DB 3]"
                   description="Connection manager used to access lookup data."
                   name="OleDbConnection" />
               </connections>
@@ -1282,8 +1318,8 @@ where [refTable].[IATA_Code] = ?</property>
               <connections>
                 <connection
                   refId="Package\Import data from Stage to NDS_Airport\Stage_Airport.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[localhost.Project_Stage_DB]"
-                  connectionManagerRefId="Package.ConnectionManagers[localhost.Project_Stage_DB]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.Project_Stage_DB 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.Project_Stage_DB 1]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1515,8 +1551,8 @@ WHERE IATA_Code = ?;</property>
               <connections>
                 <connection
                   refId="Package\Import data from Stage to NDS_Airport\Update existed rows.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[localhost.Project_NDS_DB]"
-                  connectionManagerRefId="Package.ConnectionManagers[localhost.Project_NDS_DB]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.Project_NDS_DB 3]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.Project_NDS_DB 3]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -3008,8 +3044,8 @@ WHERE IATA_Code = ?;</property>
               <connections>
                 <connection
                   refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[localhost.Project_Metadata_DB]"
-                  connectionManagerRefId="Package.ConnectionManagers[localhost.Project_Metadata_DB]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.Project_Metadata_DB 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.Project_Metadata_DB 1]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -3255,8 +3291,8 @@ WHERE IATA_Code = ?;</property>
               <connections>
                 <connection
                   refId="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog 1.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[localhost.Project_Metadata_DB]"
-                  connectionManagerRefId="Package.ConnectionManagers[localhost.Project_Metadata_DB]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.Project_Metadata_DB 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.Project_Metadata_DB 1]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -3502,8 +3538,8 @@ WHERE IATA_Code = ?;</property>
               <connections>
                 <connection
                   refId="Package\Import data from Stage to NDS_Flight\Insert new rows.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[localhost.Project_NDS_DB 2]"
-                  connectionManagerRefId="Package.ConnectionManagers[localhost.Project_NDS_DB 2]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.Project_NDS_DB 3]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.Project_NDS_DB 3]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -3924,8 +3960,8 @@ where [refTable].[Source_ID] = ? and [refTable].[Date] = ? and [refTable].[Fligh
               <connections>
                 <connection
                   refId="Package\Import data from Stage to NDS_Flight\Lookup PK in NDS_Flight.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[localhost.Project_NDS_DB 2]"
-                  connectionManagerRefId="Package.ConnectionManagers[localhost.Project_NDS_DB 2]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.Project_NDS_DB 3]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.Project_NDS_DB 3]"
                   description="Connection manager used to access lookup data."
                   name="OleDbConnection" />
               </connections>
@@ -4150,8 +4186,8 @@ where [refTable].[Source_ID] = ? and [refTable].[Date] = ? and [refTable].[Fligh
               <connections>
                 <connection
                   refId="Package\Import data from Stage to NDS_Flight\Stage_Flight.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[localhost.Project_Stage_DB]"
-                  connectionManagerRefId="Package.ConnectionManagers[localhost.Project_Stage_DB]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.Project_Stage_DB 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.Project_Stage_DB 1]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -4867,8 +4903,8 @@ WHERE
               <connections>
                 <connection
                   refId="Package\Import data from Stage to NDS_Flight\Update existed rows.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[localhost.Project_NDS_DB 1]"
-                  connectionManagerRefId="Package.ConnectionManagers[localhost.Project_NDS_DB 1]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.Project_NDS_DB 3]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.Project_NDS_DB 3]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -5418,19 +5454,19 @@ WHERE
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="118.4,41.6"
+          Size="118.666666666667,41.3333333333334"
           Id="Package\Get CET"
           TopLeft="458.611079825179,75.3617644238768" />
         <NodeLayout
-          Size="260.8,41.6"
+          Size="260.666666666667,41.3333333333334"
           Id="Package\Import data from Stage to NDS_Airline"
           TopLeft="237.261885209538,197.527776656573" />
         <NodeLayout
-          Size="264,41.6"
+          Size="264,41.3333333333334"
           Id="Package\Import data from Stage to NDS_Airport"
           TopLeft="538.928535393866,197.527776656572" />
         <NodeLayout
-          Size="257.6,41.6"
+          Size="257.333333333334,41.3333333333334"
           Id="Package\Import data from Stage to NDS_Flight"
           TopLeft="391.428543452909,314.527775842969" />
         <EdgeLayout
@@ -5573,7 +5609,7 @@ WHERE
           Text="Chạy script insert dữ liệu vào NDS_Reason trước khi chạy ETL StageToNDS"
           ParentId="Package"
           FontInfo="{assembly:Null}"
-          Size="440.8,40"
+          Size="440.666666666667,40"
           Id="855902e7-940f-4bb5-8aae-ae25c9e278c6"
           TopLeft="297.21768232608,5.62058803548756" />
       </GraphLayout>
@@ -5585,11 +5621,11 @@ WHERE
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="174.4,41.6"
+          Size="174.666666666667,41.3333333333334"
           Id="Package\Import data from Stage to NDS_Airline\Update existed rows"
           TopLeft="177.499990301828,297.266664599511" />
         <NodeLayout
-          Size="154.4,41.6"
+          Size="154.666666666667,41.3333333333334"
           Id="Package\Import data from Stage to NDS_Airline\Insert new rows"
           TopLeft="499.166639393404,300.066664780312" />
         <NodeLayout
@@ -5601,7 +5637,7 @@ WHERE
           Id="Package\Import data from Stage to NDS_Airline\Add created column"
           TopLeft="327.49998210619,114.733332724638" />
         <NodeLayout
-          Size="200,41.6"
+          Size="200,41.3333333333334"
           Id="Package\Import data from Stage to NDS_Airline\Lookup PK in NDS_Airline"
           TopLeft="312.499982925754,190.666665340795" />
         <EdgeLayout
@@ -5742,7 +5778,7 @@ WHERE
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="201.6,41.6"
+          Size="201.333333333334,41.3333333333334"
           Id="Package\Import data from Stage to NDS_Airport\Lookup PK in NDS_Airport"
           TopLeft="394.999994114042,240.99999640882" />
         <NodeLayout
@@ -5758,7 +5794,7 @@ WHERE
           Id="Package\Import data from Stage to NDS_Airport\Add created column"
           TopLeft="403.999993979931,141.999997884035" />
         <NodeLayout
-          Size="142.4,41.6"
+          Size="142.666666666667,41.3333333333334"
           Id="Package\Import data from Stage to NDS_Airport\Stage_Airport"
           TopLeft="415.999993801117,41.9999993741512" />
         <EdgeLayout
@@ -5817,6 +5853,7 @@ WHERE
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -5838,6 +5875,7 @@ WHERE
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
+            <EdgeLabelCollection />
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -5943,7 +5981,7 @@ WHERE
           Id="Package\Import data from Stage to NDS_Flight\Lookup PK in NDS_Flight"
           TopLeft="503.462586080208,918.38655426419" />
         <NodeLayout
-          Size="162.4,41.6"
+          Size="162.666666666667,41.3333333333334"
           Id="Package\Import data from Stage to NDS_Flight\Derived Column 1"
           TopLeft="516.160998805653,710.46498553694" />
         <NodeLayout
@@ -5967,7 +6005,7 @@ WHERE
           Id="Package\Import data from Stage to NDS_Flight\Insert new rows"
           TopLeft="725.684808775483,1038.30812273822" />
         <NodeLayout
-          Size="228,41.6"
+          Size="228,41.3333333333334"
           Id="Package\Import data from Stage to NDS_Flight\Check Cancellation_reason type"
           TopLeft="320.748282026514,508.738305548538" />
         <NodeLayout
@@ -5990,66 +6028,6 @@ WHERE
           Size="174.4,41.6"
           Id="Package\Import data from Stage to NDS_Flight\Update existed rows"
           TopLeft="323.859400025272,1035.8286196463" />
-        <EdgeLayout
-          Id="Package\Import data from Stage to NDS_Flight.Paths[OLE DB Source Output]"
-          TopLeft="413.722099744061,44.5131652635529">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,61.9261683273791"
-              Start="0,0"
-              End="0,54.4261683273791">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,54.4261683273791" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Import data from Stage to NDS_Flight.Paths[Lookup No Match Output]"
-          TopLeft="632.262586080208,959.986554264191">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="170.622222695275,78.3215684740278"
-              Start="0,0"
-              End="170.622222695275,70.8215684740278">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,27.7106838211918" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,27.7106838211918"
-                    Point2="0,31.7106838211918"
-                    Point3="4,31.7106838211918" />
-                  <mssgle:LineSegment
-                    End="166.622222695275,31.7106838211918" />
-                  <mssgle:CubicBezierSegment
-                    Point1="166.622222695275,31.7106838211918"
-                    Point2="170.622222695275,31.7106838211918"
-                    Point3="170.622222695275,35.7106838211918" />
-                  <mssgle:LineSegment
-                    End="170.622222695275,70.8215684740278" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="29.5047246288875,36.7106838211918,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\Import data from Stage to NDS_Flight.Paths[Lookup Match Output]"
           TopLeft="569.862586080209,959.986554264191">
@@ -6082,7 +6060,79 @@ WHERE
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-127.592979746218,35.7067874473888,96.3827734375,11.609375"
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import data from Stage to NDS_Flight.Paths[Invalid Reason_type]"
+          TopLeft="398.081615359847,550.338305548538">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-187.799982432005,58.4953075502031"
+              Start="0,0"
+              End="-187.799982432005,50.9953075502031">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.642702703218" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.642702703218"
+                    Point2="0,23.642702703218"
+                    Point3="-4,23.642702703218" />
+                  <mssgle:LineSegment
+                    End="-183.799982432005,23.642702703218" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-183.799982432005,23.642702703218"
+                    Point2="-187.799982432005,23.642702703218"
+                    Point3="-187.799982432005,27.642702703218" />
+                  <mssgle:LineSegment
+                    End="-187.799982432005,50.9953075502031" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-139.312940434753,28.642702703218,90.8258984375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import data from Stage to NDS_Flight.Paths[Has NULL]"
+          TopLeft="391.923810253662,261.179831740303">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-179.091156912227,52.2487394766471"
+              Start="0,0"
+              End="-179.091156912227,44.7487394766471">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.2458962733769" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.2458962733769"
+                    Point2="0,21.2458962733769"
+                    Point3="-4,21.2458962733769" />
+                  <mssgle:LineSegment
+                    End="-175.091156912227,21.2458962733769" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-175.091156912227,21.2458962733769"
+                    Point2="-179.091156912227,21.2458962733769"
+                    Point3="-179.091156912227,25.2458962733769" />
+                  <mssgle:LineSegment
+                    End="-179.091156912227,44.7487394766471" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-111.552512049863,26.2458962733769,44.0138671875,9.421875"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -6207,19 +6257,19 @@ WHERE
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Import data from Stage to NDS_Flight.Paths[Derived Column Output3]"
-          TopLeft="211.310204338167,650.433613098741">
+          Id="Package\Import data from Stage to NDS_Flight.Paths[Derived Column Output2]"
+          TopLeft="600.00544323827,860.627077042442">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,52.317647019277"
+              EndConnector="0,57.7594772217479"
               Start="0,0"
-              End="0,44.817647019277">
+              End="0,50.2594772217479">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,44.817647019277" />
+                    End="0,50.2594772217479" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6323,17 +6373,22 @@ WHERE
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
               BoundingBox="-70.61390625,114.200135341617,141.2278125,11.658203125"
+              BoundingBox="-70.61390625,114.200135341617,141.2278125,11.658203125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Import data from Stage to NDS_Flight.Paths[Conditional Split Default Output]"
           TopLeft="471.414948693181,550.338305548538">
+          Id="Package\Import data from Stage to NDS_Flight.Paths[Conditional Split Default Output]"
+          TopLeft="471.414948693181,550.338305548538">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
               EndConnector="125.907954884514,59.0155689659176"
+              EndConnector="125.907954884514,59.0155689659176"
               Start="0,0"
+              End="125.907954884514,51.5155689659176">
               End="125.907954884514,51.5155689659176">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
@@ -6352,11 +6407,27 @@ WHERE
                     Point3="125.907954884514,27.852982578559" />
                   <mssgle:LineSegment
                     End="125.907954884514,51.5155689659176" />
+                    End="0,19.852982578559" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.852982578559"
+                    Point2="0,23.852982578559"
+                    Point3="4,23.852982578559" />
+                  <mssgle:LineSegment
+                    End="121.907954884514,23.852982578559" />
+                  <mssgle:CubicBezierSegment
+                    Point1="121.907954884514,23.852982578559"
+                    Point2="125.907954884514,23.852982578559"
+                    Point3="125.907954884514,27.852982578559" />
+                  <mssgle:LineSegment
+                    End="125.907954884514,51.5155689659176" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-7.65992880774314,28.852982578559,141.2278125,11.658203125"
+              RelativePosition="Any" />
             <mssgm:EdgeLabel
               BoundingBox="-7.65992880774314,28.852982578559,141.2278125,11.658203125"
               RelativePosition="Any" />
@@ -6386,7 +6457,7 @@ WHERE
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Import data from Stage to NDS_Flight\Lookup PK in NDS_Flight">
+    design-time-name="Package\Import data from Stage to NDS_Flight\Stage_Flight">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -6409,13 +6480,15 @@ WHERE
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Import data from Stage to NDS_Flight\Insert new rows">
+    design-time-name="Package\Import data from Stage to NDS_Flight\Lookup PK in NDS_Flight">
     <Properties>
       <Property>
-        <Name>DataSourceViewID</Name>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
       </Property>
       <Property>
-        <Name>TableInfoObjectType</Name>
+        <Name>UsedTableName</Name>
         <Value
           type="q2:string">Table</Value>
       </Property>
@@ -6430,12 +6503,15 @@ WHERE
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q2:string">Table</Value>
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Import data from Stage to NDS_Flight\Flight_ETL_ErrorLog">
+    design-time-name="Package\Import data from Stage to NDS_Flight\Insert new rows">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

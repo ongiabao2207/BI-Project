@@ -12,7 +12,7 @@
       DTS:RowDelimiter=""
       DTS:TextQualifier="_x003C_none_x003E_"
       DTS:CodePage="1252"
-      DTS:ConnectionString="D:\HCMUS\NAM_4\HK1\BI\Project\BI-Project\dataset_small\airlines.csv">
+      DTS:ConnectionString="C:\Users\HP\BI-Project\dataset_small\airlines.csv">
       <DTS:FlatFileColumns>
         <DTS:FlatFileColumn
           DTS:ColumnType="Delimited"
@@ -21,7 +21,7 @@
           DTS:DataType="129"
           DTS:TextQualified="True"
           DTS:ObjectName="IATA_CODE"
-          DTS:DTSID="{EE61DE3B-0C0F-47D5-A4D5-DAD05EA27080}"
+          DTS:DTSID="{4AC2CB9F-8ADF-4182-837D-AF9D6C519FC8}"
           DTS:CreationName="" />
         <DTS:FlatFileColumn
           DTS:ColumnType="Delimited"
@@ -30,7 +30,7 @@
           DTS:DataType="129"
           DTS:TextQualified="True"
           DTS:ObjectName="AIRLINE"
-          DTS:DTSID="{243772AE-F107-445B-ADEE-6A8A410A46FC}"
+          DTS:DTSID="{7D16BE04-EA10-4136-9FB2-2472C027DC78}"
           DTS:CreationName="" />
       </DTS:FlatFileColumns>
     </DTS:ConnectionManager>
