@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="StageToNDS"
   DTS:PackageType="5"
-  DTS:VersionBuild="131"
-  DTS:VersionGUID="{B16047E3-F16F-484E-B795-18E8EE3DACE0}">
+  DTS:VersionBuild="132"
+  DTS:VersionGUID="{C30B4BD9-396B-4AE4-9DE6-5C4BB49E7412}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -5601,7 +5601,7 @@ WHERE
           Id="Package\Import data from Stage to NDS_Airline\Add created column"
           TopLeft="327.49998210619,114.733332724638" />
         <NodeLayout
-          Size="200,41.6"
+          Size="198.4,41.6"
           Id="Package\Import data from Stage to NDS_Airline\Lookup PK in NDS_Airline"
           TopLeft="312.499982925754,190.666665340795" />
         <EdgeLayout
@@ -5628,79 +5628,79 @@ WHERE
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Import data from Stage to NDS_Airline.Paths[Lookup No Match Output]"
-          TopLeft="444.499982925754,232.266665340795">
+          TopLeft="443.433316259087,232.266665340795">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="131.86665646765,67.799999439517"
+              EndConnector="132.933323134317,67.799999439517"
               Start="0,0"
-              End="131.86665646765,60.299999439517">
+              End="132.933323134317,60.299999439517">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,23.442856915995" />
+                    End="0,23.4454397731165" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,23.442856915995"
-                    Point2="0,27.442856915995"
-                    Point3="4,27.442856915995" />
+                    Point1="0,23.4454397731165"
+                    Point2="0,27.4454397731165"
+                    Point3="4,27.4454397731165" />
                   <mssgle:LineSegment
-                    End="127.86665646765,27.442856915995" />
+                    End="128.933323134317,27.4454397731165" />
                   <mssgle:CubicBezierSegment
-                    Point1="127.86665646765,27.442856915995"
-                    Point2="131.86665646765,27.442856915995"
-                    Point3="131.86665646765,31.442856915995" />
+                    Point1="128.933323134317,27.4454397731165"
+                    Point2="132.933323134317,27.4454397731165"
+                    Point3="132.933323134317,31.4454397731165" />
                   <mssgle:LineSegment
-                    End="131.86665646765,60.299999439517" />
+                    End="132.933323134317,60.299999439517" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="10.126941515075,32.442856915995,111.6127734375,11.609375"
+              BoundingBox="10.6602748484084,32.4454397731165,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Import data from Stage to NDS_Airline.Paths[Lookup Match Output]"
-          TopLeft="380.499982925754,232.266665340795">
+          TopLeft="379.966649592421,232.266665340795">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-115.799992623926,64.999999258716"
+              EndConnector="-115.266659290593,64.999999258716"
               Start="0,0"
-              End="-115.799992623926,57.499999258716">
+              End="-115.266659290593,57.499999258716">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,22.3095235094803" />
+                    End="0,22.3119996999283" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,22.3095235094803"
-                    Point2="0,26.3095235094803"
-                    Point3="-4,26.3095235094803" />
+                    Point1="0,22.3119996999283"
+                    Point2="0,26.3119996999283"
+                    Point3="-4,26.3119996999283" />
                   <mssgle:LineSegment
-                    End="-111.799992623926,26.3095235094803" />
+                    End="-111.266659290593,26.3119996999283" />
                   <mssgle:CubicBezierSegment
-                    Point1="-111.799992623926,26.3095235094803"
-                    Point2="-115.799992623926,26.3095235094803"
-                    Point3="-115.799992623926,30.3095235094803" />
+                    Point1="-111.266659290593,26.3119996999283"
+                    Point2="-115.266659290593,26.3119996999283"
+                    Point3="-115.266659290593,30.3119996999283" />
                   <mssgle:LineSegment
-                    End="-115.799992623926,57.499999258716" />
+                    End="-115.266659290593,57.499999258716" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-106.091383030713,31.3095235094803,96.3827734375,11.609375"
+              BoundingBox="-105.824716364046,31.3119996999283,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Import data from Stage to NDS_Airline.Paths[Derived Column Output]"
-          TopLeft="412.999982515972,156.333332724638">
+          TopLeft="412.599982515972,156.333332724638">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -5873,7 +5873,7 @@ WHERE
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="7.76027858445985,30.0929128671724,111.6127734375,11.609375"
+              BoundingBox="7.76027858446,30.0929128671724,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -6009,9 +6009,7 @@ WHERE
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6177,9 +6175,7 @@ WHERE
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6201,9 +6197,7 @@ WHERE
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6225,9 +6219,7 @@ WHERE
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6249,9 +6241,7 @@ WHERE
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6273,9 +6263,7 @@ WHERE
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6297,9 +6285,7 @@ WHERE
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6358,7 +6344,7 @@ WHERE
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-7.65992880774314,28.852982578559,141.2278125,11.658203125"
+              BoundingBox="-7.65992880774301,28.852982578559,141.2278125,11.658203125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -6366,7 +6352,7 @@ WHERE
           Text="Chuẩn hoá lại các cột thời gian theo dạng chuỗi HH:MM"
           ParentId="Package\Import data from Stage to NDS_Flight"
           FontInfo="{assembly:Null}"
-          Size="260,NaN"
+          Size="260,56"
           Id="df0e7f4a-595c-41bc-93c8-a8269c7e823a"
           TopLeft="720.281634119935,730.974789594801" />
       </GraphLayout>
