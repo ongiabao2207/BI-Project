@@ -7,15 +7,968 @@
   DTS:CreatorName="DESKTOP-0R2CM56\HP"
   DTS:DTSID="{14FA05F6-F1B4-47C1-AC3C-90D29FDD4FFF}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="17.0.1008.3"
+  DTS:LastModifiedProductVersion="16.0.5685.2"
   DTS:LocaleID="1033"
   DTS:ObjectName="SourceToStage"
   DTS:PackageType="5"
-  DTS:VersionBuild="44"
-  DTS:VersionGUID="{4D6CBD3E-1808-43C7-B8D5-A50C011ED4CF}">
+  DTS:VersionBuild="58"
+  DTS:VersionGUID="{8615A001-45DF-410D-AF2C-D3ABA77C0D25}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{C31B2F0F-E837-4BC9-9BB0-505D8FDFB31F}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\HP\BI-Project\dataset_small\filtered_airpoirt.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="IATA_CODE"
+              DTS:DTSID="{C9AB8F88-B6D0-4AF9-A61F-518D7A632B19}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AIRPORT"
+              DTS:DTSID="{B0310671-7298-4035-B3CE-98EE7E9EB51C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CITY"
+              DTS:DTSID="{44B87C32-BA65-4636-B3ED-CA2A0ED7F55F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="STATE"
+              DTS:DTSID="{8668D68D-1457-4FCC-B9E0-39AF19C4C65C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="COUNTRY"
+              DTS:DTSID="{6B408F54-8CAE-417D-858C-F7C6709B7CB2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LATITUDE"
+              DTS:DTSID="{CCB87810-D4FC-4BFD-A7BD-48331A32F8C8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LONGITUDE"
+              DTS:DTSID="{79821580-4771-4318-BB4B-007D643F42E6}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager 1]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{85844F74-B114-45C3-ADA0-98037C0A6394}"
+      DTS:ObjectName="Flat File Connection Manager 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\HP\BI-Project\dataset_small\filtered_flights_1.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DATE"
+              DTS:DTSID="{FD6CBE5A-F9D6-47AE-BF26-C6BFFFA9C369}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AIRLINE"
+              DTS:DTSID="{17964057-BD31-44E8-89CC-923072E8C437}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FLIGHT_NUMBER"
+              DTS:DTSID="{19DB4379-9428-456F-9020-52C06B25F677}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TAIL_NUMBER"
+              DTS:DTSID="{A755B7C4-7661-4485-BDFD-2BEFEF3CD5FB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ORIGIN_AIRPORT"
+              DTS:DTSID="{4E98A8DC-830F-453F-83F1-24AE08A6FE9C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DESTINATION_AIRPORT"
+              DTS:DTSID="{34437AAD-AAD1-4056-A85E-C72696EE97FC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SCHEDULED_DEPARTURE"
+              DTS:DTSID="{C7AF07E3-84DE-4005-94AB-DEB0D3F437EC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DEPARTURE_TIME"
+              DTS:DTSID="{D348FE32-934F-4E5B-ABE2-68C394CC9DCB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DEPARTURE_DELAY"
+              DTS:DTSID="{129B2608-2F2B-4554-B793-095BEE03B98A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TAXI_OUT"
+              DTS:DTSID="{2220A59A-FE19-4693-ACE1-EB909086B9E9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="WHEELS_OFF"
+              DTS:DTSID="{EA0DA32F-FBC9-4853-AD68-96B83AA72D4A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SCHEDULED_TIME"
+              DTS:DTSID="{AB584401-B390-466E-9324-7B497DC70D7B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ELAPSED_TIME"
+              DTS:DTSID="{3E5CC753-7232-4022-8409-94A8524661B7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AIR_TIME"
+              DTS:DTSID="{66BF0A44-1777-4FD5-862F-8A9833965123}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DISTANCE"
+              DTS:DTSID="{ED3935ED-1B42-46B9-A625-EF733CB623F1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="WHEELS_ON"
+              DTS:DTSID="{F8C1BA8B-BE1E-4039-80E5-23D55DFCC165}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TAXI_IN"
+              DTS:DTSID="{236960D7-7838-4819-A0A2-EC7269F8E137}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SCHEDULED_ARRIVAL"
+              DTS:DTSID="{E61FF27F-ED46-45CD-B4A9-1994086ED6DA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ARRIVAL_TIME"
+              DTS:DTSID="{591A4DBB-BB02-44E3-8B14-F7EA47178889}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ARRIVAL_DELAY"
+              DTS:DTSID="{172721BA-F2CE-49D3-B465-A7259B16C144}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DIVERTED"
+              DTS:DTSID="{13DCA8DD-E97F-4794-AEF6-AAE96894B3FA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CANCELLED"
+              DTS:DTSID="{2CC1736E-A165-4A07-9791-6C94152F3E6C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CANCELLATION_REASON"
+              DTS:DTSID="{C2AFF446-0A7A-4E65-B1A3-D67AD5938292}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AIR_SYSTEM_DELAY"
+              DTS:DTSID="{F06F2A97-D2AA-4146-BFE5-46D00A813B86}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SECURITY_DELAY"
+              DTS:DTSID="{C7A27805-9DDB-4D36-968A-84C41039C3BF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AIRLINE_DELAY"
+              DTS:DTSID="{EC610BCD-70F8-4635-81F4-D7255F2C1A4F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LATE_AIRCRAFT_DELAY"
+              DTS:DTSID="{2917B7E4-BDA2-425A-A99F-DD5D4660BDD9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="WEATHER_DELAY"
+              DTS:DTSID="{9C22B414-302E-4CBB-8DCA-DD1D01172C6C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CREATED"
+              DTS:DTSID="{34E74EA9-20F4-49B9-9AF7-7AB8F88FDAFE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MODIFIED"
+              DTS:DTSID="{AE5241C8-3D37-406B-9140-2636F18CE624}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager 2]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{EAB57CC9-2B7D-467F-B3AB-04E315A7C3C7}"
+      DTS:ObjectName="Flat File Connection Manager 2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\HP\BI-Project\dataset_small\filtered_flights_2.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DATE"
+              DTS:DTSID="{25A962F1-0C33-424A-A449-B28E6AAC3166}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AIRLINE"
+              DTS:DTSID="{A08F1A09-ADB8-4774-A322-0283AEF39062}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FLIGHT_NUMBER"
+              DTS:DTSID="{478C5E3C-CFF3-4D41-884F-B6DA98DEED5F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TAIL_NUMBER"
+              DTS:DTSID="{9D06A2B2-5FDC-451A-A74A-2BF68861C7B8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ORIGIN_AIRPORT"
+              DTS:DTSID="{37957044-2AB5-459F-BC2A-8B4077F57C8B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DESTINATION_AIRPORT"
+              DTS:DTSID="{879B21DE-54C1-4672-ADD4-A12EEEDAD3D8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SCHEDULED_DEPARTURE"
+              DTS:DTSID="{61B9D178-6B60-4211-B5F2-282BDD8661BB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DEPARTURE_TIME"
+              DTS:DTSID="{71B08AEA-8BED-45D0-8DDC-F2B424CF20AF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DEPARTURE_DELAY"
+              DTS:DTSID="{760EF50C-831D-433C-82F0-6F09F2972DC0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TAXI_OUT"
+              DTS:DTSID="{715DD7C7-6CA3-4E3B-A034-9867A2DDBF1E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="WHEELS_OFF"
+              DTS:DTSID="{2B09FFBE-03A6-433D-91CA-AAD4E337A6BF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SCHEDULED_TIME"
+              DTS:DTSID="{5AFFCCD3-5A60-41BC-A360-610C4D713B6A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ELAPSED_TIME"
+              DTS:DTSID="{45B807A3-53D7-486C-BD39-0DA8FBFF5214}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AIR_TIME"
+              DTS:DTSID="{433EABF9-46DB-4572-8419-EFB674160F91}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DISTANCE"
+              DTS:DTSID="{DA68A606-AA69-4E6F-B089-3D6DA2808C7F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="WHEELS_ON"
+              DTS:DTSID="{1900D472-104F-451E-A759-2B3F0C3A4F43}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TAXI_IN"
+              DTS:DTSID="{B82CE5A2-F405-4E4E-8F34-EED12AFC3CFD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SCHEDULED_ARRIVAL"
+              DTS:DTSID="{DCA3B5C9-2AA5-456A-ADEF-0A318211FA7C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ARRIVAL_TIME"
+              DTS:DTSID="{9476E3C8-A32E-4237-99F1-798A11F08CC8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ARRIVAL_DELAY"
+              DTS:DTSID="{42D81044-20EC-4BCC-AD11-F737071ACC19}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DIVERTED"
+              DTS:DTSID="{6A4AD4C3-B11C-40A7-ADC6-C3878524F4D1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CANCELLED"
+              DTS:DTSID="{905A5569-D59A-4765-9E90-C883D2E7ACB7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CANCELLATION_REASON"
+              DTS:DTSID="{66AE9817-C111-497D-B693-E1779F8D4B7C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AIR_SYSTEM_DELAY"
+              DTS:DTSID="{23C0C5E8-34EB-4955-8552-6501CA65E30F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SECURITY_DELAY"
+              DTS:DTSID="{56B48052-7560-4636-950B-F07B94A70313}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AIRLINE_DELAY"
+              DTS:DTSID="{159BA369-D71B-435C-BFEB-453E8B22F282}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LATE_AIRCRAFT_DELAY"
+              DTS:DTSID="{80E6DF87-D3ED-4C0B-AE55-B7B6EC79ED12}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="WEATHER_DELAY"
+              DTS:DTSID="{D5689884-CF95-4E09-B208-0C66E1390075}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CREATED"
+              DTS:DTSID="{905FF149-48F1-4828-AF0B-A0F62453A18E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MODIFIED"
+              DTS:DTSID="{BEA8099F-1F5B-432E-8C89-D9C62023C4B5}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager 3]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{C49E4820-40DD-44AB-975D-1409528EF4C2}"
+      DTS:ObjectName="Flat File Connection Manager 3">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\HP\BI-Project\dataset_small\filtered_flights_3.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DATE"
+              DTS:DTSID="{CC2238EA-3616-4F30-A0FB-4D582DB92107}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AIRLINE"
+              DTS:DTSID="{43C7C618-B4E4-4C25-A894-D82F2AC0764A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FLIGHT_NUMBER"
+              DTS:DTSID="{9A578360-BD08-46CA-A225-C7F5AFD37338}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TAIL_NUMBER"
+              DTS:DTSID="{8479D577-C840-4AEB-B705-D634F43994C2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ORIGIN_AIRPORT"
+              DTS:DTSID="{E5828D10-C894-4769-9CF9-F627AD845E6A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DESTINATION_AIRPORT"
+              DTS:DTSID="{2ACF1BB5-AC15-4EF2-AF9F-D8F24B4474C1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SCHEDULED_DEPARTURE"
+              DTS:DTSID="{A125C8B1-A867-4377-9E04-5391429BA2C7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DEPARTURE_TIME"
+              DTS:DTSID="{416EA11F-57D9-4146-811E-AD101E142EE0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DEPARTURE_DELAY"
+              DTS:DTSID="{76E377DD-72DD-4AA5-BBC9-A2417950CB6F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TAXI_OUT"
+              DTS:DTSID="{236AE40A-239E-4503-BAEF-4B0B376C841D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="WHEELS_OFF"
+              DTS:DTSID="{FB1C7F86-2A70-4442-BAEE-683740FF8511}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SCHEDULED_TIME"
+              DTS:DTSID="{176A97C4-7FCD-406E-A4F4-DDE35CF1CD3C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ELAPSED_TIME"
+              DTS:DTSID="{4CF05751-5D9B-455E-BD97-83CBEE645622}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AIR_TIME"
+              DTS:DTSID="{43759BEC-EB35-479B-8582-7A6B64E47886}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DISTANCE"
+              DTS:DTSID="{C85F39CA-E3CB-4741-9B4B-FB1FCF6EB9EA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="WHEELS_ON"
+              DTS:DTSID="{74CD822C-5755-4A78-B94B-C63641153511}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TAXI_IN"
+              DTS:DTSID="{113D9729-5031-49B4-9E2F-AF41A6C30F10}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SCHEDULED_ARRIVAL"
+              DTS:DTSID="{8FA51507-C636-46BD-991F-0A824BB0508A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ARRIVAL_TIME"
+              DTS:DTSID="{51490E41-33DB-45AC-BE4C-E90F5F661A81}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ARRIVAL_DELAY"
+              DTS:DTSID="{F4E7BE3F-799E-452B-B321-7B9E2A3A7009}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DIVERTED"
+              DTS:DTSID="{092B8B4E-AB40-4EC9-A0DC-5BDA0EC358C4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CANCELLED"
+              DTS:DTSID="{768B293F-9E13-4457-90E3-D5DEF91DCDF7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CANCELLATION_REASON"
+              DTS:DTSID="{13CA3AC7-B1CA-4A7D-85F9-A0B504A989DE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AIR_SYSTEM_DELAY"
+              DTS:DTSID="{BC6DB57B-1EF9-4E99-9886-11146C780EC9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SECURITY_DELAY"
+              DTS:DTSID="{152CD0D3-2172-40EA-8971-BD16990E62C7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AIRLINE_DELAY"
+              DTS:DTSID="{9B432346-C708-4598-B761-E9426015218A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LATE_AIRCRAFT_DELAY"
+              DTS:DTSID="{2033E913-90F4-45C2-81A9-2F7B4474CEAD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="WEATHER_DELAY"
+              DTS:DTSID="{08DD84B6-0DD3-4502-A4B9-DB27DBE8C4FC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CREATED"
+              DTS:DTSID="{8915DF80-74CA-4ECB-961C-4EE8B4682075}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MODIFIED"
+              DTS:DTSID="{0A0D3166-5E16-4FB1-B6DD-93A1E5889ED3}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[localhost.Project_Metadata_DB]"
       DTS:CreationName="OLEDB"
@@ -29,6 +982,18 @@
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.Project_Metadata_DB 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{1A105F2D-143B-423B-8ADB-C71E0CA581CF}"
+      DTS:ObjectName="localhost.Project_Metadata_DB 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=Project_Metadata_DB;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-SourceToStage-{1A105F2D-143B-423B-8ADB-C71E0CA581CF}localhost.Project_Metadata_DB 1;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[localhost.Project_Stage_DB]"
       DTS:CreationName="OLEDB"
       DTS:DTSID="{7B790200-0913-4B83-8239-A6030EB4A233}"
@@ -38,6 +1003,42 @@
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
           DTS:ConnectionString="Data Source=localhost;Initial Catalog=Project_Stage_DB;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package-{7B790200-0913-4B83-8239-A6030EB4A233}localhost.Project_Stage_DB;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.Project_Stage_DB 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{6A35769C-0C6E-496F-8C42-8A25FE851D28}"
+      DTS:ObjectName="localhost.Project_Stage_DB 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=Project_Stage_DB;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-SourceToStage-{6A35769C-0C6E-496F-8C42-8A25FE851D28}localhost.Project_Stage_DB 1;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.Project_Stage_DB 2]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{C04E606C-CD3D-4206-B2AD-1EEF19C2314D}"
+      DTS:ObjectName="localhost.Project_Stage_DB 2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=Project_Stage_DB;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-SourceToStage-{C04E606C-CD3D-4206-B2AD-1EEF19C2314D}localhost.Project_Stage_DB 2;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.Project_Stage_DB 3]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{E808C9BE-3C4C-4D10-B11B-F6C4B0E16E31}"
+      DTS:ObjectName="localhost.Project_Stage_DB 3">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=Project_Stage_DB;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-SourceToStage-{E808C9BE-3C4C-4D10-B11B-F6C4B0E16E31}localhost.Project_Stage_DB 3;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -129,7 +1130,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -163,8 +1164,8 @@
                   <connections>
                     <connection
                       refId="Package\Extract Airline data\Extract data from Source to Stage_Airline\Import data to Stage_Airline.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[localhost.Project_Stage_DB]"
-                      connectionManagerRefId="Package.ConnectionManagers[localhost.Project_Stage_DB]"
+                      connectionManagerID="Package.ConnectionManagers[localhost.Project_Stage_DB 1]"
+                      connectionManagerRefId="Package.ConnectionManagers[localhost.Project_Stage_DB 1]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -199,13 +1200,13 @@
                           refId="Package\Extract Airline data\Extract data from Source to Stage_Airline\Import data to Stage_Airline.Inputs[OLE DB Destination Input].ExternalColumns[IATA_CODE]"
                           codePage="1252"
                           dataType="str"
-                          length="10"
+                          length="2"
                           name="IATA_CODE" />
                         <externalMetadataColumn
                           refId="Package\Extract Airline data\Extract data from Source to Stage_Airline\Import data to Stage_Airline.Inputs[OLE DB Destination Input].ExternalColumns[AIRLINE]"
                           codePage="1252"
                           dataType="str"
-                          length="255"
+                          length="200"
                           name="AIRLINE" />
                       </externalMetadataColumns>
                     </input>
@@ -379,7 +1380,7 @@
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{D59E88B7-657D-4AC2-B909-B7FE5D0AE350}"
+              SQLTask:Connection="{1A105F2D-143B-423B-8ADB-C71E0CA581CF}"
               SQLTask:SqlStatementSource="SELECT GETDATE() AS CET FROM ETL_Metadata;"
               SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ResultBinding
@@ -400,7 +1401,7 @@
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{D59E88B7-657D-4AC2-B909-B7FE5D0AE350}"
+              SQLTask:Connection="{1A105F2D-143B-423B-8ADB-C71E0CA581CF}"
               SQLTask:SqlStatementSource="Update ETL_Metadata &#xA;Set LSET = ? &#xA;Where SourceName = 'Airline'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"
@@ -423,7 +1424,7 @@
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{7B790200-0913-4B83-8239-A6030EB4A233}"
+              SQLTask:Connection="{6A35769C-0C6E-496F-8C42-8A25FE851D28}"
               SQLTask:SqlStatementSource="Truncate table Stage_Airline;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
@@ -504,7 +1505,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -538,8 +1539,8 @@
                   <connections>
                     <connection
                       refId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Import data to Stage_Airport.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[localhost.Project_Stage_DB]"
-                      connectionManagerRefId="Package.ConnectionManagers[localhost.Project_Stage_DB]"
+                      connectionManagerID="Package.ConnectionManagers[localhost.Project_Stage_DB 1]"
+                      connectionManagerRefId="Package.ConnectionManagers[localhost.Project_Stage_DB 1]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -610,13 +1611,13 @@
                           refId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Import data to Stage_Airport.Inputs[OLE DB Destination Input].ExternalColumns[IATA_CODE]"
                           codePage="1252"
                           dataType="str"
-                          length="10"
+                          length="3"
                           name="IATA_CODE" />
                         <externalMetadataColumn
                           refId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Import data to Stage_Airport.Inputs[OLE DB Destination Input].ExternalColumns[AIRPORT]"
                           codePage="1252"
                           dataType="str"
-                          length="255"
+                          length="200"
                           name="AIRPORT" />
                         <externalMetadataColumn
                           refId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Import data to Stage_Airport.Inputs[OLE DB Destination Input].ExternalColumns[CITY]"
@@ -628,13 +1629,13 @@
                           refId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Import data to Stage_Airport.Inputs[OLE DB Destination Input].ExternalColumns[STATE]"
                           codePage="1252"
                           dataType="str"
-                          length="10"
+                          length="100"
                           name="STATE" />
                         <externalMetadataColumn
                           refId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Import data to Stage_Airport.Inputs[OLE DB Destination Input].ExternalColumns[COUNTRY]"
                           codePage="1252"
                           dataType="str"
-                          length="50"
+                          length="100"
                           name="COUNTRY" />
                         <externalMetadataColumn
                           refId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Import data to Stage_Airport.Inputs[OLE DB Destination Input].ExternalColumns[LATITUDE]"
@@ -698,8 +1699,8 @@
                   <connections>
                     <connection
                       refId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Src_Airport.Connections[FlatFileConnection]"
-                      connectionManagerID="{927924FB-2D47-4385-90E5-513334170E4D}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[Src_Airport]"
+                      connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
+                      connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
                       name="FlatFileConnection" />
                   </connections>
                   <outputs>
@@ -864,39 +1865,43 @@
                           refId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Src_Airport.Outputs[Flat File Source Output].ExternalColumns[IATA_CODE]"
                           codePage="1252"
                           dataType="str"
-                          length="3"
+                          length="50"
                           name="IATA_CODE" />
                         <externalMetadataColumn
                           refId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Src_Airport.Outputs[Flat File Source Output].ExternalColumns[AIRPORT]"
                           codePage="1252"
                           dataType="str"
-                          length="42"
+                          length="50"
                           name="AIRPORT" />
                         <externalMetadataColumn
                           refId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Src_Airport.Outputs[Flat File Source Output].ExternalColumns[CITY]"
                           codePage="1252"
                           dataType="str"
-                          length="17"
+                          length="50"
                           name="CITY" />
                         <externalMetadataColumn
                           refId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Src_Airport.Outputs[Flat File Source Output].ExternalColumns[STATE]"
                           codePage="1252"
                           dataType="str"
-                          length="2"
+                          length="50"
                           name="STATE" />
                         <externalMetadataColumn
                           refId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Src_Airport.Outputs[Flat File Source Output].ExternalColumns[COUNTRY]"
                           codePage="1252"
                           dataType="str"
-                          length="3"
+                          length="50"
                           name="COUNTRY" />
                         <externalMetadataColumn
                           refId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Src_Airport.Outputs[Flat File Source Output].ExternalColumns[LATITUDE]"
-                          dataType="r4"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="LATITUDE" />
                         <externalMetadataColumn
                           refId="Package\Extract Airport data\Extract data from Source to Stage_Airport\Src_Airport.Outputs[Flat File Source Output].ExternalColumns[LONGITUDE]"
-                          dataType="r4"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="LONGITUDE" />
                       </externalMetadataColumns>
                     </output>
@@ -952,7 +1957,7 @@
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{D59E88B7-657D-4AC2-B909-B7FE5D0AE350}"
+              SQLTask:Connection="{1A105F2D-143B-423B-8ADB-C71E0CA581CF}"
               SQLTask:SqlStatementSource="SELECT GETDATE() AS CET FROM ETL_Metadata;"
               SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ResultBinding
@@ -973,7 +1978,7 @@
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{D59E88B7-657D-4AC2-B909-B7FE5D0AE350}"
+              SQLTask:Connection="{1A105F2D-143B-423B-8ADB-C71E0CA581CF}"
               SQLTask:SqlStatementSource="Update ETL_Metadata &#xA;Set LSET = ? &#xA;Where SourceName = 'Airport'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"
@@ -996,7 +2001,7 @@
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{7B790200-0913-4B83-8239-A6030EB4A233}"
+              SQLTask:Connection="{6A35769C-0C6E-496F-8C42-8A25FE851D28}"
               SQLTask:SqlStatementSource="Truncate table Stage_Airport;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
@@ -1575,8 +2580,8 @@
                   <connections>
                     <connection
                       refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_1.Connections[FlatFileConnection]"
-                      connectionManagerID="{DEF3C809-C1DA-44B3-9E43-74AD84EAE797}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[Src_Flight_1]"
+                      connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager 1]"
+                      connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager 1]"
                       name="FlatFileConnection" />
                   </connections>
                   <outputs>
@@ -2199,133 +3204,183 @@
                         isUsed="True">
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_1.Outputs[Flat File Source Output].ExternalColumns[DATE]"
-                          dataType="date"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="DATE" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_1.Outputs[Flat File Source Output].ExternalColumns[AIRLINE]"
                           codePage="1252"
                           dataType="str"
-                          length="2"
+                          length="50"
                           name="AIRLINE" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_1.Outputs[Flat File Source Output].ExternalColumns[FLIGHT_NUMBER]"
-                          dataType="i2"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="FLIGHT_NUMBER" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_1.Outputs[Flat File Source Output].ExternalColumns[TAIL_NUMBER]"
                           codePage="1252"
                           dataType="str"
-                          length="6"
+                          length="50"
                           name="TAIL_NUMBER" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_1.Outputs[Flat File Source Output].ExternalColumns[ORIGIN_AIRPORT]"
                           codePage="1252"
                           dataType="str"
-                          length="3"
+                          length="50"
                           name="ORIGIN_AIRPORT" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_1.Outputs[Flat File Source Output].ExternalColumns[DESTINATION_AIRPORT]"
                           codePage="1252"
                           dataType="str"
-                          length="3"
+                          length="50"
                           name="DESTINATION_AIRPORT" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_1.Outputs[Flat File Source Output].ExternalColumns[SCHEDULED_DEPARTURE]"
-                          dataType="i2"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="SCHEDULED_DEPARTURE" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_1.Outputs[Flat File Source Output].ExternalColumns[DEPARTURE_TIME]"
-                          dataType="r4"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="DEPARTURE_TIME" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_1.Outputs[Flat File Source Output].ExternalColumns[DEPARTURE_DELAY]"
-                          dataType="r4"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="DEPARTURE_DELAY" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_1.Outputs[Flat File Source Output].ExternalColumns[TAXI_OUT]"
-                          dataType="r4"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="TAXI_OUT" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_1.Outputs[Flat File Source Output].ExternalColumns[WHEELS_OFF]"
-                          dataType="r4"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="WHEELS_OFF" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_1.Outputs[Flat File Source Output].ExternalColumns[SCHEDULED_TIME]"
-                          dataType="r4"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="SCHEDULED_TIME" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_1.Outputs[Flat File Source Output].ExternalColumns[ELAPSED_TIME]"
-                          dataType="r4"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="ELAPSED_TIME" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_1.Outputs[Flat File Source Output].ExternalColumns[AIR_TIME]"
-                          dataType="r4"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="AIR_TIME" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_1.Outputs[Flat File Source Output].ExternalColumns[DISTANCE]"
-                          dataType="i2"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="DISTANCE" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_1.Outputs[Flat File Source Output].ExternalColumns[WHEELS_ON]"
-                          dataType="r4"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="WHEELS_ON" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_1.Outputs[Flat File Source Output].ExternalColumns[TAXI_IN]"
-                          dataType="r4"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="TAXI_IN" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_1.Outputs[Flat File Source Output].ExternalColumns[SCHEDULED_ARRIVAL]"
-                          dataType="i2"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="SCHEDULED_ARRIVAL" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_1.Outputs[Flat File Source Output].ExternalColumns[ARRIVAL_TIME]"
-                          dataType="r4"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="ARRIVAL_TIME" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_1.Outputs[Flat File Source Output].ExternalColumns[ARRIVAL_DELAY]"
-                          dataType="r4"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="ARRIVAL_DELAY" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_1.Outputs[Flat File Source Output].ExternalColumns[DIVERTED]"
-                          dataType="i1"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="DIVERTED" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_1.Outputs[Flat File Source Output].ExternalColumns[CANCELLED]"
-                          dataType="i1"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="CANCELLED" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_1.Outputs[Flat File Source Output].ExternalColumns[CANCELLATION_REASON]"
                           codePage="1252"
                           dataType="str"
-                          length="1"
+                          length="50"
                           name="CANCELLATION_REASON" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_1.Outputs[Flat File Source Output].ExternalColumns[AIR_SYSTEM_DELAY]"
-                          dataType="r4"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="AIR_SYSTEM_DELAY" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_1.Outputs[Flat File Source Output].ExternalColumns[SECURITY_DELAY]"
-                          dataType="r4"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="SECURITY_DELAY" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_1.Outputs[Flat File Source Output].ExternalColumns[AIRLINE_DELAY]"
-                          dataType="r4"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="AIRLINE_DELAY" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_1.Outputs[Flat File Source Output].ExternalColumns[LATE_AIRCRAFT_DELAY]"
-                          dataType="r4"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="LATE_AIRCRAFT_DELAY" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_1.Outputs[Flat File Source Output].ExternalColumns[WEATHER_DELAY]"
-                          dataType="r4"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="WEATHER_DELAY" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_1.Outputs[Flat File Source Output].ExternalColumns[CREATED]"
-                          dataType="date"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="CREATED" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_1.Outputs[Flat File Source Output].ExternalColumns[MODIFIED]"
-                          dataType="date"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="MODIFIED" />
                       </externalMetadataColumns>
                     </output>
@@ -2380,8 +3435,8 @@
                   <connections>
                     <connection
                       refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_2.Connections[FlatFileConnection]"
-                      connectionManagerID="{12683CC4-4356-4132-BA51-A7619D9CE5E9}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[Src_Flight_2]"
+                      connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager 2]"
+                      connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager 2]"
                       name="FlatFileConnection" />
                   </connections>
                   <outputs>
@@ -3004,133 +4059,183 @@
                         isUsed="True">
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_2.Outputs[Flat File Source Output].ExternalColumns[DATE]"
-                          dataType="date"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="DATE" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_2.Outputs[Flat File Source Output].ExternalColumns[AIRLINE]"
                           codePage="1252"
                           dataType="str"
-                          length="2"
+                          length="50"
                           name="AIRLINE" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_2.Outputs[Flat File Source Output].ExternalColumns[FLIGHT_NUMBER]"
-                          dataType="i2"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="FLIGHT_NUMBER" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_2.Outputs[Flat File Source Output].ExternalColumns[TAIL_NUMBER]"
                           codePage="1252"
                           dataType="str"
-                          length="6"
+                          length="50"
                           name="TAIL_NUMBER" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_2.Outputs[Flat File Source Output].ExternalColumns[ORIGIN_AIRPORT]"
                           codePage="1252"
                           dataType="str"
-                          length="3"
+                          length="50"
                           name="ORIGIN_AIRPORT" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_2.Outputs[Flat File Source Output].ExternalColumns[DESTINATION_AIRPORT]"
                           codePage="1252"
                           dataType="str"
-                          length="3"
+                          length="50"
                           name="DESTINATION_AIRPORT" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_2.Outputs[Flat File Source Output].ExternalColumns[SCHEDULED_DEPARTURE]"
-                          dataType="i2"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="SCHEDULED_DEPARTURE" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_2.Outputs[Flat File Source Output].ExternalColumns[DEPARTURE_TIME]"
-                          dataType="r4"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="DEPARTURE_TIME" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_2.Outputs[Flat File Source Output].ExternalColumns[DEPARTURE_DELAY]"
-                          dataType="r4"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="DEPARTURE_DELAY" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_2.Outputs[Flat File Source Output].ExternalColumns[TAXI_OUT]"
-                          dataType="r4"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="TAXI_OUT" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_2.Outputs[Flat File Source Output].ExternalColumns[WHEELS_OFF]"
-                          dataType="r4"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="WHEELS_OFF" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_2.Outputs[Flat File Source Output].ExternalColumns[SCHEDULED_TIME]"
-                          dataType="r4"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="SCHEDULED_TIME" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_2.Outputs[Flat File Source Output].ExternalColumns[ELAPSED_TIME]"
-                          dataType="r4"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="ELAPSED_TIME" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_2.Outputs[Flat File Source Output].ExternalColumns[AIR_TIME]"
-                          dataType="r4"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="AIR_TIME" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_2.Outputs[Flat File Source Output].ExternalColumns[DISTANCE]"
-                          dataType="i2"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="DISTANCE" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_2.Outputs[Flat File Source Output].ExternalColumns[WHEELS_ON]"
-                          dataType="r4"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="WHEELS_ON" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_2.Outputs[Flat File Source Output].ExternalColumns[TAXI_IN]"
-                          dataType="r4"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="TAXI_IN" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_2.Outputs[Flat File Source Output].ExternalColumns[SCHEDULED_ARRIVAL]"
-                          dataType="i2"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="SCHEDULED_ARRIVAL" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_2.Outputs[Flat File Source Output].ExternalColumns[ARRIVAL_TIME]"
-                          dataType="r4"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="ARRIVAL_TIME" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_2.Outputs[Flat File Source Output].ExternalColumns[ARRIVAL_DELAY]"
-                          dataType="r4"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="ARRIVAL_DELAY" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_2.Outputs[Flat File Source Output].ExternalColumns[DIVERTED]"
-                          dataType="i1"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="DIVERTED" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_2.Outputs[Flat File Source Output].ExternalColumns[CANCELLED]"
-                          dataType="i1"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="CANCELLED" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_2.Outputs[Flat File Source Output].ExternalColumns[CANCELLATION_REASON]"
                           codePage="1252"
                           dataType="str"
-                          length="255"
+                          length="50"
                           name="CANCELLATION_REASON" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_2.Outputs[Flat File Source Output].ExternalColumns[AIR_SYSTEM_DELAY]"
-                          dataType="r4"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="AIR_SYSTEM_DELAY" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_2.Outputs[Flat File Source Output].ExternalColumns[SECURITY_DELAY]"
-                          dataType="r4"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="SECURITY_DELAY" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_2.Outputs[Flat File Source Output].ExternalColumns[AIRLINE_DELAY]"
-                          dataType="r4"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="AIRLINE_DELAY" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_2.Outputs[Flat File Source Output].ExternalColumns[LATE_AIRCRAFT_DELAY]"
-                          dataType="r4"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="LATE_AIRCRAFT_DELAY" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_2.Outputs[Flat File Source Output].ExternalColumns[WEATHER_DELAY]"
-                          dataType="r4"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="WEATHER_DELAY" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_2.Outputs[Flat File Source Output].ExternalColumns[CREATED]"
-                          dataType="date"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="CREATED" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_2.Outputs[Flat File Source Output].ExternalColumns[MODIFIED]"
-                          dataType="date"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="MODIFIED" />
                       </externalMetadataColumns>
                     </output>
@@ -3185,8 +4290,8 @@
                   <connections>
                     <connection
                       refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_3.Connections[FlatFileConnection]"
-                      connectionManagerID="{EE098D4B-884F-4A79-BB4F-F148FB845FA0}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[Src_Flight_3]"
+                      connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager 3]"
+                      connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager 3]"
                       name="FlatFileConnection" />
                   </connections>
                   <outputs>
@@ -3809,133 +4914,183 @@
                         isUsed="True">
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_3.Outputs[Flat File Source Output].ExternalColumns[DATE]"
-                          dataType="date"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="DATE" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_3.Outputs[Flat File Source Output].ExternalColumns[AIRLINE]"
                           codePage="1252"
                           dataType="str"
-                          length="2"
+                          length="50"
                           name="AIRLINE" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_3.Outputs[Flat File Source Output].ExternalColumns[FLIGHT_NUMBER]"
-                          dataType="i2"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="FLIGHT_NUMBER" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_3.Outputs[Flat File Source Output].ExternalColumns[TAIL_NUMBER]"
                           codePage="1252"
                           dataType="str"
-                          length="6"
+                          length="50"
                           name="TAIL_NUMBER" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_3.Outputs[Flat File Source Output].ExternalColumns[ORIGIN_AIRPORT]"
                           codePage="1252"
                           dataType="str"
-                          length="3"
+                          length="50"
                           name="ORIGIN_AIRPORT" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_3.Outputs[Flat File Source Output].ExternalColumns[DESTINATION_AIRPORT]"
                           codePage="1252"
                           dataType="str"
-                          length="3"
+                          length="50"
                           name="DESTINATION_AIRPORT" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_3.Outputs[Flat File Source Output].ExternalColumns[SCHEDULED_DEPARTURE]"
-                          dataType="i2"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="SCHEDULED_DEPARTURE" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_3.Outputs[Flat File Source Output].ExternalColumns[DEPARTURE_TIME]"
-                          dataType="r4"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="DEPARTURE_TIME" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_3.Outputs[Flat File Source Output].ExternalColumns[DEPARTURE_DELAY]"
-                          dataType="r4"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="DEPARTURE_DELAY" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_3.Outputs[Flat File Source Output].ExternalColumns[TAXI_OUT]"
-                          dataType="r4"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="TAXI_OUT" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_3.Outputs[Flat File Source Output].ExternalColumns[WHEELS_OFF]"
-                          dataType="r4"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="WHEELS_OFF" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_3.Outputs[Flat File Source Output].ExternalColumns[SCHEDULED_TIME]"
-                          dataType="r4"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="SCHEDULED_TIME" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_3.Outputs[Flat File Source Output].ExternalColumns[ELAPSED_TIME]"
-                          dataType="r4"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="ELAPSED_TIME" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_3.Outputs[Flat File Source Output].ExternalColumns[AIR_TIME]"
-                          dataType="r4"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="AIR_TIME" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_3.Outputs[Flat File Source Output].ExternalColumns[DISTANCE]"
-                          dataType="i2"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="DISTANCE" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_3.Outputs[Flat File Source Output].ExternalColumns[WHEELS_ON]"
-                          dataType="r4"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="WHEELS_ON" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_3.Outputs[Flat File Source Output].ExternalColumns[TAXI_IN]"
-                          dataType="r4"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="TAXI_IN" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_3.Outputs[Flat File Source Output].ExternalColumns[SCHEDULED_ARRIVAL]"
-                          dataType="i2"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="SCHEDULED_ARRIVAL" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_3.Outputs[Flat File Source Output].ExternalColumns[ARRIVAL_TIME]"
-                          dataType="r4"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="ARRIVAL_TIME" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_3.Outputs[Flat File Source Output].ExternalColumns[ARRIVAL_DELAY]"
-                          dataType="r4"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="ARRIVAL_DELAY" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_3.Outputs[Flat File Source Output].ExternalColumns[DIVERTED]"
-                          dataType="i1"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="DIVERTED" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_3.Outputs[Flat File Source Output].ExternalColumns[CANCELLED]"
-                          dataType="i1"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="CANCELLED" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_3.Outputs[Flat File Source Output].ExternalColumns[CANCELLATION_REASON]"
                           codePage="1252"
                           dataType="str"
-                          length="1"
+                          length="50"
                           name="CANCELLATION_REASON" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_3.Outputs[Flat File Source Output].ExternalColumns[AIR_SYSTEM_DELAY]"
-                          dataType="r4"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="AIR_SYSTEM_DELAY" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_3.Outputs[Flat File Source Output].ExternalColumns[SECURITY_DELAY]"
-                          dataType="r4"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="SECURITY_DELAY" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_3.Outputs[Flat File Source Output].ExternalColumns[AIRLINE_DELAY]"
-                          dataType="r4"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="AIRLINE_DELAY" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_3.Outputs[Flat File Source Output].ExternalColumns[LATE_AIRCRAFT_DELAY]"
-                          dataType="r4"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="LATE_AIRCRAFT_DELAY" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_3.Outputs[Flat File Source Output].ExternalColumns[WEATHER_DELAY]"
-                          dataType="r4"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="WEATHER_DELAY" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_3.Outputs[Flat File Source Output].ExternalColumns[CREATED]"
-                          dataType="date"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="CREATED" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_3.Outputs[Flat File Source Output].ExternalColumns[MODIFIED]"
-                          dataType="date"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="MODIFIED" />
                       </externalMetadataColumns>
                     </output>
@@ -3993,7 +5148,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -4027,8 +5182,8 @@
                   <connections>
                     <connection
                       refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Stage_Flight.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[localhost.Project_Stage_DB]"
-                      connectionManagerRefId="Package.ConnectionManagers[localhost.Project_Stage_DB]"
+                      connectionManagerID="Package.ConnectionManagers[localhost.Project_Stage_DB 1]"
+                      connectionManagerRefId="Package.ConnectionManagers[localhost.Project_Stage_DB 1]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -4247,7 +5402,7 @@
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Stage_Flight.Inputs[OLE DB Destination Input].ExternalColumns[AIRLINE]"
                           codePage="1252"
                           dataType="str"
-                          length="10"
+                          length="2"
                           name="AIRLINE" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Stage_Flight.Inputs[OLE DB Destination Input].ExternalColumns[FLIGHT_NUMBER]"
@@ -4265,13 +5420,13 @@
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Stage_Flight.Inputs[OLE DB Destination Input].ExternalColumns[ORIGIN_AIRPORT]"
                           codePage="1252"
                           dataType="str"
-                          length="10"
+                          length="3"
                           name="ORIGIN_AIRPORT" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Stage_Flight.Inputs[OLE DB Destination Input].ExternalColumns[DESTINATION_AIRPORT]"
                           codePage="1252"
                           dataType="str"
-                          length="10"
+                          length="3"
                           name="DESTINATION_AIRPORT" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Extract data from Source to Stage_Flight\Stage_Flight.Inputs[OLE DB Destination Input].ExternalColumns[SCHEDULED_DEPARTURE]"
@@ -5936,7 +7091,7 @@
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{D59E88B7-657D-4AC2-B909-B7FE5D0AE350}"
+              SQLTask:Connection="{1A105F2D-143B-423B-8ADB-C71E0CA581CF}"
               SQLTask:SqlStatementSource="SELECT GETDATE() AS CET FROM ETL_Metadata;"
               SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ResultBinding
@@ -5957,7 +7112,7 @@
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{D59E88B7-657D-4AC2-B909-B7FE5D0AE350}"
+              SQLTask:Connection="{1A105F2D-143B-423B-8ADB-C71E0CA581CF}"
               SQLTask:SqlStatementSource="SELECT LSET FROM ETL_Metadata &#xA;WHERE SourceName = 'Flight';"
               SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ResultBinding
@@ -5978,7 +7133,7 @@
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{D59E88B7-657D-4AC2-B909-B7FE5D0AE350}"
+              SQLTask:Connection="{1A105F2D-143B-423B-8ADB-C71E0CA581CF}"
               SQLTask:SqlStatementSource="Update ETL_Metadata &#xA;Set LSET = ? &#xA;Where SourceName = 'Flight';" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"
@@ -6001,7 +7156,7 @@
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{7B790200-0913-4B83-8239-A6030EB4A233}"
+              SQLTask:Connection="{6A35769C-0C6E-496F-8C42-8A25FE851D28}"
               SQLTask:SqlStatementSource="Truncate table Stage_Flight;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
@@ -6073,19 +7228,19 @@
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="269.6,41.6"
+          Size="269.333333333334,41.3333333333334"
           Id="Package\Extract Airline data\Extract data from Source to Stage_Airline"
           TopLeft="17.9888828028687,203.966665286554" />
         <NodeLayout
-          Size="164.8,41.6"
+          Size="164.666666666667,41.3333333333334"
           Id="Package\Extract Airline data\Get CET"
           TopLeft="70.3888828028687,5.5" />
         <NodeLayout
-          Size="215.2,41.6"
+          Size="215.333333333334,41.3333333333334"
           Id="Package\Extract Airline data\Set LSET_Airline to Metadata"
           TopLeft="47.0333193552167,306.666663966709" />
         <NodeLayout
-          Size="209.6,41.6"
+          Size="209.333333333334,41.3333333333334"
           Id="Package\Extract Airline data\Truncate table Stage_Airline"
           TopLeft="47.9888828028688,99.9666660097572" />
         <EdgeLayout
@@ -6157,24 +7312,24 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="304.8,404.8"
-          Size="304.8,448"
+          PanelSize="304.666666666667,405.333333333334"
+          Size="304.666666666667,448"
           Id="Package\Extract Airline data"
           TopLeft="136.66665919953,71.0380949427873" />
         <NodeLayout
-          Size="271.2,41.6"
+          Size="271.333333333334,41.3333333333334"
           Id="Package\Extract Airport data\Extract data from Source to Stage_Airport"
           TopLeft="20.499999180436,210.288889236428" />
         <NodeLayout
-          Size="164.8,41.6"
+          Size="164.666666666667,41.3333333333334"
           Id="Package\Extract Airport data\Get CET"
           TopLeft="73.699999180436,14.3333328331179" />
         <NodeLayout
-          Size="222.4,41.6"
+          Size="222.666666666667,41.3333333333334"
           Id="Package\Extract Airport data\Set LSET_Airport to Metadata"
           TopLeft="47.4583325706835,308.266667438083" />
         <NodeLayout
-          Size="211.2,41.6"
+          Size="211.333333333334,41.3333333333334"
           Id="Package\Extract Airport data\Truncate table Stage_Airport"
           TopLeft="50.499999180436,112.311111034773" />
         <EdgeLayout
@@ -6246,38 +7401,28 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="313.6,404.8"
-          Size="313.6,448"
+          PanelSize="313.333333333334,405.333333333334"
+          Size="313.333333333334,448"
           Id="Package\Extract Airport data"
           TopLeft="513.5666372079,75.3714282459873" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="441.46665919953,297.204761594387">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="72.0999780083702,0"
-              Start="0,0"
-              End="64.5999780083702,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="64.5999780083702,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
-          Size="164.8,41.6"
+          Size="272,42.6666666666667"
+          Id="Package\Sequence Container\Extract data from Source to Stage_Flight"
+          TopLeft="51.382098000659,308.134918095818" />
+        <NodeLayout
+          Size="164.666666666667,41.3333333333334"
           Id="Package\Sequence Container\Get CET"
           TopLeft="99.4332772842743,17.7777770143968" />
         <NodeLayout
-          Size="206.4,41.6"
+          Size="224.666666666667,41.3333333333334"
+          Id="Package\Sequence Container\Get LSET_Flight from Metadata"
+          TopLeft="69.9332804259352,198.333331314392" />
+        <NodeLayout
+          Size="212,41.3333333333334"
+          Id="Package\Sequence Container\Set LSET_Flight to Metadata"
+          TopLeft="75.7662248763767,406.924599948529" />
+        <NodeLayout
+          Size="206.666666666667,41.3333333333334"
           Id="Package\Sequence Container\Truncate table Stage_Flight"
           TopLeft="78.555551563976,104.577779943369" />
         <EdgeLayout
@@ -6302,10 +7447,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="224.8,41.6"
-          Id="Package\Sequence Container\Get LSET_Flight from Metadata"
-          TopLeft="69.9332804259352,198.333331314392" />
         <EdgeLayout
           Id="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
           TopLeft="182.044415994956,146.177779943369">
@@ -6328,24 +7469,20 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="265.6,41.6"
-          Id="Package\Sequence Container\Extract data from Source to Stage_Flight"
-          TopLeft="51.382098000659,308.134918095818" />
         <EdgeLayout
           Id="Package\Sequence Container.PrecedenceConstraints[Constraint 2]"
-          TopLeft="183.257689213297,239.933331314392">
+          TopLeft="184.824355879964,239.666664647725">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,68.2015867814265"
+              EndConnector="0,68.4682534480927"
               Start="0,0"
-              End="0,60.7015867814265">
+              End="0,60.9682534480927">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,60.7015867814265" />
+                    End="0,60.9682534480927" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6354,24 +7491,20 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="212,41.6"
-          Id="Package\Sequence Container\Set LSET_Flight to Metadata"
-          TopLeft="75.7662248763767,406.924599948529" />
         <EdgeLayout
           Id="Package\Sequence Container.PrecedenceConstraints[Constraint 3]"
-          TopLeft="182.974161438518,349.734918095818">
+          TopLeft="184.574161438518,350.801584762485">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,57.1896818527113"
+              EndConnector="0,56.1230151860443"
               Start="0,0"
-              End="0,49.6896818527113">
+              End="0,48.6230151860443">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,49.6896818527113" />
+                    End="0,48.6230151860443" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6383,10 +7516,32 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="360,524.8"
-          Size="360,568"
+          PanelSize="360,525.333333333334"
+          Size="360,568.666666666667"
           Id="Package\Sequence Container"
           TopLeft="871.285666868093,17.3968251327989" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="441.46665919953,297.204761594387">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="72.0999780083702,0"
+              Start="0,0"
+              End="64.5999780083702,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="64.5999780083702,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
           TopLeft="827.1666372079,300.384126689393">
@@ -6418,11 +7573,11 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="128.8,41.6"
+          Size="128.666666666667,41.3333333333334"
           Id="Package\Extract Airline data\Extract data from Source to Stage_Airline\Src_Airline"
           TopLeft="379.166645949914,62.3999995660782" />
         <NodeLayout
-          Size="207.2,41.6"
+          Size="207.333333333334,41.3333333333334"
           Id="Package\Extract Airline data\Extract data from Source to Stage_Airline\Import data to Stage_Airline"
           TopLeft="337.499981559813,175.066665449275" />
         <EdgeLayout
@@ -6469,13 +7624,13 @@
     design-time-name="Package\Extract Airport data\Extract data from Source to Stage_Airport">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="130.4,41.6"
+          Size="130.666666666667,41.3333333333334"
           Id="Package\Extract Airport data\Extract data from Source to Stage_Airport\Src_Airport"
           TopLeft="404.99999396503,79.9999988079071" />
         <NodeLayout
-          Size="208.8,41.6"
+          Size="208.666666666667,41.3333333333334"
           Id="Package\Extract Airport data\Extract data from Source to Stage_Airport\Import data to Stage_Airport"
           TopLeft="366.999994531274,212.999996826053" />
         <EdgeLayout
@@ -6497,7 +7652,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -6522,101 +7679,49 @@
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="136.8,41.6"
-          Id="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_1"
-          TopLeft="195.833322633472,71.066666172478" />
-        <NodeLayout
-          Size="153.6,41.6"
-          Id="Package\Sequence Container\Extract data from Source to Stage_Flight\Conditional Split"
-          TopLeft="187.499989755452,191.533332001435" />
-        <EdgeLayout
-          Id="Package\Sequence Container\Extract data from Source to Stage_Flight.Paths[Flat File Source Output]"
-          TopLeft="264.266656194462,112.666666172478">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,78.8666658289565"
-              Start="0,0"
-              End="0,71.3666658289565">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,71.3666658289565" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="136.8,41.6"
+          Size="136.666666666667,41.3333333333334"
           Id="Package\Sequence Container\Extract data from Source to Stage_Flight\Stage_Flight"
           TopLeft="480.833307061759,503.466665196154" />
         <NodeLayout
-          Size="204,41.6"
-          Id="Package\Sequence Container\Extract data from Source to Stage_Flight\Add SourceFile_ID Column"
-          TopLeft="160.833324545788,294.466664924953" />
-        <EdgeLayout
-          Id="Package\Sequence Container\Extract data from Source to Stage_Flight.Paths[Incremental Extract]"
-          TopLeft="263.56665715062,233.133332001434">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,61.3333329235184"
-              Start="0,0"
-              End="0,53.8333329235184">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,53.8333329235184" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-44.13298828125,22.0421547430092,88.2659765625,9.7490234375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="153.333333333334,41.3333333333334"
+          Id="Package\Sequence Container\Extract data from Source to Stage_Flight\Conditional Split"
+          TopLeft="187.499989755452,191.533332001435" />
         <NodeLayout
-          Size="136.8,41.6"
+          Size="212.666666666667,41.3333333333334"
+          Id="Package\Sequence Container\Extract data from Source to Stage_Flight\Add SourceFile_ID Column 1"
+          TopLeft="439.166642671659,294.266664798393" />
+        <NodeLayout
+          Size="136.666666666667,41.3333333333334"
           Id="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_2"
           TopLeft="476.666640622749,69.9999993852774" />
         <NodeLayout
-          Size="162.4,41.6"
+          Size="162.666666666667,41.3333333333334"
           Id="Package\Sequence Container\Extract data from Source to Stage_Flight\Conditional Split 1"
           TopLeft="464.166641305719,192.199998535514" />
         <NodeLayout
-          Size="212.8,41.6"
-          Id="Package\Sequence Container\Extract data from Source to Stage_Flight\Add SourceFile_ID Column 1"
-          TopLeft="439.166642671659,294.266664798393" />
-        <EdgeLayout
-          Id="Package\Sequence Container\Extract data from Source to Stage_Flight.Paths[Flat File Source Output1]"
-          TopLeft="545.216640964234,111.599999385277">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,80.599999150237"
-              Start="0,0"
-              End="0,73.099999150237">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,73.099999150237" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="120,41.3333333333334"
+          Id="Package\Sequence Container\Extract data from Source to Stage_Flight\Union All"
+          TopLeft="487.866643901005,412.333332146075" />
+        <NodeLayout
+          Size="162.666666666667,41.3333333333334"
+          Id="Package\Sequence Container\Extract data from Source to Stage_Flight\Conditional Split 2"
+          TopLeft="740.299974456927,189.599998553594" />
+        <NodeLayout
+          Size="212.666666666667,41.3333333333334"
+          Id="Package\Sequence Container\Extract data from Source to Stage_Flight\Add SourceFile_ID Column 2"
+          TopLeft="711.966642671659,293.399998137752" />
+        <NodeLayout
+          Size="204,41.3333333333334"
+          Id="Package\Sequence Container\Extract data from Source to Stage_Flight\Add SourceFile_ID Column"
+          TopLeft="160.833324545788,294.466664924953" />
+        <NodeLayout
+          Size="136.666666666667,41.3333333333334"
+          Id="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_3"
+          TopLeft="746.966640759343,69.9999993852774" />
+        <NodeLayout
+          Size="136.666666666667,41.3333333333334"
+          Id="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_1"
+          TopLeft="195.833322633472,71.066666172478" />
         <EdgeLayout
           Id="Package\Sequence Container\Extract data from Source to Stage_Flight.Paths[Incremental Extract1]"
           TopLeft="545.466641988689,233.799998535514">
@@ -6637,22 +7742,34 @@
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-44.13298828125,21.6088214126892,88.2659765625,9.7490234375"
+              BoundingBox="-76.45333984375,20.6786456314392,152.9066796875,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="136.8,41.6"
-          Id="Package\Sequence Container\Extract data from Source to Stage_Flight\Src_Flight_3"
-          TopLeft="746.966640759343,69.9999993852774" />
-        <NodeLayout
-          Size="162.4,41.6"
-          Id="Package\Sequence Container\Extract data from Source to Stage_Flight\Conditional Split 2"
-          TopLeft="740.299974456927,189.599998553594" />
-        <NodeLayout
-          Size="212.8,41.6"
-          Id="Package\Sequence Container\Extract data from Source to Stage_Flight\Add SourceFile_ID Column 2"
-          TopLeft="711.966642671659,293.399998137752" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Extract data from Source to Stage_Flight.Paths[Incremental Extract]"
+          TopLeft="263.56665715062,233.133332001434">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,61.3333329235184"
+              Start="0,0"
+              End="0,53.8333329235184">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.8333329235184" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-76.45333984375,21.1119789617592,152.9066796875,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container\Extract data from Source to Stage_Flight.Paths[Flat File Source Output2]"
           TopLeft="818.433307608135,111.599999385277">
@@ -6672,91 +7789,57 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-27.8544140625,29.6357417716585,55.708828125,11.228515625"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Sequence Container\Extract data from Source to Stage_Flight.Paths[Incremental Extract2]"
-          TopLeft="819.933308564293,231.199998553594">
+          Id="Package\Sequence Container\Extract data from Source to Stage_Flight.Paths[Flat File Source Output1]"
+          TopLeft="545.216640964234,111.599999385277">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,62.199999584158"
+              EndConnector="0,80.599999150237"
               Start="0,0"
-              End="0,54.699999584158">
+              End="0,73.099999150237">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,54.699999584158" />
+                    End="0,73.099999150237" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-44.13298828125,22.475488073329,88.2659765625,9.7490234375"
+              BoundingBox="-27.8544140625,30.9357417626185,55.708828125,11.228515625"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="120,41.6"
-          Id="Package\Sequence Container\Extract data from Source to Stage_Flight\Union All"
-          TopLeft="487.866643901005,412.333332146075" />
         <EdgeLayout
-          Id="Package\Sequence Container\Extract data from Source to Stage_Flight.Paths[Derived Column Output]"
-          TopLeft="262.833324545788,336.066664924953">
+          Id="Package\Sequence Container\Extract data from Source to Stage_Flight.Paths[Flat File Source Output]"
+          TopLeft="264.266656194462,112.666666172478">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="257.033319355217,76.2666672211222"
+              EndConnector="0,78.8666658289565"
               Start="0,0"
-              End="257.033319355217,68.7666672211222">
+              End="0,71.3666658289565">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,45.739130796384" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,45.739130796384"
-                    Point2="0,49.739130796384"
-                    Point3="4,49.739130796384" />
-                  <mssgle:LineSegment
-                    End="253.033319355217,49.739130796384" />
-                  <mssgle:CubicBezierSegment
-                    Point1="253.033319355217,49.739130796384"
-                    Point2="257.033319355217,49.739130796384"
-                    Point3="257.033319355217,53.739130796384" />
-                  <mssgle:LineSegment
-                    End="257.033319355217,68.7666672211222" />
+                    End="0,71.3666658289565" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Sequence Container\Extract data from Source to Stage_Flight.Paths[Derived Column Output1]"
-          TopLeft="546.716643286332,335.866664798393">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,76.4666673476822"
-              Start="0,0"
-              End="0,68.9666673476822">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,68.9666673476822" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-27.8544140625,30.0690751019782,55.708828125,11.228515625"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6790,7 +7873,69 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-149.104413447827,55.434783048906,55.708828125,11.228515625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\Extract data from Source to Stage_Flight.Paths[Derived Column Output1]"
+          TopLeft="546.716643286332,335.866664798393">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,76.4666673476822"
+              Start="0,0"
+              End="0,68.9666673476822">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,68.9666673476822" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-27.8544140625,28.8690758613411,55.708828125,11.228515625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\Extract data from Source to Stage_Flight.Paths[Derived Column Output]"
+          TopLeft="262.833324545788,336.066664924953">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="257.033319355217,76.2666672211222"
+              Start="0,0"
+              End="257.033319355217,68.7666672211222">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.739130796384" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,45.739130796384"
+                    Point2="0,49.739130796384"
+                    Point3="4,49.739130796384" />
+                  <mssgle:LineSegment
+                    End="253.033319355217,49.739130796384" />
+                  <mssgle:CubicBezierSegment
+                    Point1="253.033319355217,49.739130796384"
+                    Point2="257.033319355217,49.739130796384"
+                    Point3="257.033319355217,53.739130796384" />
+                  <mssgle:LineSegment
+                    End="257.033319355217,68.7666672211222" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="100.662245615109,54.739130796384,55.708828125,11.228515625"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6812,7 +7957,33 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-30.26947265625,15.4024087125395,60.5389453125,11.228515625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\Extract data from Source to Stage_Flight.Paths[Incremental Extract2]"
+          TopLeft="819.933308564293,231.199998553594">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,62.199999584158"
+              Start="0,0"
+              End="0,54.699999584158">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.699999584158" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-76.45333984375,21.545312292079,152.9066796875,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
