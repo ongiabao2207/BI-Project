@@ -23,7 +23,7 @@ BEGIN
 END
 ELSE
 BEGIN
-    PRINT 'Dim_Time đã có dữ liệu, không insert thêm.';
+    PRINT N'Dim_Time đã có dữ liệu, không insert thêm.';
 END;
 GO
 
