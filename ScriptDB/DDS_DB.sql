@@ -156,3 +156,9 @@ Select * from Dim_Date;
 Select * from Dim_Time;
 Select * from Fact_Flight;
 
+ALTER TABLE dbo.Fact_Flight
+ALTER COLUMN Arrive_Time_ID INT NULL;
+
+ALTER TABLE dbo.Fact_Flight
+ALTER COLUMN Depart_Time_ID INT NULL;
+
