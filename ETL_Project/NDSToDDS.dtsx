@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="NDSToDDS"
   DTS:PackageType="5"
-  DTS:VersionBuild="107"
-  DTS:VersionGUID="{5EF02994-DC89-4862-958A-14DE31C8CDEC}">
+  DTS:VersionBuild="111"
+  DTS:VersionGUID="{47C6B75F-561B-4E12-9AB8-419646D2B598}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -3437,13 +3437,13 @@ where [refTable].[Reason_Type] = ?</property>
                               containsID="true"
                               dataType="System.String"
                               description="Derived Column Expression"
-                              name="Expression">(DT_I4)0</property>
+                              name="Expression">NULL(DT_I4)</property>
                             <property
                               containsID="true"
                               dataType="System.String"
                               description="Derived Column Friendly Expression"
                               expressionType="Notify"
-                              name="FriendlyExpression">(DT_I4)0</property>
+                              name="FriendlyExpression">NULL(DT_I4)</property>
                           </properties>
                         </outputColumn>
                       </outputColumns>
@@ -4575,7 +4575,7 @@ where [refTable].[Hour] = ? and [refTable].[Minute] = ?</property>
                       <inputColumns>
                         <inputColumn
                           refId="Package\Sequence Container\Load FactFlight\Lookup DepartTime.Inputs[Lookup Input].Columns[Dep_Hour]"
-                          cachedDataType="bool"
+                          cachedDataType="ui1"
                           cachedName="Dep_Hour"
                           lineageId="Package\Sequence Container\Load FactFlight\Derived Column.Outputs[Derived Column Output].Columns[Dep_Hour]">
                           <properties>
@@ -6369,7 +6369,7 @@ where [refTable].[IATA_Code] = ?</property>
                         </inputColumn>
                         <inputColumn
                           refId="Package\Sequence Container\Load FactFlight\Union All.Inputs[Union All Input 1].Columns[Dep_Hour]"
-                          cachedDataType="bool"
+                          cachedDataType="ui1"
                           cachedName="Dep_Hour"
                           lineageId="Package\Sequence Container\Load FactFlight\Derived Column.Outputs[Derived Column Output].Columns[Dep_Hour]">
                           <properties>
@@ -6904,7 +6904,7 @@ where [refTable].[IATA_Code] = ?</property>
                         </inputColumn>
                         <inputColumn
                           refId="Package\Sequence Container\Load FactFlight\Union All.Inputs[Union All Input 2].Columns[Dep_Hour]"
-                          cachedDataType="bool"
+                          cachedDataType="ui1"
                           cachedName="Dep_Hour"
                           lineageId="Package\Sequence Container\Load FactFlight\Derived Column.Outputs[Derived Column Output].Columns[Dep_Hour]">
                           <properties>
@@ -8594,44 +8594,44 @@ where [refTable].[IATA_Code] = ?</property>
                   startId="Package\Sequence Container\Load FactFlight\Derived Column 3.Outputs[Derived Column Output]" />
                 <path
                   refId="Package\Sequence Container\Load FactFlight.Paths[Lookup Match Output7]"
-                  endId="Package\Sequence Container\Load FactFlight\Derived Column 1.Inputs[Derived Column Input]"
-                  name="Lookup Match Output"
-                  startId="Package\Sequence Container\Load FactFlight\Lookup ArriveDate.Outputs[Lookup Match Output]" />
-                <path
-                  refId="Package\Sequence Container\Load FactFlight.Paths[Lookup Match Output6]"
-                  endId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 1]"
-                  name="Lookup Match Output"
-                  startId="Package\Sequence Container\Load FactFlight\Lookup CancelReason.Outputs[Lookup Match Output]" />
-                <path
-                  refId="Package\Sequence Container\Load FactFlight.Paths[Lookup Match Output5]"
-                  endId="Package\Sequence Container\Load FactFlight\Derived Column.Inputs[Derived Column Input]"
-                  name="Lookup Match Output"
-                  startId="Package\Sequence Container\Load FactFlight\Lookup DepartDate.Outputs[Lookup Match Output]" />
-                <path
-                  refId="Package\Sequence Container\Load FactFlight.Paths[Lookup Match Output4]"
                   endId="Package\Sequence Container\Load FactFlight\Union All.Inputs[Union All Input 1]"
                   name="Lookup Match Output"
                   startId="Package\Sequence Container\Load FactFlight\Lookup ArriveTime.Outputs[Lookup Match Output]" />
                 <path
-                  refId="Package\Sequence Container\Load FactFlight.Paths[Lookup Match Output2]"
-                  endId="Package\Sequence Container\Load FactFlight\Lookup DestAirport.Inputs[Lookup Input]"
+                  refId="Package\Sequence Container\Load FactFlight.Paths[Lookup Match Output6]"
+                  endId="Package\Sequence Container\Load FactFlight\Derived Column 1.Inputs[Derived Column Input]"
                   name="Lookup Match Output"
-                  startId="Package\Sequence Container\Load FactFlight\Lookup OriginAirport.Outputs[Lookup Match Output]" />
+                  startId="Package\Sequence Container\Load FactFlight\Lookup ArriveDate.Outputs[Lookup Match Output]" />
                 <path
-                  refId="Package\Sequence Container\Load FactFlight.Paths[Lookup Match Output1]"
+                  refId="Package\Sequence Container\Load FactFlight.Paths[Lookup Match Output5]"
+                  endId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 1]"
+                  name="Lookup Match Output"
+                  startId="Package\Sequence Container\Load FactFlight\Lookup CancelReason.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\Sequence Container\Load FactFlight.Paths[Lookup Match Output4]"
+                  endId="Package\Sequence Container\Load FactFlight\Derived Column.Inputs[Derived Column Input]"
+                  name="Lookup Match Output"
+                  startId="Package\Sequence Container\Load FactFlight\Lookup DepartDate.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\Sequence Container\Load FactFlight.Paths[Lookup Match Output2]"
                   endId="Package\Sequence Container\Load FactFlight\Lookup OriginAirport.Inputs[Lookup Input]"
                   name="Lookup Match Output"
                   startId="Package\Sequence Container\Load FactFlight\Lookup Airline.Outputs[Lookup Match Output]" />
                 <path
-                  refId="Package\Sequence Container\Load FactFlight.Paths[Lookup Match Output]"
+                  refId="Package\Sequence Container\Load FactFlight.Paths[Lookup Match Output1]"
                   endId="Package\Sequence Container\Load FactFlight\Lookup ArriveDate.Inputs[Lookup Input]"
                   name="Lookup Match Output"
                   startId="Package\Sequence Container\Load FactFlight\Lookup DepartTime.Outputs[Lookup Match Output]" />
                 <path
-                  refId="Package\Sequence Container\Load FactFlight.Paths[Lookup Match Output3]"
+                  refId="Package\Sequence Container\Load FactFlight.Paths[Lookup Match Output]"
                   endId="Package\Sequence Container\Load FactFlight\Lookup DepartDate.Inputs[Lookup Input]"
                   name="Lookup Match Output"
                   startId="Package\Sequence Container\Load FactFlight\Lookup DestAirport.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\Sequence Container\Load FactFlight.Paths[Lookup Match Output3]"
+                  endId="Package\Sequence Container\Load FactFlight\Lookup DestAirport.Inputs[Lookup Input]"
+                  name="Lookup Match Output"
+                  startId="Package\Sequence Container\Load FactFlight\Lookup OriginAirport.Outputs[Lookup Match Output]" />
                 <path
                   refId="Package\Sequence Container\Load FactFlight.Paths[Lookup No Match Output]"
                   endId="Package\Sequence Container\Load FactFlight\Derived Column 2.Inputs[Derived Column Input]"
@@ -8711,7 +8711,7 @@ where [refTable].[IATA_Code] = ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Set LSET Dim_Airline"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -8755,7 +8755,7 @@ where [refTable].[IATA_Code] = ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Set LSET Fact_Flight"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -8859,6 +8859,14 @@ where [refTable].[IATA_Code] = ?</property>
           Size="140,42.6666666666667"
           Id="Package\Sequence Container\Dim_Reason"
           TopLeft="32.3333460407121,141.178560771658" />
+        <NodeLayout
+          Size="146.666666666667,42.6666666666667"
+          Id="Package\Sequence Container\Load DimDate"
+          TopLeft="29.1846935244933,212.3888707055" />
+        <NodeLayout
+          Size="150.666666666667,42.6666666666667"
+          Id="Package\Sequence Container\Load FactFlight"
+          TopLeft="27.1785524216092,291.421411496458" />
         <EdgeLayout
           Id="Package\Sequence Container.PrecedenceConstraints[Constraint]"
           TopLeft="103.583343056341,48.8333191792175">
@@ -8903,14 +8911,6 @@ where [refTable].[IATA_Code] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="146.666666666667,42.6666666666667"
-          Id="Package\Sequence Container\Load DimDate"
-          TopLeft="29.1846935244933,212.3888707055" />
-        <NodeLayout
-          Size="150.666666666667,42.6666666666667"
-          Id="Package\Sequence Container\Load FactFlight"
-          TopLeft="27.1785524216092,291.421411496458" />
         <EdgeLayout
           Id="Package\Sequence Container.PrecedenceConstraints[Constraint 2]"
           TopLeft="102.425686449269,183.845227438325">
@@ -9180,756 +9180,28 @@ where [refTable].[IATA_Code] = ?</property>
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\Sequence Container\Load FactFlight">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="130.666666666667,42.6666666666667"
-          Id="Package\Sequence Container\Load FactFlight\Union All 1"
-          TopLeft="96.4759529545253,996.966034774061" />
-        <NodeLayout
-          Size="166.666666666667,42.6666666666667"
-          Id="Package\Sequence Container\Load FactFlight\Lookup ArriveDate"
-          TopLeft="79.9374978048728,579.999987357855" />
-        <NodeLayout
-          Size="150.666666666667,42.6666666666667"
-          Id="Package\Sequence Container\Load FactFlight\OLE DB Source"
-          TopLeft="74.4999979436398,19.4999995827675" />
-        <NodeLayout
-          Size="164,42.6666666666667"
-          Id="Package\Sequence Container\Load FactFlight\Derived Column 2"
-          TopLeft="280.499987706542,719.876837921517" />
-        <NodeLayout
-          Size="170.666666666667,42.6666666666667"
-          Id="Package\Sequence Container\Load FactFlight\Lookup DepartDate"
-          TopLeft="71.4999980330467,351.499996721745" />
-        <NodeLayout
-          Size="168,42.6666666666667"
-          Id="Package\Sequence Container\Load FactFlight\Lookup ArriveTime"
-          TopLeft="70.4999980628491,723.452749438408" />
-        <NodeLayout
-          Size="121.333333333334,42.6666666666667"
-          Id="Package\Sequence Container\Load FactFlight\Union All"
-          TopLeft="95.4999959766865,809.47505296864" />
-        <NodeLayout
-          Size="170.666666666667,41.3333333333334"
-          Id="Package\Sequence Container\Load FactFlight\OLE DB Destination"
-          TopLeft="85.0788664736431,1200.10891542738" />
-        <NodeLayout
-          Size="164,42.6666666666667"
-          Id="Package\Sequence Container\Load FactFlight\Derived Column 1"
-          TopLeft="75.9999977350236,651.666659126679" />
-        <NodeLayout
-          Size="182.666666666667,42.6666666666667"
-          Id="Package\Sequence Container\Load FactFlight\Lookup CancelReason"
-          TopLeft="69.9687479971909,889.82843187371" />
-        <NodeLayout
-          Size="172,42.6666666666667"
-          Id="Package\Sequence Container\Load FactFlight\Lookup DepartTime"
-          TopLeft="71.2812480279245,504.826552037798" />
-        <NodeLayout
-          Size="146.666666666667,42.6666666666667"
-          Id="Package\Sequence Container\Load FactFlight\Lookup Airline"
-          TopLeft="78.4999987185002,108.499997824431" />
-        <NodeLayout
-          Size="177.333333333334,42.6666666666667"
-          Id="Package\Sequence Container\Load FactFlight\Lookup OriginAirport"
-          TopLeft="68.499999910593,201.499995946884" />
-        <NodeLayout
-          Size="170.666666666667,42.6666666666667"
-          Id="Package\Sequence Container\Load FactFlight\Lookup DestAirport"
-          TopLeft="78.9999976456166,271.666659186284" />
-        <NodeLayout
-          Size="154.666666666667,42.6666666666667"
-          Id="Package\Sequence Container\Load FactFlight\Derived Column"
-          TopLeft="83.7187476805412,433.284889841481" />
-        <NodeLayout
-          Size="230.666666666667,42.6666666666667"
-          Id="Package\Sequence Container\Load FactFlight\Lookup Check Existing Flight_ID"
-          TopLeft="49.4342929077789,1104.44106158469" />
-        <NodeLayout
-          Size="164,42.6666666666667"
-          Id="Package\Sequence Container\Load FactFlight\Derived Column 3"
-          TopLeft="306.305544174794,887.724112400704" />
-        <EdgeLayout
-          Id="Package\Sequence Container\Load FactFlight.Paths[Union All Output 11]"
-          TopLeft="163.288456264485,1039.63270144073">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,64.8083601439664"
-              Start="0,0"
-              End="0,57.3083601439664">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,57.3083601439664" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Sequence Container\Load FactFlight.Paths[Union All Output 1]"
-          TopLeft="158.734371986939,852.141719635307">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,37.6867122384031"
-              Start="0,0"
-              End="0,30.1867122384031">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,30.1867122384031" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Sequence Container\Load FactFlight.Paths[OLE DB Source Output]"
-          TopLeft="150.833331664403,62.1666662494342">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,46.3333315749964"
-              Start="0,0"
-              End="0,38.8333315749964">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,38.8333315749964" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Sequence Container\Load FactFlight.Paths[Lookup No Match Output2]"
-          TopLeft="252.635414663858,910.109605470541">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="53.6701295109365,0"
-              Start="0,0"
-              End="46.1701295109365,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="46.1701295109365,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-32.7213219632818,5,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Sequence Container\Load FactFlight.Paths[Lookup No Match Output1]"
-          TopLeft="167.589913024044,1147.10772825136">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,53.0011871760209"
-              Start="0,0"
-              End="0,45.5011871760209">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,45.5011871760209" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-55.80638671875,16.9459060880104,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Sequence Container\Load FactFlight.Paths[Lookup No Match Output]"
-          TopLeft="238.499998062849,742.998127013296">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="41.9999896436934,0"
-              Start="0,0"
-              End="34.4999896436934,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="34.4999896436934,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-38.5563918969033,5,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Sequence Container\Load FactFlight.Paths[Lookup Match Output7]"
-          TopLeft="160.635414436615,622.666654024522">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,29.0000051021573"
-              Start="0,0"
-              End="0,21.5000051021573">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.5000051021573" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,4.94531505107864,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Sequence Container\Load FactFlight.Paths[Lookup Match Output6]"
-          TopLeft="161.555683809191,932.495098540377">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,64.4709362336841"
-              Start="0,0"
-              End="0,56.9709362336841">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,56.9709362336841" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,22.680780616842,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Sequence Container\Load FactFlight.Paths[Lookup Match Output5]"
-          TopLeft="158.942706190127,394.166663388412">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,39.1182264530693"
-              Start="0,0"
-              End="0,31.6182264530693">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,31.6182264530693" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,10.0044257265347,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Sequence Container\Load FactFlight.Paths[Lookup Match Output4]"
-          TopLeft="155.333330353101,766.119416105075">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,43.3556368635657"
-              Start="0,0"
-              End="0,35.8556368635657">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,35.8556368635657" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,12.1231309317828,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Sequence Container\Load FactFlight.Paths[Lookup Match Output3]"
-          TopLeft="160.583331172665,314.333325852951">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,37.1666708687943"
-              Start="0,0"
-              End="0,29.6666708687943">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,29.6666708687943" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,9.02864793439715,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Sequence Container\Load FactFlight.Paths[Lookup Match Output2]"
-          TopLeft="160.749998778105,244.166662613551">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,27.499996572733"
-              Start="0,0"
-              End="0,19.999996572733">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,19.999996572733" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,4.1953107863665,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Sequence Container\Load FactFlight.Paths[Lookup Match Output1]"
-          TopLeft="154.499999314547,151.166664491097">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,50.333331455787"
-              Start="0,0"
-              End="0,42.833331455787">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,42.833331455787" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,15.6119782278935,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Sequence Container\Load FactFlight.Paths[Lookup Match Output]"
-          TopLeft="160.276039583065,547.493218704464">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,32.5067686533904"
-              Start="0,0"
-              End="0,25.0067686533904">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,25.0067686533904" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,6.6986968266952,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Sequence Container\Load FactFlight.Paths[Derived Column Output3]"
-          TopLeft="388.305544174794,930.390779067371">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-206.051813442491,66.5752557066896"
-              Start="0,0"
-              End="-206.051813442491,59.0752557066896">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,35.4619459229168" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,35.4619459229168"
-                    Point2="0,39.4619459229168"
-                    Point3="-4,39.4619459229168" />
-                  <mssgle:LineSegment
-                    End="-202.051813442491,39.4619459229168" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-202.051813442491,39.4619459229168"
-                    Point2="-206.051813442491,39.4619459229168"
-                    Point3="-206.051813442491,43.4619459229168" />
-                  <mssgle:LineSegment
-                    End="-206.051813442491,59.0752557066896" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Sequence Container\Load FactFlight.Paths[Derived Column Output2]"
-          TopLeft="362.499987706542,762.543504588184">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-187.4444361743,46.9315483804567"
-              Start="0,0"
-              End="-187.4444361743,39.4315483804567">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,23.7924353749776" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,23.7924353749776"
-                    Point2="0,27.7924353749776"
-                    Point3="-4,27.7924353749776" />
-                  <mssgle:LineSegment
-                    End="-183.4444361743,27.7924353749776" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-183.4444361743,27.7924353749776"
-                    Point2="-187.4444361743,27.7924353749776"
-                    Point3="-187.4444361743,31.7924353749776" />
-                  <mssgle:LineSegment
-                    End="-187.4444361743,39.4315483804567" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Sequence Container\Load FactFlight.Paths[Derived Column Output1]"
-          TopLeft="156.249997898936,694.333325793346">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,29.1194236450624"
-              Start="0,0"
-              End="0,21.6194236450624">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.6194236450624" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Sequence Container\Load FactFlight.Paths[Derived Column Output]"
-          TopLeft="159.1666645209,475.951556508148">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,28.8749955296504"
-              Start="0,0"
-              End="0,21.3749955296504">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.3749955296504" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container\Load FactFlight\Lookup ArriveDate">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[Dim_Date]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container\Load FactFlight\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container\Load FactFlight\Lookup DepartDate">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[Dim_Date]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container\Load FactFlight\Lookup ArriveTime">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[Dim_Time]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container\Load FactFlight\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container\Load FactFlight\Lookup CancelReason">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[Dim_Reason]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container\Load FactFlight\Lookup DepartTime">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[Dim_Time]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container\Load FactFlight\Lookup Airline">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[Dim_Airline]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container\Load FactFlight\Lookup OriginAirport">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[Dim_Airport]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container\Load FactFlight\Lookup DestAirport">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[Dim_Airport]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
     design-time-name="Package\Sequence Container\Dim_Airline">
     <LayoutInfo>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="160.8,41.6"
+          Size="160.666666666667,41.3333333333334"
           Id="Package\Sequence Container\Dim_Airline\Lookup Airline SK"
           TopLeft="210.833321813908,124.799999132156" />
         <NodeLayout
-          Size="168,41.6"
+          Size="168,41.3333333333334"
           Id="Package\Sequence Container\Dim_Airline\Source NDS Airline"
           TopLeft="205.833322087096,29.4666664617592" />
         <NodeLayout
-          Size="171.2,41.6"
+          Size="171.333333333334,41.3333333333334"
           Id="Package\Sequence Container\Dim_Airline\OLE DB Destination"
           TopLeft="211.66665510171,203.666665250394" />
         <NodeLayout
-          Size="174.4,41.6"
+          Size="174.666666666667,41.3333333333334"
           Id="Package\Sequence Container\Dim_Airline\Update Airline Name"
           TopLeft="489.999973227582,203.599998662074" />
         <NodeLayout
-          Size="159.2,41.6"
+          Size="159.333333333334,41.3333333333334"
           Id="Package\Sequence Container\Dim_Airline\Check for Update"
           TopLeft="497.4999728178,130.866665756636" />
         <EdgeLayout
@@ -9952,7 +9224,7 @@ where [refTable].[IATA_Code] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-27.6388671875,6.09986957771903,55.277734375,11.43359375"
+              BoundingBox="-27.6388671875,6.09986957771905,55.277734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -9975,9 +9247,7 @@ where [refTable].[IATA_Code] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10605,6 +9875,734 @@ where [refTable].[IATA_Code] = ?</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Sequence Container\Load FactFlight">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="130.666666666667,42.6666666666667"
+          Id="Package\Sequence Container\Load FactFlight\Union All 1"
+          TopLeft="96.4759529545253,996.966034774061" />
+        <NodeLayout
+          Size="166.666666666667,42.6666666666667"
+          Id="Package\Sequence Container\Load FactFlight\Lookup ArriveDate"
+          TopLeft="79.9374978048728,579.999987357855" />
+        <NodeLayout
+          Size="150.666666666667,42.6666666666667"
+          Id="Package\Sequence Container\Load FactFlight\OLE DB Source"
+          TopLeft="74.4999979436398,19.4999995827675" />
+        <NodeLayout
+          Size="164,42.6666666666667"
+          Id="Package\Sequence Container\Load FactFlight\Derived Column 2"
+          TopLeft="280.499987706542,719.876837921517" />
+        <NodeLayout
+          Size="170.666666666667,42.6666666666667"
+          Id="Package\Sequence Container\Load FactFlight\Lookup DepartDate"
+          TopLeft="71.4999980330467,351.499996721745" />
+        <NodeLayout
+          Size="168,42.6666666666667"
+          Id="Package\Sequence Container\Load FactFlight\Lookup ArriveTime"
+          TopLeft="70.4999980628491,723.452749438408" />
+        <NodeLayout
+          Size="121.333333333334,42.6666666666667"
+          Id="Package\Sequence Container\Load FactFlight\Union All"
+          TopLeft="95.4999959766865,809.47505296864" />
+        <NodeLayout
+          Size="170.666666666667,41.3333333333334"
+          Id="Package\Sequence Container\Load FactFlight\OLE DB Destination"
+          TopLeft="85.0788664736431,1200.10891542738" />
+        <NodeLayout
+          Size="164,42.6666666666667"
+          Id="Package\Sequence Container\Load FactFlight\Derived Column 1"
+          TopLeft="75.9999977350236,651.666659126679" />
+        <NodeLayout
+          Size="182.666666666667,42.6666666666667"
+          Id="Package\Sequence Container\Load FactFlight\Lookup CancelReason"
+          TopLeft="69.9687479971909,889.82843187371" />
+        <NodeLayout
+          Size="172,42.6666666666667"
+          Id="Package\Sequence Container\Load FactFlight\Lookup DepartTime"
+          TopLeft="71.2812480279245,504.826552037798" />
+        <NodeLayout
+          Size="146.666666666667,42.6666666666667"
+          Id="Package\Sequence Container\Load FactFlight\Lookup Airline"
+          TopLeft="78.4999987185002,108.499997824431" />
+        <NodeLayout
+          Size="177.333333333334,42.6666666666667"
+          Id="Package\Sequence Container\Load FactFlight\Lookup OriginAirport"
+          TopLeft="68.499999910593,201.499995946884" />
+        <NodeLayout
+          Size="170.666666666667,42.6666666666667"
+          Id="Package\Sequence Container\Load FactFlight\Lookup DestAirport"
+          TopLeft="78.9999976456166,271.666659186284" />
+        <NodeLayout
+          Size="154.666666666667,42.6666666666667"
+          Id="Package\Sequence Container\Load FactFlight\Derived Column"
+          TopLeft="83.7187476805412,433.284889841481" />
+        <NodeLayout
+          Size="230.666666666667,42.6666666666667"
+          Id="Package\Sequence Container\Load FactFlight\Lookup Check Existing Flight_ID"
+          TopLeft="49.4342929077789,1104.44106158469" />
+        <NodeLayout
+          Size="164,42.6666666666667"
+          Id="Package\Sequence Container\Load FactFlight\Derived Column 3"
+          TopLeft="306.305544174794,887.724112400704" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Load FactFlight.Paths[Union All Output 11]"
+          TopLeft="163.288456264485,1039.63270144073">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,64.8083601439664"
+              Start="0,0"
+              End="0,57.3083601439664">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.3083601439664" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\Load FactFlight.Paths[Union All Output 1]"
+          TopLeft="158.734371986939,852.141719635307">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.6867122384031"
+              Start="0,0"
+              End="0,30.1867122384031">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.1867122384031" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\Load FactFlight.Paths[OLE DB Source Output]"
+          TopLeft="150.833331664403,62.1666662494342">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,46.3333315749964"
+              Start="0,0"
+              End="0,38.8333315749964">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.8333315749964" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\Load FactFlight.Paths[Lookup No Match Output2]"
+          TopLeft="252.635414663858,910.109605470541">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="53.6701295109365,0"
+              Start="0,0"
+              End="46.1701295109365,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="46.1701295109365,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-32.7213219632818,5,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\Load FactFlight.Paths[Lookup No Match Output1]"
+          TopLeft="167.589913024044,1147.10772825136">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,53.0011871760209"
+              Start="0,0"
+              End="0,45.5011871760209">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.5011871760209" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-55.80638671875,16.9459060880104,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\Load FactFlight.Paths[Lookup No Match Output]"
+          TopLeft="238.499998062849,742.998127013296">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="41.9999896436934,0"
+              Start="0,0"
+              End="34.4999896436934,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="34.4999896436934,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-38.5563918969033,5,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\Load FactFlight.Paths[Lookup Match Output7]"
+          TopLeft="155.333330353101,766.119416105075">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43.3556368635657"
+              Start="0,0"
+              End="0,35.8556368635657">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.8556368635657" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,12.1231309317828,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\Load FactFlight.Paths[Lookup Match Output6]"
+          TopLeft="160.635414436615,622.666654024522">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29.0000051021573"
+              Start="0,0"
+              End="0,21.5000051021573">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.5000051021573" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,4.94531505107865,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\Load FactFlight.Paths[Lookup Match Output5]"
+          TopLeft="161.555683809191,932.495098540377">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,64.4709362336841"
+              Start="0,0"
+              End="0,56.9709362336841">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.9709362336841" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,22.680780616842,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\Load FactFlight.Paths[Lookup Match Output4]"
+          TopLeft="158.942706190127,394.166663388412">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39.1182264530693"
+              Start="0,0"
+              End="0,31.6182264530693">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.6182264530693" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,10.0044257265347,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\Load FactFlight.Paths[Lookup Match Output3]"
+          TopLeft="160.749998778105,244.166662613551">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,27.499996572733"
+              Start="0,0"
+              End="0,19.999996572733">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.999996572733" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,4.1953107863665,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\Load FactFlight.Paths[Lookup Match Output2]"
+          TopLeft="154.499999314547,151.166664491097">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50.333331455787"
+              Start="0,0"
+              End="0,42.833331455787">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.833331455787" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,15.6119782278935,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\Load FactFlight.Paths[Lookup Match Output1]"
+          TopLeft="160.276039583065,547.493218704464">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32.5067686533904"
+              Start="0,0"
+              End="0,25.0067686533904">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.0067686533904" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,6.6986968266952,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\Load FactFlight.Paths[Lookup Match Output]"
+          TopLeft="160.583331172665,314.333325852951">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.1666708687943"
+              Start="0,0"
+              End="0,29.6666708687943">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.6666708687943" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,9.02864793439715,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\Load FactFlight.Paths[Derived Column Output3]"
+          TopLeft="388.305544174794,930.390779067371">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-206.051813442491,66.5752557066896"
+              Start="0,0"
+              End="-206.051813442491,59.0752557066896">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.4619459229168" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35.4619459229168"
+                    Point2="0,39.4619459229168"
+                    Point3="-4,39.4619459229168" />
+                  <mssgle:LineSegment
+                    End="-202.051813442491,39.4619459229168" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-202.051813442491,39.4619459229168"
+                    Point2="-206.051813442491,39.4619459229168"
+                    Point3="-206.051813442491,43.4619459229168" />
+                  <mssgle:LineSegment
+                    End="-206.051813442491,59.0752557066896" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\Load FactFlight.Paths[Derived Column Output2]"
+          TopLeft="362.499987706542,762.543504588184">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-187.4444361743,46.9315483804567"
+              Start="0,0"
+              End="-187.4444361743,39.4315483804567">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.7924353749776" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.7924353749776"
+                    Point2="0,27.7924353749776"
+                    Point3="-4,27.7924353749776" />
+                  <mssgle:LineSegment
+                    End="-183.4444361743,27.7924353749776" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-183.4444361743,27.7924353749776"
+                    Point2="-187.4444361743,27.7924353749776"
+                    Point3="-187.4444361743,31.7924353749776" />
+                  <mssgle:LineSegment
+                    End="-187.4444361743,39.4315483804567" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\Load FactFlight.Paths[Derived Column Output1]"
+          TopLeft="156.249997898936,694.333325793346">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29.1194236450624"
+              Start="0,0"
+              End="0,21.6194236450624">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.6194236450624" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\Load FactFlight.Paths[Derived Column Output]"
+          TopLeft="159.1666645209,475.951556508148">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28.8749955296504"
+              Start="0,0"
+              End="0,21.3749955296504">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.3749955296504" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Load FactFlight\Lookup ArriveDate">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Dim_Date]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Load FactFlight\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Load FactFlight\Lookup DepartDate">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Dim_Date]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Load FactFlight\Lookup ArriveTime">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Dim_Time]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Load FactFlight\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Load FactFlight\Lookup CancelReason">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Dim_Reason]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Load FactFlight\Lookup DepartTime">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Dim_Time]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Load FactFlight\Lookup Airline">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Dim_Airline]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Load FactFlight\Lookup OriginAirport">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Dim_Airport]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Load FactFlight\Lookup DestAirport">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Dim_Airport]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
