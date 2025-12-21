@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="NDSToDDS"
   DTS:PackageType="5"
-  DTS:VersionBuild="112"
-  DTS:VersionGUID="{5002FA6E-0542-4CD6-8352-ADFC2A073629}">
+  DTS:VersionBuild="114"
+  DTS:VersionGUID="{77020842-2222-419F-86C6-82159846BF84}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -7785,6 +7785,13 @@ where [refTable].[IATA_Code] = ?</property>
                       <externalMetadataColumns />
                     </input>
                     <input
+                      refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 2]"
+                      dangling="true"
+                      hasSideEffects="true"
+                      name="Union All Input 2">
+                      <externalMetadataColumns />
+                    </input>
+                    <input
                       refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 3]"
                       hasSideEffects="true"
                       name="Union All Input 3">
@@ -8330,13 +8337,6 @@ where [refTable].[IATA_Code] = ?</property>
                           </properties>
                         </inputColumn>
                       </inputColumns>
-                      <externalMetadataColumns />
-                    </input>
-                    <input
-                      refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 2]"
-                      dangling="true"
-                      hasSideEffects="true"
-                      name="Union All Input 2">
                       <externalMetadataColumns />
                     </input>
                   </inputs>
@@ -9975,14 +9975,14 @@ where [refTable].[IATA_Code] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,37.6867122384031"
+              EndConnector="0,37.6867122384033"
               Start="0,0"
-              End="0,30.1867122384031">
+              End="0,30.1867122384033">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,30.1867122384031" />
+                    End="0,30.1867122384033" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -10015,7 +10015,7 @@ where [refTable].[IATA_Code] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container\Load FactFlight.Paths[Lookup No Match Output2]"
-          TopLeft="252.635414663858,910.109605470541">
+          TopLeft="252.635414663858,910.10960547054">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -10135,25 +10135,25 @@ where [refTable].[IATA_Code] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container\Load FactFlight.Paths[Lookup Match Output5]"
-          TopLeft="161.555683809191,932.495098540377">
+          TopLeft="161.333461288946,932.495098540377">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,64.4709362336841"
+              EndConnector="0,64.4709362336844"
               Start="0,0"
-              End="0,56.9709362336841">
+              End="0,56.9709362336844">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,56.9709362336841" />
+                    End="0,56.9709362336844" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,22.680780616842,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,22.6807806168422,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
