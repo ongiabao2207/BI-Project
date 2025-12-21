@@ -298,11 +298,6 @@
           <AttributeID>Hour</AttributeID>
         </Attribute>
       </Attributes>
-      <Hierarchies>
-        <Hierarchy dwd:design-time-name="19206fc7-126b-41f5-82df-5f910cca4029">
-          <HierarchyID>Hierarchy</HierarchyID>
-        </Hierarchy>
-      </Hierarchies>
     </Dimension>
     <Dimension dwd:design-time-name="cd01c27a-507d-49c2-bb92-febe30306dca">
       <ID>Arrive Date</ID>
@@ -326,6 +321,15 @@
         </Attribute>
         <Attribute dwd:design-time-name="7594a1eb-56b6-4409-bbf0-22784a3e7b37">
           <AttributeID>Season</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="6f32f97c-619d-4d37-a93c-c9d589f4985b">
+          <AttributeID>Is Weekend</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="5faea54a-ad8e-4d99-be23-96c65cd9bea9">
+          <AttributeID>Day Of Week</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="bad9c5eb-38b3-414b-93da-166eb0bcc9dc">
+          <AttributeID>Full Date</AttributeID>
         </Attribute>
       </Attributes>
       <Hierarchies>
@@ -355,11 +359,6 @@
           <AttributeID>Hour</AttributeID>
         </Attribute>
       </Attributes>
-      <Hierarchies>
-        <Hierarchy dwd:design-time-name="c0d27390-aba4-4f9d-8594-b434b6531e6b">
-          <HierarchyID>Hierarchy</HierarchyID>
-        </Hierarchy>
-      </Hierarchies>
     </Dimension>
     <Dimension dwd:design-time-name="77fa1472-fe8b-4e08-bc37-554f540597f9">
       <ID>Depart Date</ID>
@@ -384,6 +383,15 @@
         <Attribute dwd:design-time-name="ad0dd137-066c-4771-91df-a0a63b32a553">
           <AttributeID>Season</AttributeID>
         </Attribute>
+        <Attribute dwd:design-time-name="bd8ac732-7b41-4b3f-8013-409222bc96ef">
+          <AttributeID>Is Weekend</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="5ed290de-a3d9-4a00-9fa5-c8181fb0cc8f">
+          <AttributeID>Day Of Week</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="c6f70bdc-24a5-4224-ae89-75f11b7e1f74">
+          <AttributeID>Full Date</AttributeID>
+        </Attribute>
       </Attributes>
       <Hierarchies>
         <Hierarchy dwd:design-time-name="8756737b-7033-4584-9d2d-aafaf4330c22">
@@ -402,6 +410,12 @@
         <Attribute dwd:design-time-name="806a7b9d-0431-44ef-a645-e5759d9a785b">
           <AttributeID>Airline ID</AttributeID>
         </Attribute>
+        <Attribute dwd:design-time-name="8d604dbe-833c-462d-87e5-c0070786dff0">
+          <AttributeID>Airline Name</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="b447de3b-f9f9-4b5a-918e-146f2d6c9e45">
+          <AttributeID>IATA Code</AttributeID>
+        </Attribute>
       </Attributes>
     </Dimension>
     <Dimension dwd:design-time-name="c875f616-84d2-43ad-9410-3524218b5bb4">
@@ -411,6 +425,27 @@
       <Attributes>
         <Attribute dwd:design-time-name="ad489455-0a2d-4478-90ac-eccd9383d3a6">
           <AttributeID>Airport ID</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="a3b3b861-a077-40b5-83d2-21b2b716445c">
+          <AttributeID>IATA Code</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="05d5f6d0-176e-454d-bf4f-420ac4c35f32">
+          <AttributeID>Airport Name</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="39f2d7a2-672c-4e94-8cc4-72c544231a1e">
+          <AttributeID>City</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="887e9735-e462-47ee-9de3-617024c5cd62">
+          <AttributeID>State</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="ced4bbf1-1a51-4b6d-8d09-7483b0a27a08">
+          <AttributeID>Country</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="420662fa-2d23-43c8-9cd4-9cad3809c28d">
+          <AttributeID>Latitude</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="9b75ba9c-9e4a-4f8b-b2cd-c033e0861752">
+          <AttributeID>Longitude</AttributeID>
         </Attribute>
       </Attributes>
     </Dimension>
@@ -422,6 +457,27 @@
         <Attribute dwd:design-time-name="fa49322b-cffe-4664-a3bd-480b72933b01">
           <AttributeID>Airport ID</AttributeID>
         </Attribute>
+        <Attribute dwd:design-time-name="14fc6152-8f96-48c0-8942-73c2bd347851">
+          <AttributeID>IATA Code</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="7d7737ac-190d-47ad-9a9e-0bc743e53402">
+          <AttributeID>Airport Name</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="b868186f-e8da-4fb2-adfc-707c60e8a43f">
+          <AttributeID>City</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="5a72ae45-0dec-4e3d-911d-7305f1db5db7">
+          <AttributeID>State</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="52db41ca-b45c-4f79-b68e-356bc5df4144">
+          <AttributeID>Country</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="58554fd4-18b7-4a0d-9f78-f5dc5192e86d">
+          <AttributeID>Latitude</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="6ae9f5d8-f010-458b-91ee-9d7562cab875">
+          <AttributeID>Longitude</AttributeID>
+        </Attribute>
       </Attributes>
     </Dimension>
     <Dimension dwd:design-time-name="559afb35-c25c-48fb-a642-867f2a6b844d">
@@ -431,6 +487,12 @@
       <Attributes>
         <Attribute dwd:design-time-name="6c2cee0d-b4cc-4d00-98ee-48707e7db078">
           <AttributeID>Reason ID</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="e8f21226-8a65-462c-ab62-42016f877372">
+          <AttributeID>Reason Type</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="8d9bc2ca-a290-43b0-98e9-35d784576d05">
+          <AttributeID>Reason Name</AttributeID>
         </Attribute>
       </Attributes>
     </Dimension>

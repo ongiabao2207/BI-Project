@@ -195,28 +195,5 @@
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
   </Attributes>
-  <Hierarchies>
-    <Hierarchy dwd:design-time-name="2a808d51-5048-456a-ba76-b9f90ecfee3d">
-      <ID>Hierarchy</ID>
-      <Name>Hierarchy</Name>
-      <Levels>
-        <Level dwd:design-time-name="2aed1535-2bd7-4642-82ed-91d265866084">
-          <ID>Part Of Day</ID>
-          <Name>Part Of Day</Name>
-          <SourceAttributeID>Part Of Day</SourceAttributeID>
-        </Level>
-        <Level dwd:design-time-name="ea0962d3-7e79-4dce-90f2-9814567330fa">
-          <ID>Hour</ID>
-          <Name>Hour</Name>
-          <SourceAttributeID>Hour</SourceAttributeID>
-        </Level>
-        <Level dwd:design-time-name="0ed3a9bf-dd75-4ba9-8001-516e3d7603cb">
-          <ID>Minute</ID>
-          <Name>Minute</Name>
-          <SourceAttributeID>Minute</SourceAttributeID>
-        </Level>
-      </Levels>
-    </Hierarchy>
-  </Hierarchies>
   <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
 </Dimension>

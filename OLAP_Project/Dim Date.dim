@@ -73,6 +73,8 @@
             <Shape Id="Date ID" Expanded="false">
               <Attributes>
                 <Attribute Id="Date ID" />
+                <Attribute Id="Day Of Week" />
+                <Attribute Id="Is Weekend" />
               </Attributes>
               <Position x="20" y="20" />
             </Shape>
@@ -158,6 +160,18 @@
           <AttributeID>Season</AttributeID>
           <Name>Season</Name>
         </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="29a27882-15ca-4389-9c4e-e1db42b3d71f">
+          <AttributeID>Is Weekend</AttributeID>
+          <Name>Is Weekend</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="bf4f1816-7ba6-41ec-b02f-084558a1867d">
+          <AttributeID>Day Of Week</AttributeID>
+          <Name>Day Of Week</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="849ac08e-dd37-46f6-bfad-b4e2611b594d">
+          <AttributeID>Full Date</AttributeID>
+          <Name>Full Date</Name>
+        </AttributeRelationship>
       </AttributeRelationships>
       <OrderBy>Key</OrderBy>
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
@@ -239,6 +253,52 @@
           <Source xsi:type="ColumnBinding" dwd:design-time-name="0c25348f-bdb1-4ecc-8ba7-aacddcb54100">
             <TableID>dbo_Dim_Date</TableID>
             <ColumnID>Season</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="9701ccb6-8024-4361-9c91-4a3153483126">
+      <ID>Is Weekend</ID>
+      <Name>Is Weekend</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="651d8ef0-8c9e-4044-8f38-fe05916d63f1">
+          <DataType>Boolean</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="adb0a543-1540-4467-a2b8-f1a3d83ff613">
+            <TableID>dbo_Dim_Date</TableID>
+            <ColumnID>Is_Weekend</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="9910e6a9-db67-4ba2-9f00-c1062f8419de">
+      <ID>Day Of Week</ID>
+      <Name>Day Of Week</Name>
+      <Type>DayOfWeek</Type>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="80eeb004-7824-4bb8-ad14-f2189f5ac1d5">
+          <DataType>UnsignedTinyInt</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="918ea8d3-6bac-4d5f-ae8f-8a7b00e7e293">
+            <TableID>dbo_Dim_Date</TableID>
+            <ColumnID>Day_of_week</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="bd9076b7-3116-4053-98ec-6b6863794498">
+      <ID>Full Date</ID>
+      <Name>Full Date</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="622b5129-eee8-4792-a58c-661ea7160bf6">
+          <DataType>Date</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="d3c52abc-776b-4b11-bc54-917e9f7fa38a">
+            <TableID>dbo_Dim_Date</TableID>
+            <ColumnID>Full_Date</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
