@@ -1,0 +1,45 @@
+﻿-- Query 1: Truy vấn tổng số chuyến bay theo tháng, quý, năm.
+SELECT NON EMPTY
+    [Depart Date].[Hierarchy].[Year]
+	*[Depart Date].[Quarter].[Quarter]
+	*[Depart Date].[Month].[Month] ON ROWS,
+    [Measures].[Fact Flight Count] ON COLUMNS
+FROM [Project DDS DB];
+
+
+-- Query 2: Top 5 sân bay bận rộn nhất (có nhiều chuyến bay đi và đến nhất).
+WITH MEMBER [Measures].[Total Traffic] AS
+    -- Tổng chuyến bay tại sân bay đó với tư cách là điểm đi + điểm đến
+    ([Origin Airport].[Airport Name].CurrentMember, [Measures].[Fact Flight Count]) + 
+    ([Dest Airport].[Airport Name].CurrentMember, [Measures].[Fact Flight Count])
+SELECT 
+    [Measures].[Total Traffic] ON COLUMNS,
+    TOPCOUNT(
+        [Origin Airport].[Airport Name].[Airport Name].MEMBERS, 
+        5, 
+        [Measures].[Total Traffic]
+    ) ON ROWS
+FROM [Project DDS DB];
+
+
+-- Query 3: Tỉ lệ chuyến bay đúng giờ (On-Time Performance - OTP) ± 5 theo sân bay.
+
+
+-- Query 4: Tỉ lệ hủy chuyến theo nguyên nhân.
+WITH MEMBER [Measures].[Cancellation Rate] AS
+    DIVIDE(
+        [Measures].[Fact Flight Count],
+        ([Measures].[Fact Flight Count], [Dim Reason].[Reason Name].[All]),
+        0
+    ), FORMAT_STRING = "0.00%"
+
+SELECT 
+    { [Measures].[Fact Flight Count], [Measures].[Cancellation Rate] } ON COLUMNS,
+    EXCEPT(
+        [Dim Reason].[Reason Name].CHILDREN, 
+        { [Dim Reason].[Reason Name].[Unknown] }
+    ) ON ROWS
+FROM [Project DDS DB];
+
+
+-- Query 5: Trung bình thời gian delay theo sân bay đi/đến
