@@ -91,10 +91,15 @@ VALUES
 ('C', 'National Air System', GETDATE()),
 ('D', 'Security', GETDATE());
 
-
 select * from NDS_Airline;
 select * from NDS_Airport;
 select * from NDS_Reason;
 select * from NDS_Flight;
+
+
+
+
+
+
 
 

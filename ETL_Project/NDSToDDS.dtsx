@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="NDSToDDS"
   DTS:PackageType="5"
-  DTS:VersionBuild="111"
-  DTS:VersionGUID="{47C6B75F-561B-4E12-9AB8-419646D2B598}">
+  DTS:VersionBuild="114"
+  DTS:VersionGUID="{77020842-2222-419F-86C6-82159846BF84}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -7785,19 +7785,19 @@ where [refTable].[IATA_Code] = ?</property>
                       <externalMetadataColumns />
                     </input>
                     <input
-                      refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 3]"
+                      refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 2]"
                       dangling="true"
                       hasSideEffects="true"
-                      name="Union All Input 3">
+                      name="Union All Input 2">
                       <externalMetadataColumns />
                     </input>
                     <input
-                      refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 2]"
+                      refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 3]"
                       hasSideEffects="true"
-                      name="Union All Input 2">
+                      name="Union All Input 3">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 2].Columns[Flight_ID]"
+                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 3].Columns[Flight_ID]"
                           cachedDataType="i8"
                           cachedName="Flight_ID"
                           lineageId="Package\Sequence Container\Load FactFlight\Union All.Outputs[Union All Output 1].Columns[Flight_ID]">
@@ -7810,7 +7810,7 @@ where [refTable].[IATA_Code] = ?</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 2].Columns[Source_ID]"
+                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 3].Columns[Source_ID]"
                           cachedDataType="i4"
                           cachedName="Source_ID"
                           lineageId="Package\Sequence Container\Load FactFlight\Union All.Outputs[Union All Output 1].Columns[Source_ID]">
@@ -7823,7 +7823,7 @@ where [refTable].[IATA_Code] = ?</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 2].Columns[Date]"
+                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 3].Columns[Date]"
                           cachedDataType="dbDate"
                           cachedName="Date"
                           lineageId="Package\Sequence Container\Load FactFlight\Union All.Outputs[Union All Output 1].Columns[Date]">
@@ -7836,7 +7836,7 @@ where [refTable].[IATA_Code] = ?</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 2].Columns[Flight_number]"
+                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 3].Columns[Flight_number]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="10"
@@ -7851,7 +7851,7 @@ where [refTable].[IATA_Code] = ?</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 2].Columns[Tail_number]"
+                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 3].Columns[Tail_number]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="20"
@@ -7866,7 +7866,7 @@ where [refTable].[IATA_Code] = ?</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 2].Columns[Airline]"
+                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 3].Columns[Airline]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="2"
@@ -7881,7 +7881,7 @@ where [refTable].[IATA_Code] = ?</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 2].Columns[Origin_Airport]"
+                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 3].Columns[Origin_Airport]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="3"
@@ -7896,7 +7896,7 @@ where [refTable].[IATA_Code] = ?</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 2].Columns[Dest_Airport]"
+                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 3].Columns[Dest_Airport]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="3"
@@ -7911,7 +7911,7 @@ where [refTable].[IATA_Code] = ?</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 2].Columns[Scheduled_departure]"
+                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 3].Columns[Scheduled_departure]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="5"
@@ -7926,7 +7926,7 @@ where [refTable].[IATA_Code] = ?</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 2].Columns[Departure_delay]"
+                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 3].Columns[Departure_delay]"
                           cachedDataType="i4"
                           cachedName="Departure_delay"
                           lineageId="Package\Sequence Container\Load FactFlight\Union All.Outputs[Union All Output 1].Columns[Departure_delay]">
@@ -7939,7 +7939,7 @@ where [refTable].[IATA_Code] = ?</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 2].Columns[Taxi_out]"
+                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 3].Columns[Taxi_out]"
                           cachedDataType="i4"
                           cachedName="Taxi_out"
                           lineageId="Package\Sequence Container\Load FactFlight\Union All.Outputs[Union All Output 1].Columns[Taxi_out]">
@@ -7952,7 +7952,7 @@ where [refTable].[IATA_Code] = ?</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 2].Columns[Wheels_off]"
+                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 3].Columns[Wheels_off]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="5"
@@ -7967,7 +7967,7 @@ where [refTable].[IATA_Code] = ?</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 2].Columns[Scheduled_time]"
+                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 3].Columns[Scheduled_time]"
                           cachedDataType="i4"
                           cachedName="Scheduled_time"
                           lineageId="Package\Sequence Container\Load FactFlight\Union All.Outputs[Union All Output 1].Columns[Scheduled_time]">
@@ -7980,7 +7980,7 @@ where [refTable].[IATA_Code] = ?</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 2].Columns[Air_time]"
+                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 3].Columns[Air_time]"
                           cachedDataType="i4"
                           cachedName="Air_time"
                           lineageId="Package\Sequence Container\Load FactFlight\Union All.Outputs[Union All Output 1].Columns[Air_time]">
@@ -7993,7 +7993,7 @@ where [refTable].[IATA_Code] = ?</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 2].Columns[Wheels_on]"
+                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 3].Columns[Wheels_on]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="5"
@@ -8008,7 +8008,7 @@ where [refTable].[IATA_Code] = ?</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 2].Columns[Taxi_in]"
+                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 3].Columns[Taxi_in]"
                           cachedDataType="i4"
                           cachedName="Taxi_in"
                           lineageId="Package\Sequence Container\Load FactFlight\Union All.Outputs[Union All Output 1].Columns[Taxi_in]">
@@ -8021,7 +8021,7 @@ where [refTable].[IATA_Code] = ?</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 2].Columns[Scheduled_arrival]"
+                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 3].Columns[Scheduled_arrival]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="5"
@@ -8036,7 +8036,7 @@ where [refTable].[IATA_Code] = ?</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 2].Columns[Arrival_delay]"
+                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 3].Columns[Arrival_delay]"
                           cachedDataType="i4"
                           cachedName="Arrival_delay"
                           lineageId="Package\Sequence Container\Load FactFlight\Union All.Outputs[Union All Output 1].Columns[Arrival_delay]">
@@ -8049,7 +8049,7 @@ where [refTable].[IATA_Code] = ?</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 2].Columns[Diverted_Flag]"
+                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 3].Columns[Diverted_Flag]"
                           cachedDataType="bool"
                           cachedName="Diverted_Flag"
                           lineageId="Package\Sequence Container\Load FactFlight\Union All.Outputs[Union All Output 1].Columns[Diverted_Flag]">
@@ -8062,7 +8062,7 @@ where [refTable].[IATA_Code] = ?</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 2].Columns[Canceled_Flag]"
+                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 3].Columns[Canceled_Flag]"
                           cachedDataType="bool"
                           cachedName="Canceled_Flag"
                           lineageId="Package\Sequence Container\Load FactFlight\Union All.Outputs[Union All Output 1].Columns[Canceled_Flag]">
@@ -8075,7 +8075,7 @@ where [refTable].[IATA_Code] = ?</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 2].Columns[Canceled_Reason]"
+                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 3].Columns[Canceled_Reason]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="1"
@@ -8090,7 +8090,7 @@ where [refTable].[IATA_Code] = ?</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 2].Columns[Air_system_delay]"
+                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 3].Columns[Air_system_delay]"
                           cachedDataType="i4"
                           cachedName="Air_system_delay"
                           lineageId="Package\Sequence Container\Load FactFlight\Union All.Outputs[Union All Output 1].Columns[Air_system_delay]">
@@ -8103,7 +8103,7 @@ where [refTable].[IATA_Code] = ?</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 2].Columns[Security_delay]"
+                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 3].Columns[Security_delay]"
                           cachedDataType="i4"
                           cachedName="Security_delay"
                           lineageId="Package\Sequence Container\Load FactFlight\Union All.Outputs[Union All Output 1].Columns[Security_delay]">
@@ -8116,7 +8116,7 @@ where [refTable].[IATA_Code] = ?</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 2].Columns[Airline_delay]"
+                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 3].Columns[Airline_delay]"
                           cachedDataType="i4"
                           cachedName="Airline_delay"
                           lineageId="Package\Sequence Container\Load FactFlight\Union All.Outputs[Union All Output 1].Columns[Airline_delay]">
@@ -8129,7 +8129,7 @@ where [refTable].[IATA_Code] = ?</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 2].Columns[Late_aircraft_delay]"
+                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 3].Columns[Late_aircraft_delay]"
                           cachedDataType="i4"
                           cachedName="Late_aircraft_delay"
                           lineageId="Package\Sequence Container\Load FactFlight\Union All.Outputs[Union All Output 1].Columns[Late_aircraft_delay]">
@@ -8142,7 +8142,7 @@ where [refTable].[IATA_Code] = ?</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 2].Columns[Weather_delay]"
+                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 3].Columns[Weather_delay]"
                           cachedDataType="i4"
                           cachedName="Weather_delay"
                           lineageId="Package\Sequence Container\Load FactFlight\Union All.Outputs[Union All Output 1].Columns[Weather_delay]">
@@ -8155,7 +8155,7 @@ where [refTable].[IATA_Code] = ?</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 2].Columns[Created]"
+                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 3].Columns[Created]"
                           cachedDataType="dbTimeStamp"
                           cachedName="Created"
                           lineageId="Package\Sequence Container\Load FactFlight\Union All.Outputs[Union All Output 1].Columns[Created]">
@@ -8168,7 +8168,7 @@ where [refTable].[IATA_Code] = ?</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 2].Columns[Modified]"
+                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 3].Columns[Modified]"
                           cachedDataType="dbTimeStamp"
                           cachedName="Modified"
                           lineageId="Package\Sequence Container\Load FactFlight\Union All.Outputs[Union All Output 1].Columns[Modified]">
@@ -8181,7 +8181,7 @@ where [refTable].[IATA_Code] = ?</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 2].Columns[Airline_ID]"
+                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 3].Columns[Airline_ID]"
                           cachedDataType="i4"
                           cachedName="Airline_ID"
                           lineageId="Package\Sequence Container\Load FactFlight\Union All.Outputs[Union All Output 1].Columns[Airline_ID]">
@@ -8194,7 +8194,7 @@ where [refTable].[IATA_Code] = ?</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 2].Columns[Origin_Airport_ID]"
+                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 3].Columns[Origin_Airport_ID]"
                           cachedDataType="i4"
                           cachedName="Origin_Airport_ID"
                           lineageId="Package\Sequence Container\Load FactFlight\Union All.Outputs[Union All Output 1].Columns[Origin_Airport_ID]">
@@ -8207,7 +8207,7 @@ where [refTable].[IATA_Code] = ?</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 2].Columns[Dest_Airport_ID]"
+                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 3].Columns[Dest_Airport_ID]"
                           cachedDataType="i4"
                           cachedName="Dest_Airport_ID"
                           lineageId="Package\Sequence Container\Load FactFlight\Union All.Outputs[Union All Output 1].Columns[Dest_Airport_ID]">
@@ -8220,7 +8220,7 @@ where [refTable].[IATA_Code] = ?</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 2].Columns[Depart_Date_ID]"
+                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 3].Columns[Depart_Date_ID]"
                           cachedDataType="i4"
                           cachedName="Depart_Date_ID"
                           lineageId="Package\Sequence Container\Load FactFlight\Union All.Outputs[Union All Output 1].Columns[Depart_Date_ID]">
@@ -8233,7 +8233,7 @@ where [refTable].[IATA_Code] = ?</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 2].Columns[Dep_Hour]"
+                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 3].Columns[Dep_Hour]"
                           cachedDataType="ui1"
                           cachedName="Dep_Hour"
                           lineageId="Package\Sequence Container\Load FactFlight\Union All.Outputs[Union All Output 1].Columns[Dep_Hour]">
@@ -8246,7 +8246,7 @@ where [refTable].[IATA_Code] = ?</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 2].Columns[Dep_Min]"
+                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 3].Columns[Dep_Min]"
                           cachedDataType="ui1"
                           cachedName="Dep_Min"
                           lineageId="Package\Sequence Container\Load FactFlight\Union All.Outputs[Union All Output 1].Columns[Dep_Min]">
@@ -8259,7 +8259,7 @@ where [refTable].[IATA_Code] = ?</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 2].Columns[Depart_Time_ID]"
+                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 3].Columns[Depart_Time_ID]"
                           cachedDataType="i4"
                           cachedName="Depart_Time_ID"
                           lineageId="Package\Sequence Container\Load FactFlight\Union All.Outputs[Union All Output 1].Columns[Depart_Time_ID]">
@@ -8272,7 +8272,7 @@ where [refTable].[IATA_Code] = ?</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 2].Columns[Arrive_Date_ID]"
+                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 3].Columns[Arrive_Date_ID]"
                           cachedDataType="i4"
                           cachedName="Arrive_Date_ID"
                           lineageId="Package\Sequence Container\Load FactFlight\Union All.Outputs[Union All Output 1].Columns[Arrive_Date_ID]">
@@ -8285,7 +8285,7 @@ where [refTable].[IATA_Code] = ?</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 2].Columns[Arr_Hour]"
+                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 3].Columns[Arr_Hour]"
                           cachedDataType="ui1"
                           cachedName="Arr_Hour"
                           lineageId="Package\Sequence Container\Load FactFlight\Union All.Outputs[Union All Output 1].Columns[Arr_Hour]">
@@ -8298,7 +8298,7 @@ where [refTable].[IATA_Code] = ?</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 2].Columns[Arr_Min]"
+                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 3].Columns[Arr_Min]"
                           cachedDataType="ui1"
                           cachedName="Arr_Min"
                           lineageId="Package\Sequence Container\Load FactFlight\Union All.Outputs[Union All Output 1].Columns[Arr_Min]">
@@ -8311,7 +8311,7 @@ where [refTable].[IATA_Code] = ?</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 2].Columns[Arrive_Time_ID]"
+                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 3].Columns[Arrive_Time_ID]"
                           cachedDataType="i4"
                           cachedName="Arrive_Time_ID"
                           lineageId="Package\Sequence Container\Load FactFlight\Union All.Outputs[Union All Output 1].Columns[Arrive_Time_ID]">
@@ -8324,7 +8324,7 @@ where [refTable].[IATA_Code] = ?</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 2].Columns[Reason_ID]"
+                          refId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 3].Columns[Reason_ID]"
                           cachedDataType="i4"
                           cachedName="Reason_ID"
                           lineageId="Package\Sequence Container\Load FactFlight\Derived Column 3.Outputs[Derived Column Output].Columns[Reason_ID]">
@@ -8578,60 +8578,60 @@ where [refTable].[IATA_Code] = ?</property>
                   name="Derived Column Output"
                   startId="Package\Sequence Container\Load FactFlight\Derived Column.Outputs[Derived Column Output]" />
                 <path
-                  refId="Package\Sequence Container\Load FactFlight.Paths[Derived Column Output1]"
-                  endId="Package\Sequence Container\Load FactFlight\Lookup ArriveTime.Inputs[Lookup Input]"
-                  name="Derived Column Output"
-                  startId="Package\Sequence Container\Load FactFlight\Derived Column 1.Outputs[Derived Column Output]" />
-                <path
                   refId="Package\Sequence Container\Load FactFlight.Paths[Derived Column Output2]"
                   endId="Package\Sequence Container\Load FactFlight\Union All.Inputs[Union All Input 2]"
                   name="Derived Column Output"
                   startId="Package\Sequence Container\Load FactFlight\Derived Column 2.Outputs[Derived Column Output]" />
                 <path
                   refId="Package\Sequence Container\Load FactFlight.Paths[Derived Column Output3]"
-                  endId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 2]"
+                  endId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 3]"
                   name="Derived Column Output"
                   startId="Package\Sequence Container\Load FactFlight\Derived Column 3.Outputs[Derived Column Output]" />
                 <path
-                  refId="Package\Sequence Container\Load FactFlight.Paths[Lookup Match Output7]"
-                  endId="Package\Sequence Container\Load FactFlight\Union All.Inputs[Union All Input 1]"
-                  name="Lookup Match Output"
-                  startId="Package\Sequence Container\Load FactFlight\Lookup ArriveTime.Outputs[Lookup Match Output]" />
-                <path
-                  refId="Package\Sequence Container\Load FactFlight.Paths[Lookup Match Output6]"
-                  endId="Package\Sequence Container\Load FactFlight\Derived Column 1.Inputs[Derived Column Input]"
-                  name="Lookup Match Output"
-                  startId="Package\Sequence Container\Load FactFlight\Lookup ArriveDate.Outputs[Lookup Match Output]" />
-                <path
-                  refId="Package\Sequence Container\Load FactFlight.Paths[Lookup Match Output5]"
-                  endId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 1]"
-                  name="Lookup Match Output"
-                  startId="Package\Sequence Container\Load FactFlight\Lookup CancelReason.Outputs[Lookup Match Output]" />
-                <path
-                  refId="Package\Sequence Container\Load FactFlight.Paths[Lookup Match Output4]"
-                  endId="Package\Sequence Container\Load FactFlight\Derived Column.Inputs[Derived Column Input]"
-                  name="Lookup Match Output"
-                  startId="Package\Sequence Container\Load FactFlight\Lookup DepartDate.Outputs[Lookup Match Output]" />
-                <path
-                  refId="Package\Sequence Container\Load FactFlight.Paths[Lookup Match Output2]"
-                  endId="Package\Sequence Container\Load FactFlight\Lookup OriginAirport.Inputs[Lookup Input]"
-                  name="Lookup Match Output"
-                  startId="Package\Sequence Container\Load FactFlight\Lookup Airline.Outputs[Lookup Match Output]" />
-                <path
-                  refId="Package\Sequence Container\Load FactFlight.Paths[Lookup Match Output1]"
-                  endId="Package\Sequence Container\Load FactFlight\Lookup ArriveDate.Inputs[Lookup Input]"
-                  name="Lookup Match Output"
-                  startId="Package\Sequence Container\Load FactFlight\Lookup DepartTime.Outputs[Lookup Match Output]" />
+                  refId="Package\Sequence Container\Load FactFlight.Paths[Derived Column Output1]"
+                  endId="Package\Sequence Container\Load FactFlight\Lookup ArriveTime.Inputs[Lookup Input]"
+                  name="Derived Column Output"
+                  startId="Package\Sequence Container\Load FactFlight\Derived Column 1.Outputs[Derived Column Output]" />
                 <path
                   refId="Package\Sequence Container\Load FactFlight.Paths[Lookup Match Output]"
                   endId="Package\Sequence Container\Load FactFlight\Lookup DepartDate.Inputs[Lookup Input]"
                   name="Lookup Match Output"
                   startId="Package\Sequence Container\Load FactFlight\Lookup DestAirport.Outputs[Lookup Match Output]" />
                 <path
+                  refId="Package\Sequence Container\Load FactFlight.Paths[Lookup Match Output1]"
+                  endId="Package\Sequence Container\Load FactFlight\Lookup ArriveDate.Inputs[Lookup Input]"
+                  name="Lookup Match Output"
+                  startId="Package\Sequence Container\Load FactFlight\Lookup DepartTime.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\Sequence Container\Load FactFlight.Paths[Lookup Match Output2]"
+                  endId="Package\Sequence Container\Load FactFlight\Lookup OriginAirport.Inputs[Lookup Input]"
+                  name="Lookup Match Output"
+                  startId="Package\Sequence Container\Load FactFlight\Lookup Airline.Outputs[Lookup Match Output]" />
+                <path
                   refId="Package\Sequence Container\Load FactFlight.Paths[Lookup Match Output3]"
                   endId="Package\Sequence Container\Load FactFlight\Lookup DestAirport.Inputs[Lookup Input]"
                   name="Lookup Match Output"
                   startId="Package\Sequence Container\Load FactFlight\Lookup OriginAirport.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\Sequence Container\Load FactFlight.Paths[Lookup Match Output4]"
+                  endId="Package\Sequence Container\Load FactFlight\Derived Column.Inputs[Derived Column Input]"
+                  name="Lookup Match Output"
+                  startId="Package\Sequence Container\Load FactFlight\Lookup DepartDate.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\Sequence Container\Load FactFlight.Paths[Lookup Match Output6]"
+                  endId="Package\Sequence Container\Load FactFlight\Derived Column 1.Inputs[Derived Column Input]"
+                  name="Lookup Match Output"
+                  startId="Package\Sequence Container\Load FactFlight\Lookup ArriveDate.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\Sequence Container\Load FactFlight.Paths[Lookup Match Output7]"
+                  endId="Package\Sequence Container\Load FactFlight\Union All.Inputs[Union All Input 1]"
+                  name="Lookup Match Output"
+                  startId="Package\Sequence Container\Load FactFlight\Lookup ArriveTime.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\Sequence Container\Load FactFlight.Paths[Lookup Match Output5]"
+                  endId="Package\Sequence Container\Load FactFlight\Union All 1.Inputs[Union All Input 1]"
+                  name="Lookup Match Output"
+                  startId="Package\Sequence Container\Load FactFlight\Lookup CancelReason.Outputs[Lookup Match Output]" />
                 <path
                   refId="Package\Sequence Container\Load FactFlight.Paths[Lookup No Match Output]"
                   endId="Package\Sequence Container\Load FactFlight\Derived Column 2.Inputs[Derived Column Input]"
@@ -8653,15 +8653,15 @@ where [refTable].[IATA_Code] = ?</property>
                   name="OLE DB Source Output"
                   startId="Package\Sequence Container\Load FactFlight\OLE DB Source.Outputs[OLE DB Source Output]" />
                 <path
-                  refId="Package\Sequence Container\Load FactFlight.Paths[Union All Output 1]"
-                  endId="Package\Sequence Container\Load FactFlight\Lookup CancelReason.Inputs[Lookup Input]"
-                  name="Union All Output 1"
-                  startId="Package\Sequence Container\Load FactFlight\Union All.Outputs[Union All Output 1]" />
-                <path
                   refId="Package\Sequence Container\Load FactFlight.Paths[Union All Output 11]"
                   endId="Package\Sequence Container\Load FactFlight\Lookup Check Existing Flight_ID.Inputs[Lookup Input]"
                   name="Union All Output 1"
                   startId="Package\Sequence Container\Load FactFlight\Union All 1.Outputs[Union All Output 1]" />
+                <path
+                  refId="Package\Sequence Container\Load FactFlight.Paths[Union All Output 1]"
+                  endId="Package\Sequence Container\Load FactFlight\Lookup CancelReason.Inputs[Lookup Input]"
+                  name="Union All Output 1"
+                  startId="Package\Sequence Container\Load FactFlight\Union All.Outputs[Union All Output 1]" />
               </paths>
             </pipeline>
           </DTS:ObjectData>
@@ -9739,19 +9739,19 @@ where [refTable].[IATA_Code] = ?</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="168,41.6"
+          Size="168,41.3333333333334"
           Id="Package\Sequence Container\Dim_Reason\Lookup Reason SK"
           TopLeft="255.666662457916,85.8666647006403" />
         <NodeLayout
-          Size="166.4,41.6"
+          Size="166.666666666667,41.3333333333334"
           Id="Package\Sequence Container\Dim_Reason\Insert New Reason"
           TopLeft="256.333328785168,284.266662416988" />
         <NodeLayout
-          Size="174.4,41.6"
+          Size="174.666666666667,41.3333333333334"
           Id="Package\Sequence Container\Dim_Reason\Source NDS Reason"
           TopLeft="245.999996334314,0.999999985098796" />
         <NodeLayout
-          Size="156,41.6"
+          Size="156,41.3333333333334"
           Id="Package\Sequence Container\Dim_Reason\Data Conversion"
           TopLeft="260.833329214818,194.79999798576" />
         <EdgeLayout
@@ -9773,9 +9773,7 @@ where [refTable].[IATA_Code] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9821,9 +9819,7 @@ where [refTable].[IATA_Code] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -9979,14 +9975,14 @@ where [refTable].[IATA_Code] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,37.6867122384031"
+              EndConnector="0,37.6867122384033"
               Start="0,0"
-              End="0,30.1867122384031">
+              End="0,30.1867122384033">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,30.1867122384031" />
+                    End="0,30.1867122384033" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -10019,7 +10015,7 @@ where [refTable].[IATA_Code] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container\Load FactFlight.Paths[Lookup No Match Output2]"
-          TopLeft="252.635414663858,910.109605470541">
+          TopLeft="252.635414663858,910.10960547054">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -10139,25 +10135,25 @@ where [refTable].[IATA_Code] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container\Load FactFlight.Paths[Lookup Match Output5]"
-          TopLeft="161.555683809191,932.495098540377">
+          TopLeft="161.333461288946,932.495098540377">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,64.4709362336841"
+              EndConnector="0,64.4709362336844"
               Start="0,0"
-              End="0,56.9709362336841">
+              End="0,56.9709362336844">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,56.9709362336841" />
+                    End="0,56.9709362336844" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,22.680780616842,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,22.6807806168422,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -10282,40 +10278,6 @@ where [refTable].[IATA_Code] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Sequence Container\Load FactFlight.Paths[Derived Column Output3]"
-          TopLeft="388.305544174794,930.390779067371">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-206.051813442491,66.5752557066896"
-              Start="0,0"
-              End="-206.051813442491,59.0752557066896">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,35.4619459229168" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,35.4619459229168"
-                    Point2="0,39.4619459229168"
-                    Point3="-4,39.4619459229168" />
-                  <mssgle:LineSegment
-                    End="-202.051813442491,39.4619459229168" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-202.051813442491,39.4619459229168"
-                    Point2="-206.051813442491,39.4619459229168"
-                    Point3="-206.051813442491,43.4619459229168" />
-                  <mssgle:LineSegment
-                    End="-206.051813442491,59.0752557066896" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\Sequence Container\Load FactFlight.Paths[Derived Column Output2]"
           TopLeft="362.499987706542,762.543504588184">
           <EdgeLayout.Curve>
@@ -10385,6 +10347,40 @@ where [refTable].[IATA_Code] = ?</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,21.3749955296504" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\Load FactFlight.Paths[Derived Column Output3]"
+          TopLeft="388.305544174794,930.390779067371">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-206.051813442491,66.5752557066903"
+              Start="0,0"
+              End="-206.051813442491,59.0752557066903">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.4619459229173" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35.4619459229173"
+                    Point2="0,39.4619459229173"
+                    Point3="-4,39.4619459229173" />
+                  <mssgle:LineSegment
+                    End="-202.051813442491,39.4619459229173" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-202.051813442491,39.4619459229173"
+                    Point2="-206.051813442491,39.4619459229173"
+                    Point3="-206.051813442491,43.4619459229173" />
+                  <mssgle:LineSegment
+                    End="-206.051813442491,59.0752557066903" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
