@@ -43,3 +43,14 @@ FROM [Project DDS DB];
 
 
 -- Query 5: Trung bình thời gian delay theo sân bay đi/đến
+WITH 
+MEMBER [Measures].[Avg Depart Delay] AS 
+    DIVIDE([Measures].[Total Depart Delay], [Measures].[Fact Flight Count], 0)
+
+MEMBER [Measures].[Avg Arrive Delay] AS 
+    DIVIDE([Measures].[Total Arrive Delay], [Measures].[Fact Flight Count], 0)
+
+SELECT 
+    { [Measures].[Avg Depart Delay], [Measures].[Avg Arrive Delay] } ON COLUMNS,
+    NON EMPTY [Origin Airport].[Airport Name].CHILDREN ON ROWS
+FROM [Project DDS DB];
