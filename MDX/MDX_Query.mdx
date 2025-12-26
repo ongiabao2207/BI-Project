@@ -23,7 +23,16 @@ FROM [Project DDS DB];
 
 
 -- Query 3: Tỉ lệ chuyến bay đúng giờ (On-Time Performance - OTP) ± 5 theo sân bay.
-
+WITH
+MEMBER [Measures].[OTP Rate] AS
+    [Measures].[OnTime Flight Count] 
+    / 
+    [Measures].[Fact Flight Count],
+    FORMAT_STRING = "Percent"
+SELECT
+    [Measures].[OTP Rate] ON COLUMNS,
+    [Dest Airport].[Airport Name].MEMBERS ON ROWS
+FROM [Project DDS DB];
 
 -- Query 4: Tỉ lệ hủy chuyến theo nguyên nhân.
 WITH MEMBER [Measures].[Cancellation Rate] AS
