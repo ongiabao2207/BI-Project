@@ -1,0 +1,14 @@
+﻿-- Query: Xu hướng arrive delay trung bình theo tháng/mùa
+WITH
+MEMBER [Measures].[Avg Delay] AS
+    IIF(
+        [Measures].[Fact Flight Count] = 0,
+        0,
+        [Measures].[Total Arrive Delay] / [Measures].[Fact Flight Count]
+    )
+
+SELECT
+    {[Measures].[Avg Delay]} ON COLUMNS,
+    [Arrive Date].[Season].[Season]
+	*[Arrive Date].[Month].[Month].MEMBERS ON ROWS
+FROM [Project DDS DB];
