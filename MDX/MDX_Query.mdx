@@ -34,6 +34,7 @@ SELECT
     [Dest Airport].[Airport Name].MEMBERS ON ROWS
 FROM [Project DDS DB];
 
+
 -- Query 4: Tỉ lệ hủy chuyến theo nguyên nhân.
 WITH MEMBER [Measures].[Cancellation Rate] AS
     DIVIDE(
@@ -62,4 +63,20 @@ MEMBER [Measures].[Avg Arrive Delay] AS
 SELECT 
     { [Measures].[Avg Depart Delay], [Measures].[Avg Arrive Delay] } ON COLUMNS,
     NON EMPTY [Origin Airport].[Airport Name].CHILDREN ON ROWS
+FROM [Project DDS DB];
+
+
+-- Query 6: Xu hướng arrive delay trung bình theo tháng/mùa
+WITH
+MEMBER [Measures].[Avg Delay] AS
+    IIF(
+        [Measures].[Fact Flight Count] = 0,
+        0,
+        [Measures].[Total Arrive Delay] / [Measures].[Fact Flight Count]
+    )
+
+SELECT
+    {[Measures].[Avg Delay]} ON COLUMNS,
+    [Arrive Date].[Season].[Season]
+	*[Arrive Date].[Month].[Month].MEMBERS ON ROWS
 FROM [Project DDS DB];
