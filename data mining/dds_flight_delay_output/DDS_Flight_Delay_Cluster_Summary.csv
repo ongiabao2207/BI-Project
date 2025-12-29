@@ -1,0 +1,4 @@
+Delay_Cluster,Total_depart_delay,Weather_delay,Air_system_delay,Late_aircraft_delay,Airline_delay,Security_delay,Depart_Hour
+0,138.136,11.322,33.176,59.952,33.941,0.0,15.017
+1,4.286,0.227,2.826,1.309,1.734,0.007,12.619
+2,59.346,0.0,11.577,8.577,1.154,42.346,13.731
