@@ -10,35 +10,23 @@ go
 
 --DROP TABLE ETL_Metadata
 CREATE TABLE ETL_Metadata(
-  SourceName VARCHAR(50) PRIMARY KEY,
-  LSET DATETIME NOT NULL DEFAULT '1900-01-01' -- initial value    
+	SourceName VARCHAR(50) PRIMARY KEY,
+	LSET DATETIME NOT NULL DEFAULT '1900-01-01', -- initial value
+	CET DATETIME NOT NULL DEFAULT '1900-01-01'
 );
 
 INSERT INTO ETL_Metadata (SourceName) VALUES
-    ('Airline'),
-    ('Airport'),
-    ('Flight');
+    ('Stage_Airline'),
+    ('Stage_Airport'),
+    ('Stage_Flight'),
+	('DDS_Airline'),
+    ('DDS_Airport'),
+    ('DDS_Flight');
 
 
 select * from ETL_Metadata;
 --(CREATED >= @[User::LSET_Flight] || MODIFIED >= @[User::LSET_Flight]) && (CREATED < @[User::CET_Flight] || MODIFIED < @[User::CET_Flight])
 
-
-IF OBJECT_ID('Metadata_NDS_To_DDS') IS NOT NULL
-    DROP TABLE Metadata_NDS_To_DDS;
-GO
-
-CREATE TABLE Metadata_NDS_To_DDS (
-    SourceName VARCHAR(50) PRIMARY KEY,
-    LSET DATETIME NOT NULL DEFAULT '1900-01-01'           
-);
-
-INSERT INTO Metadata_NDS_To_DDS (SourceName) VALUES
-    ('Airline'),
-    ('Airport'),
-    ('Flight');
-
-SELECT * FROM Metadata_NDS_To_DDS;
 
 CREATE TABLE Flight_ETL_ErrorLog (
     ErrorLog_ID BIGINT IDENTITY(1,1) PRIMARY KEY,
