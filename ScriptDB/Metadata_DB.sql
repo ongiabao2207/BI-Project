@@ -22,6 +22,7 @@ INSERT INTO ETL_Metadata (SourceName) VALUES
 	('DDS_Airline'),
     ('DDS_Airport'),
     ('DDS_Flight');
+--update ETL_Metadata set lset = '1900-01-01', CET = '1900-01-01' where SourceName like 'DDS_%'
 
 
 select * from ETL_Metadata;
