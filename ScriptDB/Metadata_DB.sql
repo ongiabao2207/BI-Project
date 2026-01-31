@@ -51,3 +51,46 @@ CREATE TABLE Flight_ETL_ErrorLog (
 );
 
 select * from Flight_ETL_ErrorLog;
+
+
+
+
+CREATE TABLE RuleType (
+	Rule_Type_ID CHAR(1) PRIMARY KEY,
+	Rule_Type_Name VARCHAR(10)
+)
+
+INSERT INTO RuleType VALUES
+('E', 'Errors'),
+('W', 'Warning');
+
+
+
+
+CREATE TABLE DQ_Rules (
+	Rule_ID INT IDENTITY(1,1) PRIMARY KEY,
+	Rule_Name VARCHAR(50),
+	Description VARCHAR(200),
+	Rule_Type_ID CHAR(1),
+	Created DATETIME NOT NULL DEFAULT GETDATE(),
+	Modified DATETIME NOT NULL DEFAULT GETDATE()
+)
+
+ALTER TABLE DQ_Rules ADD CONSTRAINT FK_RULETYPE FOREIGN KEY (Rule_Type_ID) REFERENCES RuleType(Rule_Type_ID);
+
+INSERT INTO DQ_Rules (Rule_Name, Description, Rule_Type_ID)
+VALUES 
+-- Luật 1: Kiểm tra tính tồn tại của mã lý do hủy chuyến
+(
+    'The cancellation reason scope', 
+    'Cancellation reason is undefined.', 
+    'E'
+),
+-- Luật 2: Kiểm tra tính toàn vẹn của khóa tự nhiên (Natural Key)
+(
+    'The integrity of the flight natural key', 
+    'Missing in the natural key of the flight.', 
+    'E'
+);
+
+select * from DQ_Rules;
